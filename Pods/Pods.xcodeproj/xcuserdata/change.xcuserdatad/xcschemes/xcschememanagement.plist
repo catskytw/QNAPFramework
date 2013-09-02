@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>Pods-AFOAuth2Client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
 		<key>Pods-CocoaLumberjack.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
+		</dict>
+		<key>Pods-QNAPFrameworkTests-AFOAuth2Client.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>17</integer>
 		</dict>
 		<key>Pods-QNAPFrameworkTests-CocoaLumberjack.xcscheme</key>
 		<dict>
@@ -82,7 +92,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>15C99A6D28F24A9AA5EEDF47</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>19AF4564699746DA898A576C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>315656071F6F4559BFEF0C33</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>420180FD4D114197BDABE703</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,12 +122,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>61003A0355EF4EB687600E81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>626BA148607C4C368A83CF32</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7473A3E0D7274364B933BFF7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76A31772B4544C9591437B67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7EC1D367E359417D86FFEA56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +157,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>894E4DEEB7D04C529A66BF01</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8B81D1A64E1A4619B46258F3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>94E8F3086BCC438D89596D4E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,7 +177,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>9BABDB3F4D2A41AF9DCB6664</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A2CE9404498F4867BDF8943B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2DB50FD6A224200BCB249FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,6 +203,41 @@
 			<true/>
 		</dict>
 		<key>C1019227F8454B6C9A184014</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C59FA8D217D2414F9E89C90D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8A2E4D60A5A4775AD295AB0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C9E580EBC6E6471CB71FEA75</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA2D893303AA46DCA74E6624</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CB241B38598E478695B5B908</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D00FB02B4FC0488CBE4D704A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D059C0AC2752430D9A896D78</key>
 		<dict>
 			<key>primary</key>
 			<true/>

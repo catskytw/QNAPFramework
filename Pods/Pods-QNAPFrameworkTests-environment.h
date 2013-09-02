@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking 3
 #define COCOAPODS_VERSION_PATCH_AFNetworking 2
 
+// AFOAuth2Client
+#define COCOAPODS_POD_AVAILABLE_AFOAuth2Client
+#define COCOAPODS_VERSION_MAJOR_AFOAuth2Client 0
+#define COCOAPODS_VERSION_MINOR_AFOAuth2Client 1
+#define COCOAPODS_VERSION_PATCH_AFOAuth2Client 1
+
 // CocoaLumberjack
 #define COCOAPODS_POD_AVAILABLE_CocoaLumberjack
 #define COCOAPODS_VERSION_MAJOR_CocoaLumberjack 1
