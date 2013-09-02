@@ -12,6 +12,7 @@
 
 @interface QNMyCloudManager : NSObject
 @property(nonatomic, strong) NSURL *baseURL;
+@property(nonatomic, strong) RKObjectManager *rkObjectManager;
 
 - (id)initWithMyCloudBaseURL:(NSURL *)baseURL;
 

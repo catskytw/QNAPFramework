@@ -32,6 +32,8 @@
                                      parameters:nil
                                         success:^(AFOAuthCredential *credential){
                                             //TODO save token here
+                                            [AFOAuthCredential storeCredential:credential withIdentifier:@"myCloudCredential"];
+                                            self.rkObjectManager = [[RKObjectManager alloc] initWithHTTPClient:oauthClient];
                                             if(success)
                                                 success(credential);
                                         }
@@ -44,7 +46,6 @@
 
 #pragma mark - MyCloudAPI V1.1
 - (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
-    
 }
 
 @end
