@@ -18,6 +18,7 @@
 		0CA5F19217D4942F00183046 /* QNAPFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */; };
 		0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */; };
 		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
+		A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */; };
 		D1AD7AD019E648D39D60AD2D /* libPods-QNAPFrameworkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6050414E874B59A9EF7164 /* libPods-QNAPFrameworkTests.a */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,8 @@
 		0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNAPCommunicationManager.m; path = CommunicationManager/QNAPCommunicationManager.m; sourceTree = "<group>"; };
 		3B6050414E874B59A9EF7164 /* libPods-QNAPFrameworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QNAPFrameworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
+		A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudManager.h; path = CommunicationManager/QNMyCloudManager.h; sourceTree = "<group>"; };
+		A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudManager.m; path = CommunicationManager/QNMyCloudManager.m; sourceTree = "<group>"; };
 		E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		EFBD73E0B6634CCC9D885182 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,11 +129,10 @@
 		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
 			isa = PBXGroup;
 			children = (
+				A36E1ED317D4D98E004C0435 /* CommunicationManager */,
 				0CA5F17817D4942F00183046 /* QNAPFramework.h */,
 				0CA5F17A17D4942F00183046 /* QNAPFramework.m */,
 				0CA5F17617D4942F00183046 /* Supporting Files */,
-				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
-				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
 			);
 			path = QNAPFramework;
 			sourceTree = "<group>";
@@ -160,6 +162,17 @@
 				0CA5F18D17D4942F00183046 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A36E1ED317D4D98E004C0435 /* CommunicationManager */ = {
+			isa = PBXGroup;
+			children = (
+				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
+				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
+				A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */,
+				A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */,
+			);
+			name = CommunicationManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +339,7 @@
 			files = (
 				0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
+				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
