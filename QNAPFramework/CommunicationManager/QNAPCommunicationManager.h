@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface QNAPCommunicationManager : NSObject
-
++ (QNAPCommunicationManager *)share;
 @end
