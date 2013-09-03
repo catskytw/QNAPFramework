@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'QNAPFrameworkBundle' target in the 'QNAPFrameworkBundle' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

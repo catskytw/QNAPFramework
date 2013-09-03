@@ -15,7 +15,7 @@
 @property(nonatomic, strong) RKManagedObjectStore *objectManager;
 
 + (QNAPCommunicationManager *)share;
-
++ (void)closeCommunicationManager;
 #pragma mark - Factory methods
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
 

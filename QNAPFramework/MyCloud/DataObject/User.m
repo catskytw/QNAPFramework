@@ -11,12 +11,12 @@
 
 @implementation User
 
-@dynamic birthday;
 @dynamic email;
 @dynamic first_name;
-@dynamic gender;
-@dynamic language;
 @dynamic last_name;
+@dynamic gender;
+@dynamic birthday;
+@dynamic language;
 @dynamic mobile_number;
 @dynamic subscribed;
 

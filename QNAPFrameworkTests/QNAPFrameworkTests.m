@@ -9,19 +9,21 @@
 #import "QNAPFrameworkTests.h"
 #import <CocoaLumberjack/DDLog.h>
 #import <Expecta/Expecta.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord.h>
 
 #define MyCloudServerBaseURL @"http://core.api.alpha-myqnapcloud.com"
 #define CLIENT_ID @"521c609775413f6bfec8e59b"
 #define CLIENT_SECRET @"LWvRWyHFNDENTZZGCp9kcOEGed18cW02KVnV6bfrvtBL0hpu"
 #define EXP_SHORTHAND YES
-static const int ddLogLevel = LOG_LEVEL_VERBOSE;
-
+int ddLogLevel = LOG_LEVEL_VERBOSE;
 @implementation QNAPFrameworkTests
 
 - (void)setUp {
+
+    
     [super setUp];
     [Expecta setAsynchronousTestTimeout:10];
-
     self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL withClientId:CLIENT_ID withClientSecret:CLIENT_SECRET];
     [self.myCloudManager
             fetchOAuthToken:^(AFOAuthCredential *credential) {
@@ -36,6 +38,8 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 - (void)tearDown {
     self.myCloudManager = nil;
+    [QNAPCommunicationManager closeCommunicationManager];
+    
     [super tearDown];
 }
 

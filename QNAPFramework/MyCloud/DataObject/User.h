@@ -12,12 +12,12 @@
 
 @interface User : NSManagedObject
 
-@property (nonatomic, retain) NSString * birthday;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * first_name;
-@property (nonatomic, retain) NSNumber * gender;
-@property (nonatomic, retain) NSString * language;
 @property (nonatomic, retain) NSString * last_name;
+@property (nonatomic, retain) NSNumber * gender;
+@property (nonatomic, retain) NSString * birthday;
+@property (nonatomic, retain) NSString * language;
 @property (nonatomic, retain) NSString * mobile_number;
 @property (nonatomic, retain) NSNumber * subscribed;
 

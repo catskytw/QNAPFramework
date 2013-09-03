@@ -19,9 +19,26 @@
 		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
 		A315014017D5C48400C2BF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */; };
 		A315014217D5C48B00C2BF2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */; };
-		A322816B17D6539000017366 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A322816A17D6539000017366 /* User.m */; };
+		A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */; };
+		A322817117D6592F00017366 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A322817017D6592F00017366 /* User.m */; };
+		A322817717D6604A00017366 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18417D4942F00183046 /* UIKit.framework */; };
+		A322817817D6604A00017366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
+		A322817A17D6604A00017366 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A322817917D6604A00017366 /* CoreGraphics.framework */; };
+		A322818017D6604A00017366 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A322817E17D6604A00017366 /* InfoPlist.strings */; };
+		A322818217D6604A00017366 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A322818117D6604A00017366 /* main.m */; };
+		A322818617D6604A00017366 /* QNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A322818517D6604A00017366 /* QNAppDelegate.m */; };
+		A322818817D6604A00017366 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A322818717D6604A00017366 /* Default.png */; };
+		A322818A17D6604A00017366 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A322818917D6604A00017366 /* Default@2x.png */; };
+		A322818C17D6604A00017366 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A322818B17D6604A00017366 /* Default-568h@2x.png */; };
+		A322818F17D6604A00017366 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A322818D17D6604A00017366 /* MainStoryboard_iPhone.storyboard */; };
+		A322819217D6604A00017366 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A322819017D6604A00017366 /* MainStoryboard_iPad.storyboard */; };
+		A322819517D6604A00017366 /* QNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A322819417D6604A00017366 /* QNViewController.m */; };
+		A32281A317D662B000017366 /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
+		A32281AA17D6658A00017366 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32281A917D6658A00017366 /* Cocoa.framework */; };
+		A32281B417D6658A00017366 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A32281B217D6658A00017366 /* InfoPlist.strings */; };
+		A32281B917D665EC00017366 /* CoreDataStore.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */; };
+		A32281BA17D6664C00017366 /* QNAPFrameworkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A32281A817D6658900017366 /* QNAPFrameworkBundle.bundle */; };
 		A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */; };
-		A36E1ED917D4F5D5004C0435 /* ResponseObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */; };
 		A3E12BA617D6083300A3982D /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
 		A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E12BAA17D6119500A3982D /* QNFileStationAPIManager.m */; };
 		A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */; };
@@ -31,6 +48,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		0CA5F18717D4942F00183046 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0CA5F16817D4942F00183046 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0CA5F16F17D4942F00183046;
+			remoteInfo = QNAPFramework;
+		};
+		A32281A117D6609000017366 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0CA5F16817D4942F00183046 /* Project object */;
 			proxyType = 1;
@@ -71,11 +95,34 @@
 		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A322816917D6539000017366 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = MyCloud/DataObject/User.h; sourceTree = "<group>"; };
-		A322816A17D6539000017366 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = MyCloud/DataObject/User.m; sourceTree = "<group>"; };
+		A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStore.xcdatamodel; sourceTree = "<group>"; };
+		A322816F17D6592F00017366 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = MyCloud/DataObject/User.h; sourceTree = "<group>"; };
+		A322817017D6592F00017366 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = MyCloud/DataObject/User.m; sourceTree = "<group>"; };
+		A322817617D6604A00017366 /* QNAPFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNAPFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A322817917D6604A00017366 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A322817D17D6604A00017366 /* QNAPFrameworkDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkDemo-Info.plist"; sourceTree = "<group>"; };
+		A322817F17D6604A00017366 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A322818117D6604A00017366 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A322818317D6604A00017366 /* QNAPFrameworkDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFrameworkDemo-Prefix.pch"; sourceTree = "<group>"; };
+		A322818417D6604A00017366 /* QNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAppDelegate.h; sourceTree = "<group>"; };
+		A322818517D6604A00017366 /* QNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAppDelegate.m; sourceTree = "<group>"; };
+		A322818717D6604A00017366 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A322818917D6604A00017366 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A322818B17D6604A00017366 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A322818E17D6604A00017366 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		A322819117D6604A00017366 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		A322819317D6604A00017366 /* QNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNViewController.h; sourceTree = "<group>"; };
+		A322819417D6604A00017366 /* QNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNViewController.m; sourceTree = "<group>"; };
+		A32281A817D6658900017366 /* QNAPFrameworkBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAPFrameworkBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		A32281A917D6658A00017366 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		A32281AC17D6658A00017366 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		A32281AD17D6658A00017366 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		A32281AE17D6658A00017366 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A32281B117D6658A00017366 /* QNAPFrameworkBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkBundle-Info.plist"; sourceTree = "<group>"; };
+		A32281B317D6658A00017366 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A32281B517D6658A00017366 /* QNAPFrameworkBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFrameworkBundle-Prefix.pch"; sourceTree = "<group>"; };
 		A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudManager.h; path = CommunicationManager/QNMyCloudManager.h; sourceTree = "<group>"; };
 		A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudManager.m; path = CommunicationManager/QNMyCloudManager.m; sourceTree = "<group>"; };
-		A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResponseObject.xcdatamodel; sourceTree = "<group>"; };
 		A3E12BA917D6119500A3982D /* QNFileStationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationAPIManager.h; path = FileStation/QNFileStationAPIManager.h; sourceTree = "<group>"; };
 		A3E12BAA17D6119500A3982D /* QNFileStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationAPIManager.m; path = FileStation/QNFileStationAPIManager.m; sourceTree = "<group>"; };
 		A3E12BAC17D611BC00A3982D /* QNModuleBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNModuleBaseObject.h; path = CommunicationManager/QNModuleBaseObject.h; sourceTree = "<group>"; };
@@ -111,6 +158,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A322817317D6604A00017366 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32281A317D662B000017366 /* libQNAPFramework.a in Frameworks */,
+				A322817717D6604A00017366 /* UIKit.framework in Frameworks */,
+				A322817817D6604A00017366 /* Foundation.framework in Frameworks */,
+				A322817A17D6604A00017366 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32281A517D6658900017366 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32281AA17D6658A00017366 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -119,6 +185,8 @@
 			children = (
 				0CA5F17517D4942F00183046 /* QNAPFramework */,
 				0CA5F18A17D4942F00183046 /* QNAPFrameworkTests */,
+				A322817B17D6604A00017366 /* QNAPFrameworkDemo */,
+				A32281AF17D6658A00017366 /* QNAPFrameworkBundle */,
 				0CA5F17217D4942F00183046 /* Frameworks */,
 				0CA5F17117D4942F00183046 /* Products */,
 				E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */,
@@ -131,6 +199,8 @@
 			children = (
 				0CA5F17017D4942F00183046 /* libQNAPFramework.a */,
 				0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */,
+				A322817617D6604A00017366 /* QNAPFrameworkDemo.app */,
+				A32281A817D6658900017366 /* QNAPFrameworkBundle.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,6 +214,9 @@
 				0CA5F18217D4942F00183046 /* SenTestingKit.framework */,
 				0CA5F18417D4942F00183046 /* UIKit.framework */,
 				EFBD73E0B6634CCC9D885182 /* libPods.a */,
+				A322817917D6604A00017366 /* CoreGraphics.framework */,
+				A32281A917D6658A00017366 /* Cocoa.framework */,
+				A32281AB17D6658A00017366 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,8 +239,8 @@
 		0CA5F17617D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */,
 				0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */,
+				A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -202,10 +275,66 @@
 		A322816817D6536000017366 /* DataObject */ = {
 			isa = PBXGroup;
 			children = (
-				A322816917D6539000017366 /* User.h */,
-				A322816A17D6539000017366 /* User.m */,
+				A322816F17D6592F00017366 /* User.h */,
+				A322817017D6592F00017366 /* User.m */,
 			);
 			name = DataObject;
+			sourceTree = "<group>";
+		};
+		A322817B17D6604A00017366 /* QNAPFrameworkDemo */ = {
+			isa = PBXGroup;
+			children = (
+				A322818417D6604A00017366 /* QNAppDelegate.h */,
+				A322818517D6604A00017366 /* QNAppDelegate.m */,
+				A322818D17D6604A00017366 /* MainStoryboard_iPhone.storyboard */,
+				A322819017D6604A00017366 /* MainStoryboard_iPad.storyboard */,
+				A322819317D6604A00017366 /* QNViewController.h */,
+				A322819417D6604A00017366 /* QNViewController.m */,
+				A322817C17D6604A00017366 /* Supporting Files */,
+			);
+			path = QNAPFrameworkDemo;
+			sourceTree = "<group>";
+		};
+		A322817C17D6604A00017366 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A322817D17D6604A00017366 /* QNAPFrameworkDemo-Info.plist */,
+				A322817E17D6604A00017366 /* InfoPlist.strings */,
+				A322818117D6604A00017366 /* main.m */,
+				A322818317D6604A00017366 /* QNAPFrameworkDemo-Prefix.pch */,
+				A322818717D6604A00017366 /* Default.png */,
+				A322818917D6604A00017366 /* Default@2x.png */,
+				A322818B17D6604A00017366 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A32281AB17D6658A00017366 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A32281AC17D6658A00017366 /* AppKit.framework */,
+				A32281AD17D6658A00017366 /* CoreData.framework */,
+				A32281AE17D6658A00017366 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		A32281AF17D6658A00017366 /* QNAPFrameworkBundle */ = {
+			isa = PBXGroup;
+			children = (
+				A32281B017D6658A00017366 /* Supporting Files */,
+			);
+			path = QNAPFrameworkBundle;
+			sourceTree = "<group>";
+		};
+		A32281B017D6658A00017366 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A32281B117D6658A00017366 /* QNAPFrameworkBundle-Info.plist */,
+				A32281B217D6658A00017366 /* InfoPlist.strings */,
+				A32281B517D6658A00017366 /* QNAPFrameworkBundle-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A36E1ED317D4D98E004C0435 /* CommunicationManager */ = {
@@ -292,6 +421,41 @@
 			productReference = 0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		A322817517D6604A00017366 /* QNAPFrameworkDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A322819617D6604A00017366 /* Build configuration list for PBXNativeTarget "QNAPFrameworkDemo" */;
+			buildPhases = (
+				A322817217D6604A00017366 /* Sources */,
+				A322817317D6604A00017366 /* Frameworks */,
+				A322817417D6604A00017366 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A32281A217D6609000017366 /* PBXTargetDependency */,
+			);
+			name = QNAPFrameworkDemo;
+			productName = QNAPFrameworkDemo;
+			productReference = A322817617D6604A00017366 /* QNAPFrameworkDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A32281A717D6658900017366 /* QNAPFrameworkBundle */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A32281B617D6658A00017366 /* Build configuration list for PBXNativeTarget "QNAPFrameworkBundle" */;
+			buildPhases = (
+				A32281A417D6658900017366 /* Sources */,
+				A32281A517D6658900017366 /* Frameworks */,
+				A32281A617D6658900017366 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QNAPFrameworkBundle;
+			productName = QNAPFrameworkBundle;
+			productReference = A32281A817D6658900017366 /* QNAPFrameworkBundle.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +479,8 @@
 			targets = (
 				0CA5F16F17D4942F00183046 /* QNAPFramework */,
 				0CA5F18017D4942F00183046 /* QNAPFrameworkTests */,
+				A322817517D6604A00017366 /* QNAPFrameworkDemo */,
+				A32281A717D6658900017366 /* QNAPFrameworkBundle */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +491,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				0CA5F18F17D4942F00183046 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A322817417D6604A00017366 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32281BA17D6664C00017366 /* QNAPFrameworkBundle.bundle in Resources */,
+				A322818017D6604A00017366 /* InfoPlist.strings in Resources */,
+				A322818817D6604A00017366 /* Default.png in Resources */,
+				A322818A17D6604A00017366 /* Default@2x.png in Resources */,
+				A322818C17D6604A00017366 /* Default-568h@2x.png in Resources */,
+				A322818F17D6604A00017366 /* MainStoryboard_iPhone.storyboard in Resources */,
+				A322819217D6604A00017366 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32281A617D6658900017366 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A32281B917D665EC00017366 /* CoreDataStore.xcdatamodeld in Resources */,
+				A32281B417D6658A00017366 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,12 +603,12 @@
 				0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
 				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
-				A36E1ED917D4F5D5004C0435 /* ResponseObject.xcdatamodeld in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,
 				A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */,
 				A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */,
 				A3F00C4E17D63C2C004E9C70 /* QNMappingProtoType.m in Sources */,
-				A322816B17D6539000017366 /* User.m in Sources */,
+				A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */,
+				A322817117D6592F00017366 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +620,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A322817217D6604A00017366 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A322818217D6604A00017366 /* main.m in Sources */,
+				A322818617D6604A00017366 /* QNAppDelegate.m in Sources */,
+				A322819517D6604A00017366 /* QNViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A32281A417D6658900017366 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -439,6 +645,11 @@
 			target = 0CA5F16F17D4942F00183046 /* QNAPFramework */;
 			targetProxy = 0CA5F18717D4942F00183046 /* PBXContainerItemProxy */;
 		};
+		A32281A217D6609000017366 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0CA5F16F17D4942F00183046 /* QNAPFramework */;
+			targetProxy = A32281A117D6609000017366 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -446,6 +657,38 @@
 			isa = PBXVariantGroup;
 			children = (
 				0CA5F18E17D4942F00183046 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A322817E17D6604A00017366 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A322817F17D6604A00017366 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A322818D17D6604A00017366 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A322818E17D6604A00017366 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A322819017D6604A00017366 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A322819117D6604A00017366 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A32281B217D6658A00017366 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A32281B317D6658A00017366 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -539,6 +782,7 @@
 			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QNAPFramework.app/QNAPFramework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -564,6 +808,7 @@
 				);
 				INFOPLIST_FILE = "QNAPFrameworkTests/QNAPFrameworkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -573,6 +818,7 @@
 			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/QNAPFramework.app/QNAPFramework";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
@@ -598,7 +844,128 @@
 				);
 				INFOPLIST_FILE = "QNAPFrameworkTests/QNAPFrameworkTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		A322819717D6604A00017366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QNAPFrameworkDemo/QNAPFrameworkDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/AFOAuth2Client\"",
+					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Expecta\"",
+					"\"${PODS_ROOT}/Headers/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/RestKit\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/CoreData\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/Network\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/ObjectMapping\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/Support\"",
+					"\"${PODS_ROOT}/Headers/SOCKit\"",
+					"\"${PODS_ROOT}/Headers/TransitionKit\"",
+				);
+				INFOPLIST_FILE = "QNAPFrameworkDemo/QNAPFrameworkDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A322819817D6604A00017366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QNAPFrameworkDemo/QNAPFrameworkDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"\"$(BUILT_PRODUCTS_DIR)\"",
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/AFOAuth2Client\"",
+					"\"${PODS_ROOT}/Headers/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Expecta\"",
+					"\"${PODS_ROOT}/Headers/MagicalRecord\"",
+					"\"${PODS_ROOT}/Headers/RestKit\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/CoreData\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/Network\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/ObjectMapping\"",
+					"\"${PODS_ROOT}/Headers/RestKit/RestKit/Support\"",
+					"\"${PODS_ROOT}/Headers/SOCKit\"",
+					"\"${PODS_ROOT}/Headers/TransitionKit\"",
+				);
+				INFOPLIST_FILE = "QNAPFrameworkDemo/QNAPFrameworkDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A32281B717D6658A00017366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QNAPFrameworkBundle/QNAPFrameworkBundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "QNAPFrameworkBundle/QNAPFrameworkBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		A32281B817D6658A00017366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QNAPFrameworkBundle/QNAPFrameworkBundle-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "QNAPFrameworkBundle/QNAPFrameworkBundle-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos6.1;
+				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -632,17 +999,33 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A322819617D6604A00017366 /* Build configuration list for PBXNativeTarget "QNAPFrameworkDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A322819717D6604A00017366 /* Debug */,
+				A322819817D6604A00017366 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A32281B617D6658A00017366 /* Build configuration list for PBXNativeTarget "QNAPFrameworkBundle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A32281B717D6658A00017366 /* Debug */,
+				A32281B817D6658A00017366 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */ = {
+		A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */,
+				A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */,
 			);
-			currentVersion = A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */;
-			name = ResponseObject.xcdatamodeld;
-			path = ../ResponseObject.xcdatamodeld;
+			currentVersion = A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */;
+			path = CoreDataStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

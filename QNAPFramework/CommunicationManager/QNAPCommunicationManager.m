@@ -10,6 +10,9 @@
 #import "NSPersistentStoreCoordinator+MagicalRecord.h"
 #import "NSManagedObjectContext+Extend.h"
 #import <MagicalRecord/MagicalRecord+Setup.h>
+#import <RestKit/CoreData.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+#import "User.h"
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
 @implementation QNAPCommunicationManager
@@ -83,9 +86,9 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     /*1. generate the needed context
     * 2. binding MagicalRecord's context with RESTKit's one
     **/
-    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"ResponseObject"];
-    self.objectManager = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:
-            [NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
+    [MagicalRecord setupAutoMigratingCoreDataStack];
+    
+    self.objectManager = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
     
     //Iniitalize CoreData with RestKit
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
@@ -93,5 +96,9 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
 
     [self.objectManager createManagedObjectContexts];
     [NSManagedObjectContext MR_setDefaultContext:self.objectManager.mainQueueManagedObjectContext];
+}
+
++ (void)closeCommunicationManager{
+    [MagicalRecord cleanUp];
 }
 @end
