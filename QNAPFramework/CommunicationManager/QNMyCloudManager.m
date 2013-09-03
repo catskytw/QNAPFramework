@@ -7,12 +7,13 @@
 //
 
 #import "QNMyCloudManager.h"
+#import <Expecta/Expecta.h>
 @implementation QNMyCloudManager
 
 #pragma mark - LifeCycle
-- (id)initWithMyCloudBaseURL:(NSURL *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
+- (id)initWithMyCloudBaseURL:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
     if(self = [super init]){
-        self.baseURL = baseURL;
+        self.baseURL = [NSURL URLWithString:baseURL];
         self.clientId = clientId;
         self.clientSecret = clientSecret;
     }
@@ -35,7 +36,6 @@
                                                 success(credential);
                                         }
                                         failure:^(NSError *error){
-                                            //TODO show
                                             if(failure)
                                                 failure(error);
                                         }];
@@ -43,7 +43,10 @@
 
 #pragma mark - MyCloudAPI V1.1
 - (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+    //self.rkObjectManager不可為nil
+    EXP_expect(self.rkObjectManager).notTo.beNil();
     
+
 }
 
 @end

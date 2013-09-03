@@ -24,9 +24,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
     [super setUp];
     [Expecta setAsynchronousTestTimeout:10];
 
-    self.myCloudManager = [[QNMyCloudManager alloc] initWithMyCloudBaseURL:[NSURL URLWithString:MyCloudServerBaseURL]
-                                                              withClientId:CLIENT_ID
-                                                          withClientSecret:CLIENT_SECRET];
+    self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL withClientId:CLIENT_ID withClientSecret:CLIENT_SECRET];
     [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential){
         
     }

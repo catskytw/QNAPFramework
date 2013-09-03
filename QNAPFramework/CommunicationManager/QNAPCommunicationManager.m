@@ -9,6 +9,8 @@
 #import "QNAPCommunicationManager.h"
 #import "QNFileStationAPIManager.h"
 #import "QNModuleBaseObject.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import <MagicalRecord/MagicalRecord+Setup.h>
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
 @implementation QNAPCommunicationManager
@@ -22,6 +24,9 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
+        
+        [singletonCommunicationManager activateDebugLogLevel];
+        
     }
     return singletonCommunicationManager;
 }
@@ -70,5 +75,12 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
+}
+
+- (void)settingMisc{
+    //TODO: binding CoreData context with MagicalRecord's
+    [MagicalRecord setupAutoMigratingDefaultCoreDataStack];
+//    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:
+//                                                [NSPersistentStoreCoordinator 
 }
 @end

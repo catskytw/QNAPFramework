@@ -24,6 +24,7 @@
 		A3E12BA617D6083300A3982D /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
 		A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E12BAA17D6119500A3982D /* QNFileStationAPIManager.m */; };
 		A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */; };
+		A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E12BB017D62B9C00A3982D /* QNMyCloudMapping.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		A3E12BAA17D6119500A3982D /* QNFileStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationAPIManager.m; path = FileStation/QNFileStationAPIManager.m; sourceTree = "<group>"; };
 		A3E12BAC17D611BC00A3982D /* QNModuleBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNModuleBaseObject.h; path = CommunicationManager/QNModuleBaseObject.h; sourceTree = "<group>"; };
 		A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNModuleBaseObject.m; path = CommunicationManager/QNModuleBaseObject.m; sourceTree = "<group>"; };
+		A3E12BAF17D62B9C00A3982D /* QNMyCloudMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudMapping.h; path = MyCloud/QNMyCloudMapping.h; sourceTree = "<group>"; };
+		A3E12BB017D62B9C00A3982D /* QNMyCloudMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudMapping.m; path = MyCloud/QNMyCloudMapping.m; sourceTree = "<group>"; };
 		E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		EFBD73E0B6634CCC9D885182 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,8 +110,6 @@
 		0CA5F16717D4942F00183046 = {
 			isa = PBXGroup;
 			children = (
-				A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */,
-				A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */,
 				0CA5F17517D4942F00183046 /* QNAPFramework */,
 				0CA5F18A17D4942F00183046 /* QNAPFrameworkTests */,
 				0CA5F17217D4942F00183046 /* Frameworks */,
@@ -130,6 +131,8 @@
 		0CA5F17217D4942F00183046 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */,
+				A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */,
 				0CA5F17317D4942F00183046 /* Foundation.framework */,
 				0CA5F18217D4942F00183046 /* SenTestingKit.framework */,
 				0CA5F18417D4942F00183046 /* UIKit.framework */,
@@ -204,6 +207,8 @@
 			children = (
 				A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */,
 				A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */,
+				A3E12BAF17D62B9C00A3982D /* QNMyCloudMapping.h */,
+				A3E12BB017D62B9C00A3982D /* QNMyCloudMapping.m */,
 			);
 			name = MyCloud;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 				A36E1ED917D4F5D5004C0435 /* ResponseObject.xcdatamodeld in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,
 				A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */,
+				A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

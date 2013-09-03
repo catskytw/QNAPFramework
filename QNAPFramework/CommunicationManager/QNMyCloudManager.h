@@ -25,7 +25,7 @@
  *
  *  @return QNMyCloudManager
  */
-- (id)initWithMyCloudBaseURL:(NSURL *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
+- (id)initWithMyCloudBaseURL:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
 
 /**
  *  Acquiring the credential of each mycloud API. If success, this method would build a RKObjectManager embedding the credential.
