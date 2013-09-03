@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11E53" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ResponseResult" syncable="YES"/>
+    <entity name="ResponseResult" syncable="YES">
+        <attribute name="code" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="birthday" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="first_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="language" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="last_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile_number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subscribed" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="ResponseResult" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="ResponseResult" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

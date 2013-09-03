@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 #import <AFOAuth2Client/AFOAuth2Client.h>
+#import "QNModuleBaseObject.h"
 
-@interface QNMyCloudManager : NSObject
-@property(nonatomic, strong) NSURL *baseURL;
+@interface QNMyCloudManager : QNModuleBaseObject
 @property(nonatomic, strong) NSString *clientId;
 @property(nonatomic, strong) NSString *clientSecret;
 @property(nonatomic, strong) RKObjectManager *rkObjectManager;

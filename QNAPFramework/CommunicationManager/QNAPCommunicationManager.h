@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QNFileStationAPIManager.h"
+#import "QNMyCloudManager.h"
 
 @interface QNAPCommunicationManager : NSObject
+@property(nonatomic, strong)NSMutableArray *allModules;
+
 + (QNAPCommunicationManager *)share;
+
+#pragma mark - Factory methods
+- (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
+- (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL;
 @end

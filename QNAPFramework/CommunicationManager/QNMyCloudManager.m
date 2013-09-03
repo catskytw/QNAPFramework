@@ -7,7 +7,6 @@
 //
 
 #import "QNMyCloudManager.h"
-
 @implementation QNMyCloudManager
 
 #pragma mark - LifeCycle
@@ -28,9 +27,8 @@
                                                            clientID:self.clientId
                                                              secret:self.clientSecret];
     [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"
-                                     parameters:nil
+                                     parameters:@{@"grant_type":kAFOAuthClientCredentialsGrantType}
                                         success:^(AFOAuthCredential *credential){
-                                            //TODO save token here
                                             [AFOAuthCredential storeCredential:credential withIdentifier:@"myCloudCredential"];
                                             self.rkObjectManager = [[RKObjectManager alloc] initWithHTTPClient:oauthClient];
                                             if(success)
@@ -45,6 +43,7 @@
 
 #pragma mark - MyCloudAPI V1.1
 - (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+    
 }
 
 @end
