@@ -342,8 +342,6 @@
 			children = (
 				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
 				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
-				A3E12BAC17D611BC00A3982D /* QNModuleBaseObject.h */,
-				A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */,
 			);
 			name = CommunicationManager;
 			sourceTree = "<group>";
@@ -372,6 +370,8 @@
 		A3F00C4B17D63BF9004E9C70 /* SuperClass */ = {
 			isa = PBXGroup;
 			children = (
+				A3E12BAC17D611BC00A3982D /* QNModuleBaseObject.h */,
+				A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */,
 				A3F00C4C17D63C2C004E9C70 /* QNMappingProtoType.h */,
 				A3F00C4D17D63C2C004E9C70 /* QNMappingProtoType.m */,
 			);

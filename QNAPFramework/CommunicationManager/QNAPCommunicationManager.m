@@ -26,8 +26,6 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-
-        [singletonCommunicationManager settingMisc];
         [singletonCommunicationManager activateDebugLogLevel];
         
     }
@@ -82,18 +80,22 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
 }
 
-- (void)settingMisc{
+- (void)settingMisc:(NSBundle *)resourceBundle{
     /*1. generate the needed context
     * 2. binding MagicalRecord's context with RESTKit's one
     **/
+    NSError *error = nil;
     [MagicalRecord setupAutoMigratingCoreDataStack];
     
-    self.objectManager = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
+    NSURL *modelURL = [NSURL fileURLWithPath:[resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"]];
     
     //Iniitalize CoreData with RestKit
-    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
+    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
     self.objectManager = managedObjectStore;
-
+    [self.objectManager createPersistentStoreCoordinator];
+    
+    [self.objectManager addInMemoryPersistentStore:&error];
     [self.objectManager createManagedObjectContexts];
     [NSManagedObjectContext MR_setDefaultContext:self.objectManager.mainQueueManagedObjectContext];
 }

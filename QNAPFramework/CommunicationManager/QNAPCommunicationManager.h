@@ -21,5 +21,5 @@
 
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
 
-- (void)settingMisc;
+- (void)settingMisc:(NSBundle *)resourceBundle;
 @end

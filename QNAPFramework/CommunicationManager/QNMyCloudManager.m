@@ -17,7 +17,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 #pragma mark - LifeCycle
 - (id)initWithMyCloudBaseURL:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
     if(self = [super init]){
-        self.baseURL = [NSURL URLWithString:baseURL];
+        self.baseURL = baseURL;
         self.clientId = clientId;
         self.clientSecret = clientSecret;
     }
@@ -28,7 +28,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)fetchOAuthToken:(void(^)(AFOAuthCredential *credential))success
                        withFailureBlock:(void(^)(NSError *error))failure{
     //TODO fetching token to see if
-    AFOAuth2Client *oauthClient = [AFOAuth2Client clientWithBaseURL:self.baseURL
+    AFOAuth2Client *oauthClient = [AFOAuth2Client clientWithBaseURL:[NSURL URLWithString:self.baseURL]
                                                            clientID:self.clientId
                                                              secret:self.clientSecret];
     [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"

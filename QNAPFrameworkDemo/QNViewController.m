@@ -24,6 +24,9 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSURL *resourceURL = [[NSBundle mainBundle] URLForResource:@"QNAPFrameworkBundle" withExtension:@"bundle"];
+    NSBundle *qnapResourceBundle = [NSBundle bundleWithURL: resourceURL];
+    [[QNAPCommunicationManager share] settingMisc: qnapResourceBundle];
     self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL withClientId:CLIENT_ID withClientSecret:CLIENT_SECRET];
     [self.myCloudManager
      fetchOAuthToken:^(AFOAuthCredential *credential) {
