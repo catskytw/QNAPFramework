@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
-@interface QNMyCloudMapping : NSObject
+#import "QNMappingProtoType.h"
+@interface QNMyCloudMapping : QNMappingProtoType
 
 + (RKEntityMapping *)mappingForUser;
 @end

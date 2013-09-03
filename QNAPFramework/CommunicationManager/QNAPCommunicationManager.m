@@ -7,9 +7,8 @@
 //
 
 #import "QNAPCommunicationManager.h"
-#import "QNFileStationAPIManager.h"
-#import "QNModuleBaseObject.h"
-#import <MagicalRecord/MagicalRecord.h>
+#import "NSPersistentStoreCoordinator+MagicalRecord.h"
+#import "NSManagedObjectContext+Extend.h"
 #import <MagicalRecord/MagicalRecord+Setup.h>
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
@@ -19,12 +18,13 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     if(singletonCommunicationManager == nil){
         /**
          1. create singletonCommunicationManager
-         2. binding magical record's context with afnetworking's context(which both mean the context of CoreData)
-         3. other essentail settings.
+         2. binding magical record's context with AFNetworking's context(which both mean the context of CoreData)
+         3. other essential settings.
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-        
+
+        [singletonCommunicationManager settingMisc];
         [singletonCommunicationManager activateDebugLogLevel];
         
     }
@@ -45,7 +45,7 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     if([self validateUrl:baseURL])
         return nil;
     QNMyCloudManager *myCloudManager = [[QNMyCloudManager alloc]
-                                        initWithMyCloudBaseURL:[NSURL URLWithString:baseURL]
+                                        initWithMyCloudBaseURL:baseURL
                                         withClientId:clientId
                                         withClientSecret:clientSecret];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:myCloudManager];
@@ -71,6 +71,8 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     }
 }
 
+#pragma mark - Misc Setting
+
 - (void)activateDebugLogLevel{
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
@@ -78,9 +80,18 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
 }
 
 - (void)settingMisc{
-    //TODO: binding CoreData context with MagicalRecord's
-    [MagicalRecord setupAutoMigratingDefaultCoreDataStack];
-//    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:
-//                                                [NSPersistentStoreCoordinator 
+    /*1. generate the needed context
+    * 2. binding MagicalRecord's context with RESTKit's one
+    **/
+    [MagicalRecord setupCoreDataStackWithAutoMigratingSqliteStoreNamed:@"ResponseObject"];
+    self.objectManager = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:
+            [NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
+    
+    //Iniitalize CoreData with RestKit
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
+    self.objectManager = managedObjectStore;
+
+    [self.objectManager createManagedObjectContexts];
+    [NSManagedObjectContext MR_setDefaultContext:self.objectManager.mainQueueManagedObjectContext];
 }
 @end

@@ -7,10 +7,11 @@
 //
 
 #import "QNMyCloudMapping.h"
-
+#import "QNAPCommunicationManager.h"
+#import <RestKit/RestKit.h>
 @implementation QNMyCloudMapping
 
 + (RKEntityMapping *)mappingForUser{
-    RKEntityMapping *mappingResult = [RKEntityMapping mappingForEntityForName:@"User" inManagedObjectStore:nil];
+    return [self entityMapping:@"User" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:NO];
 }
 @end

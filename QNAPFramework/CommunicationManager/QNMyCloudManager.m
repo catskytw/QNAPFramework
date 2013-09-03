@@ -8,6 +8,10 @@
 
 #import "QNMyCloudManager.h"
 #import <Expecta/Expecta.h>
+#import "QNMyCloudMapping.h"
+#import "QNAPCommunicationManager.h"
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 @implementation QNMyCloudManager
 
 #pragma mark - LifeCycle
@@ -32,6 +36,7 @@
                                         success:^(AFOAuthCredential *credential){
                                             [AFOAuthCredential storeCredential:credential withIdentifier:@"myCloudCredential"];
                                             self.rkObjectManager = [[RKObjectManager alloc] initWithHTTPClient:oauthClient];
+                                            self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
                                             if(success)
                                                 success(credential);
                                         }
@@ -46,7 +51,24 @@
     //self.rkObjectManager不可為nil
     EXP_expect(self.rkObjectManager).notTo.beNil();
     
-
+    RKEntityMapping *mapping = [QNMyCloudMapping mappingForUser];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:nil
+                                                                                           keyPath:@"result"
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [self.rkObjectManager addResponseDescriptor:responseDescriptor];
+    [self.rkObjectManager getObjectsAtPath:@"v1.1/me"
+                              parameters:nil
+                                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                     if(success!=nil){
+                                     }
+                                 }
+                                 failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                     if(failure!=nil)
+                                         failure(operation, error);
+                                     DDLogError(@"HTTP Request Error! %@", error);
+                                 }];
 }
 
 @end

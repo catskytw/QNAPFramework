@@ -11,11 +11,15 @@
 #import "QNMyCloudManager.h"
 
 @interface QNAPCommunicationManager : NSObject
-@property(nonatomic, strong)NSMutableArray *allModules;
+@property(nonatomic, strong) NSMutableArray *allModules;
+@property(nonatomic, strong) RKManagedObjectStore *objectManager;
 
 + (QNAPCommunicationManager *)share;
 
 #pragma mark - Factory methods
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
+
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
+
+- (void)settingMisc;
 @end
