@@ -7,7 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "QNMyCloudManager.h"
 @interface QNAPFrameworkTests : SenTestCase
-
+@property QNMyCloudManager *myCloudManager;
 @end

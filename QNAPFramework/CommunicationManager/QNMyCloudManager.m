@@ -8,15 +8,14 @@
 
 #import "QNMyCloudManager.h"
 
-#define CLIENT_ID @""
-#define CLIENT_SECRET @""
-
 @implementation QNMyCloudManager
 
 #pragma mark - LifeCycle
-- (id)initWithMyCloudBaseURL:(NSURL *)baseURL{
+- (id)initWithMyCloudBaseURL:(NSURL *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
     if(self = [super init]){
         self.baseURL = baseURL;
+        self.clientId = clientId;
+        self.clientSecret = clientSecret;
     }
     return self;
 }
@@ -26,9 +25,9 @@
                        withFailureBlock:(void(^)(NSError *error))failure{
     //TODO fetching token to see if
     AFOAuth2Client *oauthClient = [AFOAuth2Client clientWithBaseURL:self.baseURL
-                                                           clientID:CLIENT_ID
-                                                             secret:CLIENT_SECRET];
-    [oauthClient authenticateUsingOAuthWithPath:@""
+                                                           clientID:self.clientId
+                                                             secret:self.clientSecret];
+    [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"
                                      parameters:nil
                                         success:^(AFOAuthCredential *credential){
                                             //TODO save token here

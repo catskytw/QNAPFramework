@@ -1,538 +1,1128 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
-		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
-		0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F17A17D4942F00183046 /* QNAPFramework.m */; };
-		0CA5F18317D4942F00183046 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18217D4942F00183046 /* SenTestingKit.framework */; };
-		0CA5F18517D4942F00183046 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18417D4942F00183046 /* UIKit.framework */; };
-		0CA5F18617D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
-		0CA5F18917D4942F00183046 /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
-		0CA5F18F17D4942F00183046 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5F18D17D4942F00183046 /* InfoPlist.strings */; };
-		0CA5F19217D4942F00183046 /* QNAPFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */; };
-		0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */; };
-		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
-		A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */; };
-		A36E1ED917D4F5D5004C0435 /* ResponseObject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */; };
-		D1AD7AD019E648D39D60AD2D /* libPods-QNAPFrameworkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B6050414E874B59A9EF7164 /* libPods-QNAPFrameworkTests.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		0CA5F18717D4942F00183046 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0CA5F16817D4942F00183046 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 0CA5F16F17D4942F00183046;
-			remoteInfo = QNAPFramework;
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		0CA5F16E17D4942F00183046 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-				0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		0CA5F17017D4942F00183046 /* libQNAPFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQNAPFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CA5F17317D4942F00183046 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFramework-Prefix.pch"; sourceTree = "<group>"; };
-		0CA5F17817D4942F00183046 /* QNAPFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAPFramework.h; sourceTree = "<group>"; };
-		0CA5F17A17D4942F00183046 /* QNAPFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAPFramework.m; sourceTree = "<group>"; };
-		0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAPFrameworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CA5F18217D4942F00183046 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		0CA5F18417D4942F00183046 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		0CA5F18C17D4942F00183046 /* QNAPFrameworkTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkTests-Info.plist"; sourceTree = "<group>"; };
-		0CA5F18E17D4942F00183046 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0CA5F19017D4942F00183046 /* QNAPFrameworkTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAPFrameworkTests.h; sourceTree = "<group>"; };
-		0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAPFrameworkTests.m; sourceTree = "<group>"; };
-		0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNAPCommunicationManager.h; path = CommunicationManager/QNAPCommunicationManager.h; sourceTree = "<group>"; };
-		0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNAPCommunicationManager.m; path = CommunicationManager/QNAPCommunicationManager.m; sourceTree = "<group>"; };
-		3B6050414E874B59A9EF7164 /* libPods-QNAPFrameworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QNAPFrameworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
-		A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudManager.h; path = CommunicationManager/QNMyCloudManager.h; sourceTree = "<group>"; };
-		A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudManager.m; path = CommunicationManager/QNMyCloudManager.m; sourceTree = "<group>"; };
-		A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ResponseObject.xcdatamodel; sourceTree = "<group>"; };
-		E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		EFBD73E0B6634CCC9D885182 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		0CA5F16D17D4942F00183046 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */,
-				3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CA5F17D17D4942F00183046 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CA5F18317D4942F00183046 /* SenTestingKit.framework in Frameworks */,
-				0CA5F18517D4942F00183046 /* UIKit.framework in Frameworks */,
-				0CA5F18617D4942F00183046 /* Foundation.framework in Frameworks */,
-				0CA5F18917D4942F00183046 /* libQNAPFramework.a in Frameworks */,
-				D1AD7AD019E648D39D60AD2D /* libPods-QNAPFrameworkTests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		0CA5F16717D4942F00183046 = {
-			isa = PBXGroup;
-			children = (
-				0CA5F17517D4942F00183046 /* QNAPFramework */,
-				0CA5F18A17D4942F00183046 /* QNAPFrameworkTests */,
-				0CA5F17217D4942F00183046 /* Frameworks */,
-				0CA5F17117D4942F00183046 /* Products */,
-				E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */,
-				8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */,
-			);
-			sourceTree = "<group>";
-		};
-		0CA5F17117D4942F00183046 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				0CA5F17017D4942F00183046 /* libQNAPFramework.a */,
-				0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		0CA5F17217D4942F00183046 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				0CA5F17317D4942F00183046 /* Foundation.framework */,
-				0CA5F18217D4942F00183046 /* SenTestingKit.framework */,
-				0CA5F18417D4942F00183046 /* UIKit.framework */,
-				EFBD73E0B6634CCC9D885182 /* libPods.a */,
-				3B6050414E874B59A9EF7164 /* libPods-QNAPFrameworkTests.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
-			isa = PBXGroup;
-			children = (
-				A36E1ED317D4D98E004C0435 /* CommunicationManager */,
-				0CA5F17817D4942F00183046 /* QNAPFramework.h */,
-				0CA5F17A17D4942F00183046 /* QNAPFramework.m */,
-				0CA5F17617D4942F00183046 /* Supporting Files */,
-			);
-			path = QNAPFramework;
-			sourceTree = "<group>";
-		};
-		0CA5F17617D4942F00183046 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */,
-				0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0CA5F18A17D4942F00183046 /* QNAPFrameworkTests */ = {
-			isa = PBXGroup;
-			children = (
-				0CA5F19017D4942F00183046 /* QNAPFrameworkTests.h */,
-				0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */,
-				0CA5F18B17D4942F00183046 /* Supporting Files */,
-			);
-			path = QNAPFrameworkTests;
-			sourceTree = "<group>";
-		};
-		0CA5F18B17D4942F00183046 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0CA5F18C17D4942F00183046 /* QNAPFrameworkTests-Info.plist */,
-				0CA5F18D17D4942F00183046 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A36E1ED317D4D98E004C0435 /* CommunicationManager */ = {
-			isa = PBXGroup;
-			children = (
-				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
-				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
-				A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */,
-				A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */,
-			);
-			name = CommunicationManager;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		0CA5F16F17D4942F00183046 /* QNAPFramework */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CA5F19517D4942F00183046 /* Build configuration list for PBXNativeTarget "QNAPFramework" */;
-			buildPhases = (
-				9DFC483B8D184DD283831D6D /* Check Pods Manifest.lock */,
-				0CA5F16C17D4942F00183046 /* Sources */,
-				0CA5F16D17D4942F00183046 /* Frameworks */,
-				0CA5F16E17D4942F00183046 /* CopyFiles */,
-				0D4D16CA26054394A494028E /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = QNAPFramework;
-			productName = QNAPFramework;
-			productReference = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		0CA5F18017D4942F00183046 /* QNAPFrameworkTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 0CA5F19817D4942F00183046 /* Build configuration list for PBXNativeTarget "QNAPFrameworkTests" */;
-			buildPhases = (
-				947389AE160442D1B243269A /* Check Pods Manifest.lock */,
-				0CA5F17C17D4942F00183046 /* Sources */,
-				0CA5F17D17D4942F00183046 /* Frameworks */,
-				0CA5F17E17D4942F00183046 /* Resources */,
-				0CA5F17F17D4942F00183046 /* ShellScript */,
-				086F3CC49A924EFD9F1ADBD8 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				0CA5F18817D4942F00183046 /* PBXTargetDependency */,
-			);
-			name = QNAPFrameworkTests;
-			productName = QNAPFrameworkTests;
-			productReference = 0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		0CA5F16817D4942F00183046 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0460;
-				ORGANIZATIONNAME = QNAP;
-			};
-			buildConfigurationList = 0CA5F16B17D4942F00183046 /* Build configuration list for PBXProject "QNAPFramework" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 0CA5F16717D4942F00183046;
-			productRefGroup = 0CA5F17117D4942F00183046 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				0CA5F16F17D4942F00183046 /* QNAPFramework */,
-				0CA5F18017D4942F00183046 /* QNAPFrameworkTests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		0CA5F17E17D4942F00183046 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CA5F18F17D4942F00183046 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		086F3CC49A924EFD9F1ADBD8 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-QNAPFrameworkTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0CA5F17F17D4942F00183046 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		0D4D16CA26054394A494028E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		947389AE160442D1B243269A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9DFC483B8D184DD283831D6D /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		0CA5F16C17D4942F00183046 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */,
-				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
-				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
-				A36E1ED917D4F5D5004C0435 /* ResponseObject.xcdatamodeld in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0CA5F17C17D4942F00183046 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0CA5F19217D4942F00183046 /* QNAPFrameworkTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		0CA5F18817D4942F00183046 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 0CA5F16F17D4942F00183046 /* QNAPFramework */;
-			targetProxy = 0CA5F18717D4942F00183046 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		0CA5F18D17D4942F00183046 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CA5F18E17D4942F00183046 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		0CA5F19317D4942F00183046 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		0CA5F19417D4942F00183046 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		0CA5F19617D4942F00183046 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/QNAPFramework.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QNAPFramework/QNAPFramework-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		0CA5F19717D4942F00183046 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
-			buildSettings = {
-				DSTROOT = /tmp/QNAPFramework.dst;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QNAPFramework/QNAPFramework-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		0CA5F19917D4942F00183046 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QNAPFramework/QNAPFramework-Prefix.pch";
-				INFOPLIST_FILE = "QNAPFrameworkTests/QNAPFrameworkTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		0CA5F19A17D4942F00183046 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "QNAPFramework/QNAPFramework-Prefix.pch";
-				INFOPLIST_FILE = "QNAPFrameworkTests/QNAPFrameworkTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		0CA5F16B17D4942F00183046 /* Build configuration list for PBXProject "QNAPFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CA5F19317D4942F00183046 /* Debug */,
-				0CA5F19417D4942F00183046 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CA5F19517D4942F00183046 /* Build configuration list for PBXNativeTarget "QNAPFramework" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CA5F19617D4942F00183046 /* Debug */,
-				0CA5F19717D4942F00183046 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		0CA5F19817D4942F00183046 /* Build configuration list for PBXNativeTarget "QNAPFrameworkTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				0CA5F19917D4942F00183046 /* Debug */,
-				0CA5F19A17D4942F00183046 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		A36E1ED717D4F5D5004C0435 /* ResponseObject.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */,
-			);
-			currentVersion = A36E1ED817D4F5D5004C0435 /* ResponseObject.xcdatamodel */;
-			name = ResponseObject.xcdatamodeld;
-			path = ../ResponseObject.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 0CA5F16817D4942F00183046 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>086F3CC49A924EFD9F1ADBD8</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F16717D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F17517D4942F00183046</string>
+				<string>0CA5F18A17D4942F00183046</string>
+				<string>0CA5F17217D4942F00183046</string>
+				<string>0CA5F17117D4942F00183046</string>
+				<string>E8C56557436B4A7AB09FECA1</string>
+				<string>8FDCA2533B1A4ABC8ACDAEF7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F16817D4942F00183046</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastUpgradeCheck</key>
+				<string>0460</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>QNAP</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>0CA5F16B17D4942F00183046</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>0CA5F16717D4942F00183046</string>
+			<key>productRefGroup</key>
+			<string>0CA5F17117D4942F00183046</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>0CA5F16F17D4942F00183046</string>
+				<string>0CA5F18017D4942F00183046</string>
+			</array>
+		</dict>
+		<key>0CA5F16B17D4942F00183046</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0CA5F19317D4942F00183046</string>
+				<string>0CA5F19417D4942F00183046</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0CA5F16C17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F17B17D4942F00183046</string>
+				<string>0CA5F19D17D497CD00183046</string>
+				<string>A36E1ED617D4D9B2004C0435</string>
+				<string>A36E1ED917D4F5D5004C0435</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F16D17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F17417D4942F00183046</string>
+				<string>3BA49805E4514E86BF621E22</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F16E17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>dstPath</key>
+			<string>include/${PRODUCT_NAME}</string>
+			<key>dstSubfolderSpec</key>
+			<string>16</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F17917D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXCopyFilesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F16F17D4942F00183046</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0CA5F19517D4942F00183046</string>
+			<key>buildPhases</key>
+			<array>
+				<string>9DFC483B8D184DD283831D6D</string>
+				<string>0CA5F16C17D4942F00183046</string>
+				<string>0CA5F16D17D4942F00183046</string>
+				<string>0CA5F16E17D4942F00183046</string>
+				<string>0D4D16CA26054394A494028E</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>QNAPFramework</string>
+			<key>productName</key>
+			<string>QNAPFramework</string>
+			<key>productReference</key>
+			<string>0CA5F17017D4942F00183046</string>
+			<key>productType</key>
+			<string>com.apple.product-type.library.static</string>
+		</dict>
+		<key>0CA5F17017D4942F00183046</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libQNAPFramework.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0CA5F17117D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F17017D4942F00183046</string>
+				<string>0CA5F18117D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17217D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F17317D4942F00183046</string>
+				<string>0CA5F18217D4942F00183046</string>
+				<string>0CA5F18417D4942F00183046</string>
+				<string>EFBD73E0B6634CCC9D885182</string>
+				<string>3B6050414E874B59A9EF7164</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17317D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>0CA5F17417D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F17317D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F17517D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A36E1ED317D4D98E004C0435</string>
+				<string>0CA5F17817D4942F00183046</string>
+				<string>0CA5F17A17D4942F00183046</string>
+				<string>0CA5F17617D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>QNAPFramework</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17617D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A36E1ED717D4F5D5004C0435</string>
+				<string>0CA5F17717D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17717D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>QNAPFramework-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17817D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>QNAPFramework.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17917D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F17817D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F17A17D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>QNAPFramework.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F17B17D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F17A17D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F17C17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F19217D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F17D17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F18317D4942F00183046</string>
+				<string>0CA5F18517D4942F00183046</string>
+				<string>0CA5F18617D4942F00183046</string>
+				<string>0CA5F18917D4942F00183046</string>
+				<string>D1AD7AD019E648D39D60AD2D</string>
+				<string>BC6DC3EFE4644A239559D0C4</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F17E17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>0CA5F18F17D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>0CA5F17F17D4942F00183046</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string># Run the unit tests in this test bundle.
+"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests"
+</string>
+		</dict>
+		<key>0CA5F18017D4942F00183046</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>0CA5F19817D4942F00183046</string>
+			<key>buildPhases</key>
+			<array>
+				<string>947389AE160442D1B243269A</string>
+				<string>0CA5F17C17D4942F00183046</string>
+				<string>0CA5F17D17D4942F00183046</string>
+				<string>0CA5F17E17D4942F00183046</string>
+				<string>0CA5F17F17D4942F00183046</string>
+				<string>086F3CC49A924EFD9F1ADBD8</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>0CA5F18817D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>QNAPFrameworkTests</string>
+			<key>productName</key>
+			<string>QNAPFrameworkTests</string>
+			<key>productReference</key>
+			<string>0CA5F18117D4942F00183046</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle</string>
+		</dict>
+		<key>0CA5F18117D4942F00183046</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>QNAPFrameworkTests.octest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>0CA5F18217D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>SenTestingKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/SenTestingKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>0CA5F18317D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F18217D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F18417D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>UIKit.framework</string>
+			<key>path</key>
+			<string>Library/Frameworks/UIKit.framework</string>
+			<key>sourceTree</key>
+			<string>DEVELOPER_DIR</string>
+		</dict>
+		<key>0CA5F18517D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F18417D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F18617D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F17317D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F18717D4942F00183046</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>0CA5F16817D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>0CA5F16F17D4942F00183046</string>
+			<key>remoteInfo</key>
+			<string>QNAPFramework</string>
+		</dict>
+		<key>0CA5F18817D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>0CA5F16F17D4942F00183046</string>
+			<key>targetProxy</key>
+			<string>0CA5F18717D4942F00183046</string>
+		</dict>
+		<key>0CA5F18917D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F17017D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F18A17D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F19017D4942F00183046</string>
+				<string>0CA5F19117D4942F00183046</string>
+				<string>0CA5F18B17D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>QNAPFrameworkTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F18B17D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F18C17D4942F00183046</string>
+				<string>0CA5F18D17D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F18C17D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>QNAPFrameworkTests-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F18D17D4942F00183046</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F18E17D4942F00183046</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F18E17D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F18F17D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F18D17D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F19017D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>QNAPFrameworkTests.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F19117D4942F00183046</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>QNAPFrameworkTests.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F19217D4942F00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F19117D4942F00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0CA5F19317D4942F00183046</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0CA5F19417D4942F00183046</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>5.0</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0CA5F19517D4942F00183046</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0CA5F19617D4942F00183046</string>
+				<string>0CA5F19717D4942F00183046</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0CA5F19617D4942F00183046</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E8C56557436B4A7AB09FECA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/QNAPFramework.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>QNAPFramework/QNAPFramework-Prefix.pch</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0CA5F19717D4942F00183046</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E8C56557436B4A7AB09FECA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/QNAPFramework.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>QNAPFramework/QNAPFramework-Prefix.pch</string>
+				<key>OTHER_LDFLAGS</key>
+				<string>-ObjC</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0CA5F19817D4942F00183046</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>0CA5F19917D4942F00183046</string>
+				<string>0CA5F19A17D4942F00183046</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>0CA5F19917D4942F00183046</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E8C56557436B4A7AB09FECA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
+					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>QNAPFramework/QNAPFramework-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>QNAPFrameworkTests/QNAPFrameworkTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>0CA5F19A17D4942F00183046</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>E8C56557436B4A7AB09FECA1</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>FRAMEWORK_SEARCH_PATHS</key>
+				<array>
+					<string>"$(SDKROOT)/Developer/Library/Frameworks"</string>
+					<string>"$(DEVELOPER_LIBRARY_DIR)/Frameworks"</string>
+				</array>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>QNAPFramework/QNAPFramework-Prefix.pch</string>
+				<key>INFOPLIST_FILE</key>
+				<string>QNAPFrameworkTests/QNAPFrameworkTests-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>octest</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>0CA5F19B17D497CD00183046</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>QNAPCommunicationManager.h</string>
+			<key>path</key>
+			<string>CommunicationManager/QNAPCommunicationManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F19C17D497CD00183046</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>QNAPCommunicationManager.m</string>
+			<key>path</key>
+			<string>CommunicationManager/QNAPCommunicationManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>0CA5F19D17D497CD00183046</key>
+		<dict>
+			<key>fileRef</key>
+			<string>0CA5F19C17D497CD00183046</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0D4D16CA26054394A494028E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>3B6050414E874B59A9EF7164</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-QNAPFrameworkTests.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>3BA49805E4514E86BF621E22</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EFBD73E0B6634CCC9D885182</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>8FDCA2533B1A4ABC8ACDAEF7</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-QNAPFrameworkTests.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods-QNAPFrameworkTests.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>947389AE160442D1B243269A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>9DFC483B8D184DD283831D6D</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>A36E1ED317D4D98E004C0435</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>0CA5F19B17D497CD00183046</string>
+				<string>0CA5F19C17D497CD00183046</string>
+				<string>A36E1ED417D4D9B2004C0435</string>
+				<string>A36E1ED517D4D9B2004C0435</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>CommunicationManager</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A36E1ED417D4D9B2004C0435</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>QNMyCloudManager.h</string>
+			<key>path</key>
+			<string>CommunicationManager/QNMyCloudManager.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A36E1ED517D4D9B2004C0435</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>QNMyCloudManager.m</string>
+			<key>path</key>
+			<string>CommunicationManager/QNMyCloudManager.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A36E1ED617D4D9B2004C0435</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A36E1ED517D4D9B2004C0435</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>A36E1ED717D4F5D5004C0435</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>A36E1ED817D4F5D5004C0435</string>
+			</array>
+			<key>currentVersion</key>
+			<string>A36E1ED817D4F5D5004C0435</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>name</key>
+			<string>ResponseObject.xcdatamodeld</string>
+			<key>path</key>
+			<string>../ResponseObject.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>A36E1ED817D4F5D5004C0435</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>ResponseObject.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>A36E1ED917D4F5D5004C0435</key>
+		<dict>
+			<key>fileRef</key>
+			<string>A36E1ED717D4F5D5004C0435</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BC6DC3EFE4644A239559D0C4</key>
+		<dict>
+			<key>fileRef</key>
+			<string>EFBD73E0B6634CCC9D885182</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D1AD7AD019E648D39D60AD2D</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3B6050414E874B59A9EF7164</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>E8C56557436B4A7AB09FECA1</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>EFBD73E0B6634CCC9D885182</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>0CA5F16817D4942F00183046</string>
+</dict>
+</plist>

@@ -7,26 +7,38 @@
 //
 
 #import "QNAPFrameworkTests.h"
+#import <CocoaLumberjack/DDLog.h>
+
+#define CLIENT_ID @""
+#define CLIENT_SECRET @""
+
+static const int ddLogLevel = LOG_LEVEL_VERBOSE;
 
 @implementation QNAPFrameworkTests
 
 - (void)setUp
 {
     [super setUp];
-    
-    // Set-up code here.
+    self.myCloudManager = [[QNMyCloudManager alloc] initWithMyCloudBaseURL:[NSURL URLWithString:@"http://core.api.alpha-myqnapcloud.com"]
+                                                              withClientId:CLIENT_ID
+                                                          withClientSecret:CLIENT_SECRET];
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-    
+    self.myCloudManager = nil;
     [super tearDown];
 }
 
-- (void)testExample
+#pragma mark - TestCase
+- (void)testToken
 {
-    STFail(@"Unit tests are not implemented yet in QNAPFrameworkTests");
+    [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential){
+        DDLogInfo(@"credential %@", credential.accessToken);
+    }
+                        withFailureBlock:^(NSError *error){
+                            DDLogError(@"error while acquiring accessToken %@", error);
+                        }];
 }
 
 @end
