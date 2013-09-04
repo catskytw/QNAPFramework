@@ -12,6 +12,7 @@
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import "SettingInfo.h"
+#import "UserActivity.h"
 
 #define EXP_SHORTHAND YES
 
@@ -66,6 +67,7 @@
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
     }                    withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+         _operation = operation;
     }];
 
     EXP_expect(_operation).willNot.beNil();
@@ -76,7 +78,7 @@
                                @"first_name":@"Change",
                                @"last_name":@"Chen",
                                @"mobile_number":@"0912345678",
-                               @"language":@"aaaaaaaaaaa",
+                               @"language":@"ch",
                                @"gender":[NSNumber numberWithInt:1],
                                @"birthday":@"1976-10-20",
                                @"subscribed":[NSNumber numberWithBool:YES]
@@ -87,8 +89,26 @@
                                 _operation = operation;
                             }
                             withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                                 _operation = operation;
                             }];
 
     EXP_expect(_operation).willNot.beNil();
+}
+
+- (void)testListMyActivities{
+    __block RKObjectRequestOperation *_operation = nil;
+    [self.myCloudManager listMyActivities:0
+                                withLimit:5
+                                   isDesc:YES
+                         withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                             _operation = operation;
+                             NSInteger count = [UserActivity MR_countOfEntities];
+                             DDLogInfo(@"total userActivity %i", count);
+                         }
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                             _operation = operation;
+                         }];
+    EXP_expect(_operation).willNot.beNil();
+
 }
 @end
