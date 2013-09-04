@@ -12,4 +12,6 @@
 @interface QNMyCloudMapping : QNMappingProtoType
 
 + (RKEntityMapping *)mappingForUser;
++ (RKEntityMapping *)mappingForResponse;
+
 @end

@@ -6,4 +6,6 @@
     #import <Foundation/Foundation.h>
     #import <CocoaLumberjack/DDLog.h>
     #import <CocoaLumberjack/DDTTYLogger.h>
+    #import <MagicalRecord/MagicalRecord.h>
+    #import <MagicalRecord/CoreData+MagicalRecord.h>
 #endif

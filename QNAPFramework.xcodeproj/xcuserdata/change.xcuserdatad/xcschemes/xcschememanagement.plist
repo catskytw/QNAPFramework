@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>QNAPFrameworkBundle.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+		<key>QNAPFrameworkDemo.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>0CA5F18017D4942F00183046</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A322817517D6604A00017366</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A32281A717D6658900017366</key>
 		<dict>
 			<key>primary</key>
 			<true/>

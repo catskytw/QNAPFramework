@@ -14,4 +14,8 @@
 + (RKEntityMapping *)mappingForUser{
     return [self entityMapping:@"User" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:NO];
 }
+
++ (RKEntityMapping *)mappingForResponse{
+    return [self entityMapping:@"Response" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:NO];
+}
 @end

@@ -11,12 +11,10 @@
 #import <Expecta/Expecta.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import "SettingInfo.h"
 
-#define MyCloudServerBaseURL @"http://core.api.alpha-myqnapcloud.com"
-#define CLIENT_ID @"521c609775413f6bfec8e59b"
-#define CLIENT_SECRET @"LWvRWyHFNDENTZZGCp9kcOEGed18cW02KVnV6bfrvtBL0hpu"
 #define EXP_SHORTHAND YES
-int ddLogLevel = LOG_LEVEL_VERBOSE;
+
 @implementation QNAPFrameworkTests
 
 - (void)setUp {
@@ -24,13 +22,18 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
     
     [super setUp];
     [Expecta setAsynchronousTestTimeout:10];
+    NSURL *resourceURL = [[NSBundle mainBundle] URLForResource:@"QNAPFrameworkBundle" withExtension:@"bundle"];
+    NSBundle *qnapResourceBundle = [NSBundle bundleWithURL: resourceURL];
+    [[QNAPCommunicationManager share] settingMisc: qnapResourceBundle];
+
     self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL withClientId:CLIENT_ID withClientSecret:CLIENT_SECRET];
-    [self.myCloudManager
-            fetchOAuthToken:^(AFOAuthCredential *credential) {
-
-            }
-                        withFailureBlock:^(NSError *error) {
-
+    [self.myCloudManager fetchOAuthToken:ACCOUNT
+                            withPassword:PASSWORD
+                        withSuccessBlock:^(AFOAuthCredential *credential) {
+                            DDLogVerbose(@"credential success %@", credential.accessToken);
+                        }
+                        withFailureBlock:^(NSError *error){
+                            DDLogError(@"token failure: %@", error);
                         }];
     EXP_expect(self.myCloudManager.rkObjectManager).willNot.beNil();
 
@@ -62,10 +65,8 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
-        DDLogInfo(@"readMyInformation success: %@", operation.mappingResult);
     }                    withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
-        _operation = operation;
-        DDLogError(@"readMyInformation failure: %@", operation);
+        
     }];
 
     EXP_expect(_operation).willNot.beNil();
