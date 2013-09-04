@@ -81,6 +81,8 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_VERBOSE];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
+    
+    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 
 - (void)settingMisc:(NSBundle *)resourceBundle{
@@ -99,8 +101,10 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     [self.objectManager createPersistentStoreCoordinator];
     
     [self.objectManager addInMemoryPersistentStore:&error];
+    
     [self.objectManager createManagedObjectContexts];
     [NSManagedObjectContext MR_setDefaultContext:self.objectManager.mainQueueManagedObjectContext];
+    [NSManagedObjectContext MR_setRootSavingContext:managedObjectStore.persistentStoreManagedObjectContext];
 }
 
 + (void)closeCommunicationManager{

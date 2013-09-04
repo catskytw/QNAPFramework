@@ -66,8 +66,28 @@
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
     }                    withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
-        
     }];
+
+    EXP_expect(_operation).willNot.beNil();
+}
+
+- (void)testUpdateMyInformation{
+    NSDictionary *userInfo = @{@"email":@"catskytw@gmail.com",
+                               @"first_name":@"Change",
+                               @"last_name":@"Chen",
+                               @"mobile_number":@"0912345678",
+                               @"language":@"aaaaaaaaaaa",
+                               @"gender":[NSNumber numberWithInt:1],
+                               @"birthday":@"1976-10-20",
+                               @"subscribed":[NSNumber numberWithBool:YES]
+                                };
+    __block RKObjectRequestOperation *_operation = nil;
+    [self.myCloudManager updateMyInformation:userInfo
+                            withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                _operation = operation;
+                            }
+                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                            }];
 
     EXP_expect(_operation).willNot.beNil();
 }

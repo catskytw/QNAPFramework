@@ -13,5 +13,5 @@
 
 + (RKEntityMapping *)mappingForUser;
 + (RKEntityMapping *)mappingForResponse;
-
++ (RKEntityMapping *)mappingForUserActivities;
 @end

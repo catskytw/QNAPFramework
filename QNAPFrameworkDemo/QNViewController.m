@@ -9,12 +9,7 @@
 #import "QNViewController.h"
 #import "QNAPCommunicationManager.h"
 #import <CocoaLumberjack/DDLog.h>
-
-#define MyCloudServerBaseURL @"http://core.api.alpha-myqnapcloud.com"
-#define CLIENT_ID @"521c609775413f6bfec8e59b"
-#define CLIENT_SECRET @"LWvRWyHFNDENTZZGCp9kcOEGed18cW02KVnV6bfrvtBL0hpu"
-#define ACCOUNT @"changeliao@qnap.com"
-#define PASSWORD @"12345678"
+#import "SettingInfo.h"
 
 @interface QNViewController ()
 

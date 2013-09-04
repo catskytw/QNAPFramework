@@ -11,4 +11,6 @@
 @interface QNModuleBaseObject : NSObject
 @property(nonatomic, strong)NSString *baseURL;
 - (id)initWithBaseURL:(NSString *)baseURL;
+- (NSArray *)allErrorMessageResponseDescriptor;
+
 @end

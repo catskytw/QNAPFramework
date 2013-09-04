@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "0460"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "# Update the mogenerator files&#10;cd ${PROJECT_NAME}&#10;/usr/bin/mogenerator --template-var arc=true --model CoreDataStore.xcdatamodeld/CoreDataStore.xcdatamodel -M CoreData/Machine -H CoreData/Human`">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "0CA5F16F17D4942F00183046"
+                     BuildableName = "libQNAPFramework.a"
+                     BlueprintName = "QNAPFramework"
+                     ReferencedContainer = "container:QNAPFramework.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"

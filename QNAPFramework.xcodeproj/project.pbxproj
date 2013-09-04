@@ -18,11 +18,15 @@
 		0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */; };
 		0CE3E6A417D714B70061C2BB /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6A317D714B60061C2BB /* Response.m */; };
 		0CE3E6A617D717AA0061C2BB /* SettingInfo.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CE3E6A517D717420061C2BB /* SettingInfo.h */; };
+		0CE3E6A917D737DF0061C2BB /* CommonUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6A817D737DF0061C2BB /* CommonUser.m */; };
+		0CE3E6B617D7437E0061C2BB /* Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6AE17D7437E0061C2BB /* Response.m */; };
+		0CE3E6B717D7437E0061C2BB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6B017D7437E0061C2BB /* User.m */; };
+		0CE3E6B817D7437E0061C2BB /* _Response.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6B317D7437E0061C2BB /* _Response.m */; };
+		0CE3E6B917D7437E0061C2BB /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3E6B517D7437E0061C2BB /* _User.m */; };
 		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
 		A315014017D5C48400C2BF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */; };
 		A315014217D5C48B00C2BF2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */; };
 		A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */; };
-		A322817117D6592F00017366 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A322817017D6592F00017366 /* User.m */; };
 		A322817717D6604A00017366 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18417D4942F00183046 /* UIKit.framework */; };
 		A322817817D6604A00017366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		A322817A17D6604A00017366 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A322817917D6604A00017366 /* CoreGraphics.framework */; };
@@ -104,13 +108,21 @@
 		0CE3E6A217D714B60061C2BB /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Response.h; path = SuperClass/Response.h; sourceTree = "<group>"; };
 		0CE3E6A317D714B60061C2BB /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Response.m; path = SuperClass/Response.m; sourceTree = "<group>"; };
 		0CE3E6A517D717420061C2BB /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
+		0CE3E6A717D737DF0061C2BB /* CommonUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommonUser.h; path = MyCloud/DataObject/CommonUser.h; sourceTree = "<group>"; };
+		0CE3E6A817D737DF0061C2BB /* CommonUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommonUser.m; path = MyCloud/DataObject/CommonUser.m; sourceTree = "<group>"; };
+		0CE3E6AD17D7437E0061C2BB /* Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Response.h; sourceTree = "<group>"; };
+		0CE3E6AE17D7437E0061C2BB /* Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Response.m; sourceTree = "<group>"; };
+		0CE3E6AF17D7437E0061C2BB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0CE3E6B017D7437E0061C2BB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		0CE3E6B217D7437E0061C2BB /* _Response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _Response.h; sourceTree = "<group>"; };
+		0CE3E6B317D7437E0061C2BB /* _Response.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _Response.m; sourceTree = "<group>"; };
+		0CE3E6B417D7437E0061C2BB /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		0CE3E6B517D7437E0061C2BB /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
 		3C9FDE2E44B82A42C952BCD3 /* NSManagedObjectContext+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Extend.h"; sourceTree = "<group>"; };
 		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStore.xcdatamodel; sourceTree = "<group>"; };
-		A322816F17D6592F00017366 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = MyCloud/DataObject/User.h; sourceTree = "<group>"; };
-		A322817017D6592F00017366 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = MyCloud/DataObject/User.m; sourceTree = "<group>"; };
 		A322817617D6604A00017366 /* QNAPFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNAPFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A322817917D6604A00017366 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A322817D17D6604A00017366 /* QNAPFrameworkDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkDemo-Info.plist"; sourceTree = "<group>"; };
@@ -237,6 +249,7 @@
 		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
 			isa = PBXGroup;
 			children = (
+				0CE3E6AB17D7437E0061C2BB /* CoreData */,
 				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
 				A3E12BA817D6104F00A3982D /* MyCloud */,
 				A3E12BA717D6103E00A3982D /* FileStation */,
@@ -277,6 +290,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0CE3E6AB17D7437E0061C2BB /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0CE3E6AC17D7437E0061C2BB /* Human */,
+				0CE3E6B117D7437E0061C2BB /* Machine */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0CE3E6AC17D7437E0061C2BB /* Human */ = {
+			isa = PBXGroup;
+			children = (
+				0CE3E6AD17D7437E0061C2BB /* Response.h */,
+				0CE3E6AE17D7437E0061C2BB /* Response.m */,
+				0CE3E6AF17D7437E0061C2BB /* User.h */,
+				0CE3E6B017D7437E0061C2BB /* User.m */,
+			);
+			path = Human;
+			sourceTree = "<group>";
+		};
+		0CE3E6B117D7437E0061C2BB /* Machine */ = {
+			isa = PBXGroup;
+			children = (
+				0CE3E6B217D7437E0061C2BB /* _Response.h */,
+				0CE3E6B317D7437E0061C2BB /* _Response.m */,
+				0CE3E6B417D7437E0061C2BB /* _User.h */,
+				0CE3E6B517D7437E0061C2BB /* _User.m */,
+			);
+			path = Machine;
+			sourceTree = "<group>";
+		};
 		3C9FD55648F1F10AA937E9B6 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,8 +332,8 @@
 		A322816817D6536000017366 /* DataObject */ = {
 			isa = PBXGroup;
 			children = (
-				A322816F17D6592F00017366 /* User.h */,
-				A322817017D6592F00017366 /* User.m */,
+				0CE3E6A717D737DF0061C2BB /* CommonUser.h */,
+				0CE3E6A817D737DF0061C2BB /* CommonUser.m */,
 			);
 			name = DataObject;
 			sourceTree = "<group>";
@@ -625,8 +669,12 @@
 				A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */,
 				A3F00C4E17D63C2C004E9C70 /* QNMappingProtoType.m in Sources */,
 				A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */,
-				A322817117D6592F00017366 /* User.m in Sources */,
 				0CE3E6A417D714B70061C2BB /* Response.m in Sources */,
+				0CE3E6A917D737DF0061C2BB /* CommonUser.m in Sources */,
+				0CE3E6B617D7437E0061C2BB /* Response.m in Sources */,
+				0CE3E6B717D7437E0061C2BB /* User.m in Sources */,
+				0CE3E6B817D7437E0061C2BB /* _Response.m in Sources */,
+				0CE3E6B917D7437E0061C2BB /* _User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
