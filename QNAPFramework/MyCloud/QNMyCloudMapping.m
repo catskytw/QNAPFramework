@@ -20,7 +20,7 @@
 }
 
 + (RKEntityMapping *)mappingForUserActivities{
-    
+    //TODO
 }
 
 @end
