@@ -11,7 +11,6 @@
 #import "QNMyCloudMapping.h"
 #import "QNAPCommunicationManager.h"
 #import "User.h"
-#import "CommonUser.h"
 
 #define credentialIdentifier @"myCloudCredential"
 
@@ -107,7 +106,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                  }];
 }
 
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failureBlock{
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
     if(!userInfo){
         DDLogError(@"update MyInformation fail caused by the giving a nil userInfo!");
         return;
@@ -133,23 +132,47 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self addingContentType];
     
     self.rkObjectManager.requestSerializationMIMEType=RKMIMETypeJSON;
-    [self.rkObjectManager putObject:user
+    [self.rkObjectManager putObject:nil
                                 path:@"v1.1/me"
-                          parameters:nil
+                          parameters:[self turnInstancePropertiesToDic:user withInformationDic:userInfo]
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                  DDLogVerbose(@"update myinformation success");
+                                 //TODO: maybe saving the result as User object here.
+                                 if(success)
+                                     success(operation, mappingResult);
                              }
                              failure:^(RKObjectRequestOperation *operation, NSError *error){
-
                                  DDLogError(@"update myInformation failure: %@", error);
+                                 if(failure)
+                                     failure(operation, error);
                              }];
+    user = nil;
 }
 
-- (void)listMyActivities{
-    
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+    RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForUserActivities];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:nil
+                                                                                           keyPath:@"result"
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [self.rkObjectManager addResponseDescriptor:responseDescriptor];
+    [self.rkObjectManager getObject:nil
+                               path:@"v1.1/me/activity"
+                         parameters:@{@"offset":@(offset), @"limit":@(limit), @"desc":@(isDesc)}
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                DDLogVerbose(@"listMyActivities success");
+                                if(success)
+                                    success(operation, mappingResult);
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                DDLogError(@"listMyActivities failure");
+                                if(failure)
+                                    failure(operation, error);
+                            }];
 }
 
-#pragma mark - PrivateMethod
+#pragma mark - HeaderOperation
 - (void)addingContentType{
     //"Content-Type" = "application/json; charset=UTF-8";
     [self.rkObjectManager.HTTPClient setDefaultHeader:@"Content-Type" value:@"application/json; charset=UTF-8"];
@@ -160,6 +183,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
     [self.rkObjectManager.HTTPClient setDefaultHeader:@"Authorization" value:tokenString];
 }
 
+#pragma mark - PrivateMethod
 - (BOOL)validateAllSetting{
     return (self.rkObjectManager && [self.rkObjectManager.HTTPClient.defaultHeaders valueForKey:@"Authorization"]);
 }
@@ -171,6 +195,17 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
             [entity setValue:[dictionary valueForKey:key] forKey:key];
         }
     }
+}
+
+- (NSMutableDictionary *)turnInstancePropertiesToDic:(id)entity withInformationDic:(NSDictionary *)dictionary{
+    NSMutableDictionary *rDic = [NSMutableDictionary dictionary];
+    NSArray *allKeys = [dictionary allKeys];
+    for (NSString *key in allKeys) {
+        if ([entity respondsToSelector:NSSelectorFromString(key)]){
+            [rDic setValue:[dictionary valueForKey:key] forKey:key];
+        }
+    }
+    return rDic;
 }
 
 - (NSMutableDictionary *)allPropertyNames:(id)entity withInformationDic:(NSDictionary *)dictionary{

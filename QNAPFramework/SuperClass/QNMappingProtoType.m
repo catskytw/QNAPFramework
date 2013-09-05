@@ -15,10 +15,23 @@
     NSManagedObjectModel *managerObjectModel = managedObjectStore.managedObjectModel;
     NSEntityDescription *targetEntityDescription = [[managerObjectModel entitiesByName] objectForKey:entityName];
     NSArray *targetEntityKeys =[[[RKPropertyInspector sharedInspector] propertyInspectionForEntity:targetEntityDescription] allKeys];
+    
+    /**
+     資料表於設計時, 有relationship的key必定要以 "relationship_xxxx" 的格式
+     以利此處篩選
+     */
+    NSMutableArray *mutableKeysArray = [NSMutableArray arrayWithArray:targetEntityKeys];
+    NSMutableArray *discardArray = [NSMutableArray array];
+    for (NSString *key in mutableKeysArray) {
+        if([key hasPrefix:@"relationship_"])
+            [discardArray addObject:key];
+    }
+    [mutableKeysArray removeObjectsInArray:discardArray];
+    
     if(isXMLParser)
-        [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:targetEntityKeys]];
+        [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray]];
     else
-        [targetEntityMapping addAttributeMappingsFromArray:targetEntityKeys];
+        [targetEntityMapping addAttributeMappingsFromArray:mutableKeysArray];
     return targetEntityMapping;
 }
 
