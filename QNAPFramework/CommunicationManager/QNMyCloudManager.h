@@ -74,6 +74,28 @@
  */
 - (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
 
+/**
+ *  list activities of user.
+ *
+ *  @param offset  The offset of the query result.
+ *  @param limit   The number of query result.
+ *  @param isDesc  If true, return activities from the latest to the oldest.
+ *  @param success a success block excuting after successful fetching
+ *  @param failure a failure block excuting after fetching fail.
+ */
 - (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+
+/**
+ *  Change user's password
+ *
+ *  @param oldPassword oldPassword
+ *  @param newPassword newPassword
+ *  @param success     a success block excuting after successful fetching
+ *  @param failure     a failure block excuting after fetching fail.
+ */
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+
+#pragma mark - /Device
+
 
 @end

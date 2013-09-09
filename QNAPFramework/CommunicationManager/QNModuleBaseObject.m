@@ -21,27 +21,29 @@
 - (NSArray *)allErrorMessageResponseDescriptor{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
     responseMapping.identificationAttributes = @[@"code", @"message"];
-
+    
+    NSIndexSet *errorIndexSet = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(RKStatusCodeClassRedirection, RKStatusCodeClassServerError+ 100)];
+    
     RKResponseDescriptor *putResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodPUT
                                                                                        pathPattern:nil
                                                                                            keyPath:nil
-                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+                                                                                       statusCodes:errorIndexSet];
     RKResponseDescriptor *getResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                                method:RKRequestMethodGET
                                                                                           pathPattern:nil
                                                                                               keyPath:nil
-                                                                                          statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+                                                                                          statusCodes:errorIndexSet];
     RKResponseDescriptor *postResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                                method:RKRequestMethodPOST
                                                                                           pathPattern:nil
                                                                                               keyPath:nil
-                                                                                          statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+                                                                                          statusCodes:errorIndexSet];
     RKResponseDescriptor *deleteResponseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                                method:RKRequestMethodDELETE
                                                                                           pathPattern:nil
                                                                                               keyPath:nil
-                                                                                          statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassClientError)];
+                                                                                          statusCodes:errorIndexSet];
 
     return @[putResponseDescriptor, getResponseDescriptor, postResponseDescriptor, deleteResponseDescriptor];
 }

@@ -41,4 +41,14 @@
     return activitiesMapping;
 }
 
++ (RKEntityMapping *)basicResponseMappingWithResult:(RKEntityMapping *)resultMapping{
+    RKEntityMapping *responseMapping = [QNMappingProtoType entityMapping:@"Response"
+                                                  withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                                             isXMLParser:NO];
+    [responseMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"result"
+                                                                                    toKeyPath:@"relationship_result"
+                                                                                  withMapping:responseMapping]];
+    return responseMapping;
+}
+
 @end

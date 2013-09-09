@@ -13,6 +13,8 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "SettingInfo.h"
 #import "UserActivity.h"
+#import "App.h"
+#import "Response.h"
 
 #define EXP_SHORTHAND YES
 
@@ -78,7 +80,7 @@
                                @"first_name":@"Change",
                                @"last_name":@"Chen",
                                @"mobile_number":@"0912345678",
-                               @"language":@"ch",
+                               @"language":@"chaaaaaaaaaaa",
                                @"gender":[NSNumber numberWithInt:1],
                                @"birthday":@"1976-10-20",
                                @"subscribed":[NSNumber numberWithBool:YES]
@@ -98,17 +100,34 @@
 - (void)testListMyActivities{
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager listMyActivities:0
-                                withLimit:5
+                                withLimit:10
                                    isDesc:YES
                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                              _operation = operation;
-                             NSInteger count = [UserActivity MR_countOfEntities];
-                             DDLogInfo(@"total userActivity %i", count);
+                             NSArray *objs = [UserActivity MR_findAllSortedBy:@"created_at" ascending:YES];
+                             DDLogInfo(@"All activity are listed below:");
+                             for (UserActivity *thisActivity in objs) {
+                                 DDLogInfo(@"thisActivity %@,\n app:%@", thisActivity, thisActivity.relationship_App.appId);
+                             }
                          }
                          withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                              _operation = operation;
                          }];
     EXP_expect(_operation).willNot.beNil();
+}
 
+- (void)testChangePassword{
+    __block RKObjectRequestOperation *_operation = nil;
+    [self.myCloudManager changeMyPassword:@"12345678"
+                          withNewPassword:@"12345678"
+                         withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingRestul){
+                             Response *response = [mappingRestul firstObject];
+                             DDLogInfo(@"changePassword response code:%@  message:%@",response.code, response.message);
+                             _operation = operation;
+                         }
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                             _operation = operation;
+                         }];
+    EXP_expect(_operation).willNot.beNil();
 }
 @end

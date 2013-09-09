@@ -11,6 +11,7 @@
 #import "QNMyCloudMapping.h"
 #import "QNAPCommunicationManager.h"
 #import "User.h"
+#import "Response.h"
 
 #define credentialIdentifier @"myCloudCredential"
 
@@ -41,10 +42,6 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                             self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
                                             self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
                                             [self addingAccessTokenInHeader];
-                                            //加入所有錯誤反應, including PUT, DELETE, POST, GET
-                                            for (RKResponseDescriptor *errorDes in [self allErrorMessageResponseDescriptor]) {
-                                                [self.rkObjectManager addResponseDescriptor:errorDes];
-                                            }
                                             if(success)
                                                 success(credential);
                                         }
@@ -68,6 +65,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                             self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
                                             self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
                                             [self addingAccessTokenInHeader];
+                                            [self.rkObjectManager addResponseDescriptorsFromArray:[self allErrorMessageResponseDescriptor]];
                                             if(success)
                                                 success(credential);
                                         }
@@ -92,18 +90,18 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [self.rkObjectManager addResponseDescriptor:responseDescriptor];
     [self.rkObjectManager getObjectsAtPath:@"v1.1/me"
-                              parameters:nil
-                                 success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                parameters:nil
+                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                      DDLogVerbose(@"readMyInformation success");
                                      if(success!=nil)
                                          success(operation, mappingResult);
-                                 }
-                                 failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                   }
+                                   failure:^(RKObjectRequestOperation *operation, NSError *error){
                                      DDLogError(@"HTTP Request Error! %@", error);
 
                                      if(failure!=nil)
                                          failure(operation, error);
-                                 }];
+                                   }];
 }
 
 - (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
@@ -129,20 +127,21 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                                                                         method:RKRequestMethodPUT];
     [self.rkObjectManager addRequestDescriptor:requestDescriptor];
     [self.rkObjectManager addResponseDescriptor:responseDescriptor];
-    [self addingContentType];
-    
+    [self addingJSONContentType];
+    [self.rkObjectManager addResponseDescriptorsFromArray:[self allErrorMessageResponseDescriptor]];
     self.rkObjectManager.requestSerializationMIMEType=RKMIMETypeJSON;
     [self.rkObjectManager putObject:nil
                                 path:@"v1.1/me"
                           parameters:[self turnInstancePropertiesToDic:user withInformationDic:userInfo]
                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                  DDLogVerbose(@"update myinformation success");
-                                 //TODO: maybe saving the result as User object here.
                                  if(success)
                                      success(operation, mappingResult);
                              }
                              failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                 DDLogError(@"update myInformation failure: %@", error);
+                                 NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
+                                 Response *errorResponse = [errorResponses objectAtIndex:0];
+                                 DDLogError(@"update myInformation failure, code:%@, message:%@", errorResponse.code, errorResponse.message);
                                  if(failure)
                                      failure(operation, error);
                              }];
@@ -172,8 +171,32 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                             }];
 }
 
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+    RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
+                                                                                            method:RKRequestMethodPUT
+                                                                                       pathPattern:nil
+                                                                                           keyPath:nil
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [self.rkObjectManager addResponseDescriptor:responseDescriptor];
+    [self addingJSONContentType];
+    self.rkObjectManager.requestSerializationMIMEType=RKMIMETypeJSON;
+    [self.rkObjectManager putObject:nil
+                               path:@"v1.1/me/password"
+                         parameters:@{@"old_password":oldPassword, @"new_password":newPassword}
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                DDLogVerbose(@"changePassword: %@", ((Response *)([mappingResult firstObject])).message);
+                                if(success)
+                                    success(operation, mappingResult);
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                DDLogError(@"changePassword Error: %@", error);
+                                if(failure)
+                                    failure(operation, error);
+                            }];
+}
 #pragma mark - HeaderOperation
-- (void)addingContentType{
+- (void)addingJSONContentType{
     //"Content-Type" = "application/json; charset=UTF-8";
     [self.rkObjectManager.HTTPClient setDefaultHeader:@"Content-Type" value:@"application/json; charset=UTF-8"];
 }

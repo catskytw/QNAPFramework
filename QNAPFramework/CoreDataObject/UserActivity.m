@@ -21,4 +21,7 @@
 @dynamic relationship_App;
 @dynamic relationship_SourceInfo;
 
+- (NSString *)description{
+    return [NSString stringWithFormat:@"action: %@, created_at: %@, user_id: %@, user_activity_id: %@", self.action, self.created_at, self.user_id, self.user_activity_id];
+}
 @end

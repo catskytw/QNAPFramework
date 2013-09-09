@@ -8,6 +8,9 @@
 
 #import "QNMappingProtoType.h"
 #import <RestKit/RestKit.h>
+#import "Response.h"
+#import "QNAPCommunicationManager.h"
+
 @implementation QNMappingProtoType
 
 + (RKEntityMapping *)entityMapping:(NSString*)entityName withManagerObjectStore:(RKManagedObjectStore*)managedObjectStore isXMLParser:(BOOL)isXMLParser{
