@@ -104,7 +104,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                    }];
 }
 
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
     if(!userInfo){
         DDLogError(@"update MyInformation fail caused by the giving a nil userInfo!");
         return;
@@ -143,12 +143,12 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                  Response *errorResponse = [errorResponses objectAtIndex:0];
                                  DDLogError(@"update myInformation failure, code:%@, message:%@", errorResponse.code, errorResponse.message);
                                  if(failure)
-                                     failure(operation, error);
+                                     failure(operation, error, errorResponse);
                              }];
     user = nil;
 }
 
-- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForUserActivities];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodGET
@@ -166,12 +166,15 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
                                 DDLogError(@"listMyActivities failure");
+                                NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
+                                Response *errorResponse = [errorResponses objectAtIndex:0];
+
                                 if(failure)
-                                    failure(operation, error);
+                                    failure(operation, error, errorResponse);
                             }];
 }
 
-- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodPUT
@@ -191,8 +194,11 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
                                 DDLogError(@"changePassword Error: %@", error);
+                                NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
+                                Response *errorResponse = [errorResponses objectAtIndex:0];
+
                                 if(failure)
-                                    failure(operation, error);
+                                    failure(operation, error, errorResponse);
                             }];
 }
 #pragma mark - HeaderOperation

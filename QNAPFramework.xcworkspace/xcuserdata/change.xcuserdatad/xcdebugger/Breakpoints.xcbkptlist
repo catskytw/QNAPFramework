@@ -16,18 +16,5 @@
          landmarkName = "-URLWithRoute:object:"
          landmarkType = "5">
       </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "QNAPFramework/CommunicationManager/QNMyCloudManager.m"
-         timestampString = "400055652.551872"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "144"
-         endingLineNumber = "144"
-         landmarkName = "-updateMyInformation:withSuccessBlock:withFailureBlock:"
-         landmarkType = "5">
-      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

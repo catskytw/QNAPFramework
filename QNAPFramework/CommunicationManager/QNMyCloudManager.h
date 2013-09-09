@@ -10,6 +10,7 @@
 #import <RestKit/RestKit.h>
 #import <AFOAuth2Client/AFOAuth2Client.h>
 #import "QNModuleBaseObject.h"
+#import "Response.h"
 
 @interface QNMyCloudManager : QNModuleBaseObject
 @property(nonatomic, strong) NSString *clientId;
@@ -61,7 +62,7 @@
  *  @param success What else things you want to do if success
  *  @param failure What else things you want to do if failure
  */
-- (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+- (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *response))failure;
 
 /**
  *  update MyInformation by credential. Please make sure your access token which should be acquired by 
@@ -72,7 +73,7 @@
  *  @param success      a success block excuting after successful updating.
  *  @param failureBlock a failure block excuting after updating fail.
  */
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *response))failure;
 
 /**
  *  list activities of user.
@@ -83,7 +84,7 @@
  *  @param success a success block excuting after successful fetching
  *  @param failure a failure block excuting after fetching fail.
  */
-- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure;
 
 /**
  *  Change user's password
@@ -93,7 +94,7 @@
  *  @param success     a success block excuting after successful fetching
  *  @param failure     a failure block excuting after fetching fail.
  */
-- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure;
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure;
 
 #pragma mark - /Device
 
