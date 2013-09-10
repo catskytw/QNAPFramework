@@ -15,6 +15,7 @@
 #import <CocoaLumberjack/DDLog.h>
 
 #import "User.h"
+int ddLogLevel = LOG_LEVEL_OFF;
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
 @implementation QNAPCommunicationManager
@@ -28,7 +29,7 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-        [singletonCommunicationManager activateDebugLogLevel];
+        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
         
     }
     return singletonCommunicationManager;
@@ -76,7 +77,8 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
 
 #pragma mark - Misc Setting
 
-- (void)activateDebugLogLevel{
+- (void)activateDebugLogLevel:(int)_ddLogLevel{
+    ddLogLevel = _ddLogLevel;
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];
