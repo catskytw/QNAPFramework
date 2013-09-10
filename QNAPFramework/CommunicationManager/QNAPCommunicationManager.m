@@ -13,6 +13,7 @@
 #import <RestKit/CoreData.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <CocoaLumberjack/DDLog.h>
+#import <CocoaLumberjack/DDTTYLogger.h>
 
 #import "User.h"
 int ddLogLevel = LOG_LEVEL_OFF;
