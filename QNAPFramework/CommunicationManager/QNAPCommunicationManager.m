@@ -12,6 +12,8 @@
 #import <MagicalRecord/MagicalRecord+Setup.h>
 #import <RestKit/CoreData.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
+#import <CocoaLumberjack/DDLog.h>
+
 #import "User.h"
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
@@ -91,8 +93,9 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     **/
     NSError *error = nil;
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    
-    NSURL *modelURL = [NSURL fileURLWithPath:[resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"]];
+    NSString *coreDataUrlString = [resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"];
+    NSAssert(coreDataUrlString != nil, @"coredataUrlString should not be nil!");
+    NSURL *modelURL = [NSURL fileURLWithPath:coreDataUrlString];
     
     //Iniitalize CoreData with RestKit
     NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];

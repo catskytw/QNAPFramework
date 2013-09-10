@@ -263,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */,
-				A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -281,6 +280,7 @@
 		0CA5F18B17D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */,
 				0CA5F18C17D4942F00183046 /* QNAPFrameworkTests-Info.plist */,
 				0CA5F18D17D4942F00183046 /* InfoPlist.strings */,
 			);
@@ -1072,7 +1072,8 @@
 				A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */,
 			);
 			currentVersion = A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */;
-			path = CoreDataStore.xcdatamodeld;
+			name = CoreDataStore.xcdatamodeld;
+			path = ../QNAPFramework/CoreDataStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

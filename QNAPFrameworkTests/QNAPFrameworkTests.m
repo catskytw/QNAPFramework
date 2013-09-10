@@ -68,7 +68,7 @@
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
-    }                    withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+    }                    withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response) {
          _operation = operation;
     }];
 
@@ -90,7 +90,7 @@
                             withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                 _operation = operation;
                             }
-                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error) {
+                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response) {
                                  _operation = operation;
                             }];
 
@@ -110,7 +110,7 @@
                                  DDLogInfo(@"thisActivity %@,\n app:%@", thisActivity, thisActivity.relationship_App.appId);
                              }
                          }
-                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
                              _operation = operation;
                          }];
     EXP_expect(_operation).willNot.beNil();
@@ -125,9 +125,11 @@
                              DDLogInfo(@"changePassword response code:%@  message:%@",response.code, response.message);
                              _operation = operation;
                          }
-                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
                              _operation = operation;
                          }];
     EXP_expect(_operation).willNot.beNil();
 }
+
+
 @end

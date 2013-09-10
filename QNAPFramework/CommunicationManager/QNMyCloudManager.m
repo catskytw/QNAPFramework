@@ -75,7 +75,7 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                         }];
 }
 #pragma mark - MyCloudAPI V1.1
-- (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error))failure{
+- (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *response))failure{
     //self.rkObjectManager不可為nil
     if(!self.rkObjectManager)
         DDLogError(@"RKObjectManager is nil!");
@@ -97,10 +97,13 @@ int ddLogLevel = LOG_LEVEL_VERBOSE;
                                          success(operation, mappingResult);
                                    }
                                    failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                     DDLogError(@"HTTP Request Error! %@", error);
-
-                                     if(failure!=nil)
-                                         failure(operation, error);
+                                       NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
+                                       Response *errorResponse = [errorResponses objectAtIndex:0];
+                                       
+                                       DDLogError(@"HTTP Request Error! %@", error);
+                                       
+                                       if(failure!=nil)
+                                           failure(operation, error, errorResponse);
                                    }];
 }
 

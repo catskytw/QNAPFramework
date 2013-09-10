@@ -29,7 +29,7 @@
                         withSuccessBlock:^(AFOAuthCredential *credential) {
                             [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *result){
                             }
-                                                 withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                                 withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
                                                  }];
                         }
                         withFailureBlock:^(NSError *error){
