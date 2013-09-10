@@ -13,7 +13,7 @@
 #import "User.h"
 #import "Response.h"
 #import <CocoaLumberjack/DDLog.h>
-#import <MagicalRecord/MagicalRecord.h>
+#import <MagicalRecord/NSManagedObject+MagicalRecord.h>
 #define credentialIdentifier @"myCloudCredential"
 
 int ddLogLevel = LOG_LEVEL_VERBOSE;
