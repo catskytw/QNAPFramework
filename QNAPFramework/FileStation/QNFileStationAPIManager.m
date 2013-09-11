@@ -10,6 +10,8 @@
 #import "QNFileStationMapping.h"
 #import "QNAPCommunicationManager.h"
 #import "RKXMLReaderSerialization.h"
+#import <MagicalRecord/MagicalRecord.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 @implementation QNFileStationAPIManager
 - (instancetype)initWithBaseURL:(NSString *)baseURL{
