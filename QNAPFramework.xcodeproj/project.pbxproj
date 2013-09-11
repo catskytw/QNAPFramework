@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2134B517E047390009FA09 /* FileManagerCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134B317E047390009FA09 /* FileManagerCoreData.xcdatamodeld */; };
+		0C2134BB17E048700009FA09 /* RKXMLReaderSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134B817E048700009FA09 /* RKXMLReaderSerialization.m */; };
+		0C2134BC17E048700009FA09 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134BA17E048700009FA09 /* XMLReader.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0C2134C317E059CB0009FA09 /* QNFileFirmware.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134C217E059CB0009FA09 /* QNFileFirmware.m */; };
+		0C2134C617E059CC0009FA09 /* QNFileLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134C517E059CC0009FA09 /* QNFileLogin.m */; };
+		0C2134C917E059CC0009FA09 /* QNFilePasswdConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134C817E059CC0009FA09 /* QNFilePasswdConstraints.m */; };
+		0C2134CC17E059CC0009FA09 /* QNFileCustomLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134CB17E059CC0009FA09 /* QNFileCustomLogo.m */; };
+		0C2134CF17E059CC0009FA09 /* QNFileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2134CE17E059CC0009FA09 /* QNFileModel.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -89,6 +97,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C2134B417E047390009FA09 /* FileManagerCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FileManagerCoreData.xcdatamodel; sourceTree = "<group>"; };
+		0C2134B717E048700009FA09 /* RKXMLReaderSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKXMLReaderSerialization.h; sourceTree = "<group>"; };
+		0C2134B817E048700009FA09 /* RKXMLReaderSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKXMLReaderSerialization.m; sourceTree = "<group>"; };
+		0C2134B917E048700009FA09 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		0C2134BA17E048700009FA09 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
+		0C2134C117E059CB0009FA09 /* QNFileFirmware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileFirmware.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileFirmware.h; sourceTree = SOURCE_ROOT; };
+		0C2134C217E059CB0009FA09 /* QNFileFirmware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileFirmware.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileFirmware.m; sourceTree = SOURCE_ROOT; };
+		0C2134C417E059CC0009FA09 /* QNFileLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileLogin.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileLogin.h; sourceTree = SOURCE_ROOT; };
+		0C2134C517E059CC0009FA09 /* QNFileLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileLogin.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileLogin.m; sourceTree = SOURCE_ROOT; };
+		0C2134C717E059CC0009FA09 /* QNFilePasswdConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFilePasswdConstraints.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFilePasswdConstraints.h; sourceTree = SOURCE_ROOT; };
+		0C2134C817E059CC0009FA09 /* QNFilePasswdConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFilePasswdConstraints.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFilePasswdConstraints.m; sourceTree = SOURCE_ROOT; };
+		0C2134CA17E059CC0009FA09 /* QNFileCustomLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileCustomLogo.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileCustomLogo.h; sourceTree = SOURCE_ROOT; };
+		0C2134CB17E059CC0009FA09 /* QNFileCustomLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileCustomLogo.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileCustomLogo.m; sourceTree = SOURCE_ROOT; };
+		0C2134CD17E059CC0009FA09 /* QNFileModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileModel.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileModel.h; sourceTree = SOURCE_ROOT; };
+		0C2134CE17E059CC0009FA09 /* QNFileModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileModel.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileModel.m; sourceTree = SOURCE_ROOT; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
 		0CA5F17017D4942F00183046 /* libQNAPFramework.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQNAPFramework.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,6 +226,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2134B617E048700009FA09 /* XMLReader */ = {
+			isa = PBXGroup;
+			children = (
+				0C2134B717E048700009FA09 /* RKXMLReaderSerialization.h */,
+				0C2134B817E048700009FA09 /* RKXMLReaderSerialization.m */,
+				0C2134B917E048700009FA09 /* XMLReader.h */,
+				0C2134BA17E048700009FA09 /* XMLReader.m */,
+			);
+			name = XMLReader;
+			path = SuperClass/XMLReader;
+			sourceTree = "<group>";
+		};
+		0C2134BD17E049160009FA09 /* CoreDataObject */ = {
+			isa = PBXGroup;
+			children = (
+				0C2134CD17E059CC0009FA09 /* QNFileModel.h */,
+				0C2134CE17E059CC0009FA09 /* QNFileModel.m */,
+				0C2134CA17E059CC0009FA09 /* QNFileCustomLogo.h */,
+				0C2134CB17E059CC0009FA09 /* QNFileCustomLogo.m */,
+				0C2134C717E059CC0009FA09 /* QNFilePasswdConstraints.h */,
+				0C2134C817E059CC0009FA09 /* QNFilePasswdConstraints.m */,
+				0C2134C417E059CC0009FA09 /* QNFileLogin.h */,
+				0C2134C517E059CC0009FA09 /* QNFileLogin.m */,
+				0C2134C117E059CB0009FA09 /* QNFileFirmware.h */,
+				0C2134C217E059CB0009FA09 /* QNFileFirmware.m */,
+			);
+			name = CoreDataObject;
+			path = FileStation/CoreDataObject;
+			sourceTree = "<group>";
+		};
 		0CA5F16717D4942F00183046 = {
 			isa = PBXGroup;
 			children = (
@@ -262,7 +315,9 @@
 		0CA5F17617D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */,
 				0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */,
+				0C2134B317E047390009FA09 /* FileManagerCoreData.xcdatamodeld */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -280,7 +335,6 @@
 		0CA5F18B17D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */,
 				0CA5F18C17D4942F00183046 /* QNAPFrameworkTests-Info.plist */,
 				0CA5F18D17D4942F00183046 /* InfoPlist.strings */,
 			);
@@ -381,6 +435,7 @@
 		A3E12BA717D6103E00A3982D /* FileStation */ = {
 			isa = PBXGroup;
 			children = (
+				0C2134BD17E049160009FA09 /* CoreDataObject */,
 				A3E12BA917D6119500A3982D /* QNFileStationAPIManager.h */,
 				A3E12BAA17D6119500A3982D /* QNFileStationAPIManager.m */,
 				0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */,
@@ -404,6 +459,7 @@
 		A3F00C4B17D63BF9004E9C70 /* SuperClass */ = {
 			isa = PBXGroup;
 			children = (
+				0C2134B617E048700009FA09 /* XMLReader */,
 				A3E12BAC17D611BC00A3982D /* QNModuleBaseObject.h */,
 				A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */,
 				A3F00C4C17D63C2C004E9C70 /* QNMappingProtoType.h */,
@@ -636,16 +692,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2134C617E059CC0009FA09 /* QNFileLogin.m in Sources */,
 				0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
 				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,
+				0C2134C917E059CC0009FA09 /* QNFilePasswdConstraints.m in Sources */,
+				0C2134BB17E048700009FA09 /* RKXMLReaderSerialization.m in Sources */,
+				0C2134CC17E059CC0009FA09 /* QNFileCustomLogo.m in Sources */,
+				0C2134CF17E059CC0009FA09 /* QNFileModel.m in Sources */,
 				A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */,
 				A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */,
 				A3F00C4E17D63C2C004E9C70 /* QNMappingProtoType.m in Sources */,
 				A322816E17D656FB00017366 /* myCloudCoreData.xcdatamodeld in Sources */,
+				0C2134B517E047390009FA09 /* FileManagerCoreData.xcdatamodeld in Sources */,
 				A3B67F4D17D7B1A100E4066A /* User.m in Sources */,
+				0C2134BC17E048700009FA09 /* XMLReader.m in Sources */,
 				A3B67F5017D7B1A100E4066A /* SourceInfo.m in Sources */,
+				0C2134C317E059CB0009FA09 /* QNFileFirmware.m in Sources */,
 				A3B67F5317D7B1A100E4066A /* App.m in Sources */,
 				A3B67F5617D7B1A100E4066A /* Response.m in Sources */,
 				A3B67F5917D7B84E00E4066A /* UserActivity.m in Sources */,
@@ -1066,14 +1130,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		0C2134B317E047390009FA09 /* FileManagerCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0C2134B417E047390009FA09 /* FileManagerCoreData.xcdatamodel */,
+			);
+			currentVersion = 0C2134B417E047390009FA09 /* FileManagerCoreData.xcdatamodel */;
+			path = FileManagerCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
 				A322816D17D656FB00017366 /* myCloudCoreData.xcdatamodel */,
 			);
 			currentVersion = A322816D17D656FB00017366 /* myCloudCoreData.xcdatamodel */;
-			name = myCloudCoreData.xcdatamodeld;
-			path = ../QNAPFramework/myCloudCoreData.xcdatamodeld;
+			path = myCloudCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

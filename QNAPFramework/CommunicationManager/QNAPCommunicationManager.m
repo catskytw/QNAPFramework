@@ -95,12 +95,6 @@ int ddLogLevel;
     **/
     NSError *error = nil;
     [MagicalRecord setupAutoMigratingCoreDataStack];
-//    NSString *coreDataUrlString = [resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"];
-//    NSAssert(coreDataUrlString != nil, @"coredataUrlString should not be nil!");
-//    NSURL *modelURL = [NSURL fileURLWithPath:coreDataUrlString];
-    
-    //Iniitalize CoreData with RestKit
-//    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
     RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
     self.objectManager = managedObjectStore;
     [self.objectManager createPersistentStoreCoordinator];

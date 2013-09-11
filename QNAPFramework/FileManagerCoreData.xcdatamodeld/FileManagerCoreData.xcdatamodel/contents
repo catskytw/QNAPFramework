@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="QNFileCustomLogo" representedClassName="QNFileCustomLogo" syncable="YES">
+        <attribute name="customFrontLogo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="customLoginLogo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNFileFirmware" representedClassName="QNFileFirmware" syncable="YES">
+        <attribute name="build" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="buildTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="version" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNFileLogin" representedClassName="QNFileLogin" syncable="YES">
+        <attribute name="authPassed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="authSid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="demoSiteSupport" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="doQuick" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dsv2Supported" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dsv2URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dsv3Supported" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="forceSSL" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="grouopname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hdaRoot_ALMOST_FULL" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="hostname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="httpHost" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="is_booting" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isAdmin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="msv2Supported" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="msv2URL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="msv2WebEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nvrEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="nvrURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nvrVer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qDownloadEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qMultimediaEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qMusicsEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qMusicsURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qPhotosEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qPhotosURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qVideosEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qVideosURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qWebEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qWebPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="qWebSSLEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="qWebSSLPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="serviceURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stunnelEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="stunnelPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="webAccessPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="webFSEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wfm2" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wfmPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="wfmPortEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wfmSSLEnabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="wfmSSLPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="wfmURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship_customLogo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QNFileCustomLogo" syncable="YES"/>
+        <relationship name="relationship_firmware" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QNFileFirmware" syncable="YES"/>
+        <relationship name="relationship_model" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QNFileModel" syncable="YES"/>
+        <relationship name="relationship_passwdConstraints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QNFilePasswdConstraints" syncable="YES"/>
+    </entity>
+    <entity name="QNFileModel" representedClassName="QNFileModel" syncable="YES">
+        <attribute name="customModelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="displayModelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="internalModelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="platform" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storage_v2" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNFilePasswdConstraints" representedClassName="QNFilePasswdConstraints" syncable="YES">
+        <attribute name="passwdConstraint01" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="passwdConstraint02" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="passwdConstraint03" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="passwdConstraint04" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="QNFileLogin" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFilePasswdConstraints" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileCustomLogo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileFirmware" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileModel" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

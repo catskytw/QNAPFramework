@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "QNMappingProtoType.h"
+#import <RestKit/RestKit.h>
 
 @interface QNFileStationMapping : QNMappingProtoType
++ (RKEntityMapping *)mappingForLogin;
++ (NSDictionary *)allMappingInAuthLogin;
 
 @end
