@@ -8,4 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <CocoaLumberjack/DDLog.h>
+#import <MagicalRecord/CoreData+MagicalRecord.h>
+
 extern int ddLogLevel;
