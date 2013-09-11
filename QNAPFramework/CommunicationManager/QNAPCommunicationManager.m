@@ -30,7 +30,7 @@ int ddLogLevel;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-//        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
+        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
         
     }
     return singletonCommunicationManager;
@@ -95,13 +95,13 @@ int ddLogLevel;
     **/
     NSError *error = nil;
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    NSString *coreDataUrlString = [resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"];
-    NSAssert(coreDataUrlString != nil, @"coredataUrlString should not be nil!");
-    NSURL *modelURL = [NSURL fileURLWithPath:coreDataUrlString];
+//    NSString *coreDataUrlString = [resourceBundle pathForResource:@"CoreDataStore" ofType:@"momd"];
+//    NSAssert(coreDataUrlString != nil, @"coredataUrlString should not be nil!");
+//    NSURL *modelURL = [NSURL fileURLWithPath:coreDataUrlString];
     
     //Iniitalize CoreData with RestKit
-    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
-    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithManagedObjectModel:managedObjectModel];
+//    NSManagedObjectModel *managedObjectModel = [[[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL] mutableCopy];
+    RKManagedObjectStore *managedObjectStore = [[RKManagedObjectStore alloc] initWithPersistentStoreCoordinator:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]];
     self.objectManager = managedObjectStore;
     [self.objectManager createPersistentStoreCoordinator];
     

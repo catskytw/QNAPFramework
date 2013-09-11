@@ -20,7 +20,7 @@
 		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
 		A315014017D5C48400C2BF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */; };
 		A315014217D5C48B00C2BF2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */; };
-		A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */; };
+		A322816E17D656FB00017366 /* myCloudCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */; };
 		A322817717D6604A00017366 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18417D4942F00183046 /* UIKit.framework */; };
 		A322817817D6604A00017366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		A322817A17D6604A00017366 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A322817917D6604A00017366 /* CoreGraphics.framework */; };
@@ -36,7 +36,7 @@
 		A32281A317D662B000017366 /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
 		A32281AA17D6658A00017366 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A32281A917D6658A00017366 /* Cocoa.framework */; };
 		A32281B417D6658A00017366 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A32281B217D6658A00017366 /* InfoPlist.strings */; };
-		A32281B917D665EC00017366 /* CoreDataStore.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */; };
+		A32281B917D665EC00017366 /* myCloudCoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */; };
 		A32281BA17D6664C00017366 /* QNAPFrameworkBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = A32281A817D6658900017366 /* QNAPFrameworkBundle.bundle */; };
 		A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */; };
 		A3B67F4D17D7B1A100E4066A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B67F4C17D7B1A100E4066A /* User.m */; };
@@ -109,7 +109,7 @@
 		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStore.xcdatamodel; sourceTree = "<group>"; };
+		A322816D17D656FB00017366 /* myCloudCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myCloudCoreData.xcdatamodel; sourceTree = "<group>"; };
 		A322817617D6604A00017366 /* QNAPFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QNAPFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A322817917D6604A00017366 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A322817D17D6604A00017366 /* QNAPFrameworkDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkDemo-Info.plist"; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		0CA5F18B17D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */,
+				A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */,
 				0CA5F18C17D4942F00183046 /* QNAPFrameworkTests-Info.plist */,
 				0CA5F18D17D4942F00183046 /* InfoPlist.strings */,
 			);
@@ -548,7 +548,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A32281B917D665EC00017366 /* CoreDataStore.xcdatamodeld in Resources */,
+				A32281B917D665EC00017366 /* myCloudCoreData.xcdatamodeld in Resources */,
 				A32281B417D6658A00017366 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -643,7 +643,7 @@
 				A3E12BAE17D611BC00A3982D /* QNModuleBaseObject.m in Sources */,
 				A3E12BB117D62B9C00A3982D /* QNMyCloudMapping.m in Sources */,
 				A3F00C4E17D63C2C004E9C70 /* QNMappingProtoType.m in Sources */,
-				A322816E17D656FB00017366 /* CoreDataStore.xcdatamodeld in Sources */,
+				A322816E17D656FB00017366 /* myCloudCoreData.xcdatamodeld in Sources */,
 				A3B67F4D17D7B1A100E4066A /* User.m in Sources */,
 				A3B67F5017D7B1A100E4066A /* SourceInfo.m in Sources */,
 				A3B67F5317D7B1A100E4066A /* App.m in Sources */,
@@ -1066,14 +1066,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		A322816C17D656FB00017366 /* CoreDataStore.xcdatamodeld */ = {
+		A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */,
+				A322816D17D656FB00017366 /* myCloudCoreData.xcdatamodel */,
 			);
-			currentVersion = A322816D17D656FB00017366 /* CoreDataStore.xcdatamodel */;
-			name = CoreDataStore.xcdatamodeld;
-			path = ../QNAPFramework/CoreDataStore.xcdatamodeld;
+			currentVersion = A322816D17D656FB00017366 /* myCloudCoreData.xcdatamodel */;
+			name = myCloudCoreData.xcdatamodeld;
+			path = ../QNAPFramework/myCloudCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

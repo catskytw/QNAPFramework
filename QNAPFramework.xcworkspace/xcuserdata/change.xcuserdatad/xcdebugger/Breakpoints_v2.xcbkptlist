@@ -17,6 +17,36 @@
             endingLineNumber = "74"
             landmarkName = "-URLWithRoute:object:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RKRouter URLWithRoute:object:]"
+                  moduleName = "QNAPFrameworkDemo"
+                  urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/Pods/RestKit/Code/Network/RKRouter.m"
+                  timestampString = "400569154.719946"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "287">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RKRouter URLWithRoute:object:]"
+                  moduleName = "QNAPFrameworkTests"
+                  urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/Pods/RestKit/Code/Network/RKRouter.m"
+                  timestampString = "400569155.109242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "287">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -33,6 +63,36 @@
             endingLineNumber = "95"
             landmarkName = "-settingMisc:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QNAPCommunicationManager settingMisc:]"
+                  moduleName = "QNAPFrameworkDemo"
+                  urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/QNAPFramework/CommunicationManager/QNAPCommunicationManager.m"
+                  timestampString = "400569154.721763"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "73">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[QNAPCommunicationManager settingMisc:]"
+                  moduleName = "QNAPFrameworkTests"
+                  urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/QNAPFramework/CommunicationManager/QNAPCommunicationManager.m"
+                  timestampString = "400569155.109745"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "73">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
