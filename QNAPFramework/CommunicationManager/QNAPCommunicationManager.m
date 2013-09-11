@@ -16,9 +16,9 @@
 #import <CocoaLumberjack/DDTTYLogger.h>
 
 #import "User.h"
-int ddLogLevel = LOG_LEVEL_OFF;
-
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
+int ddLogLevel;
+
 @implementation QNAPCommunicationManager
 
 + (QNAPCommunicationManager *)share{
@@ -30,7 +30,7 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
+//        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
         
     }
     return singletonCommunicationManager;
@@ -86,7 +86,6 @@ static QNAPCommunicationManager *singletonCommunicationManager = nil;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_VERBOSE];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
-    
     RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 

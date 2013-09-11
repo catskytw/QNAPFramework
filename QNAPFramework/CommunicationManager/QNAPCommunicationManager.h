@@ -18,8 +18,7 @@
 + (void)closeCommunicationManager;
 #pragma mark - Factory methods
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
-
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
-
 - (void)settingMisc:(NSBundle *)resourceBundle;
+- (void)activateDebugLogLevel:(int)_ddLogLevel;
 @end

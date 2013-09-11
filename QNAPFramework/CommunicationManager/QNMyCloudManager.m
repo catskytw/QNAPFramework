@@ -16,7 +16,6 @@
 #import <MagicalRecord/NSManagedObject+MagicalRecord.h>
 #define credentialIdentifier @"myCloudCredential"
 
-int ddLogLevel = LOG_LEVEL_VERBOSE;
 @implementation QNMyCloudManager
 
 #pragma mark - LifeCycle

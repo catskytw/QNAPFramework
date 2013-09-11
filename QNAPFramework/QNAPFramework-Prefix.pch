@@ -8,4 +8,5 @@
     #import <CocoaLumberjack/DDTTYLogger.h>
     #import <MagicalRecord/MagicalRecord.h>
     #import <MagicalRecord/CoreData+MagicalRecord.h>
+    #import "QNAPFramework.h"
 #endif

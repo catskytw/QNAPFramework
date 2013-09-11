@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <CocoaLumberjack/DDLog.h>
+extern int ddLogLevel;
 @interface QNAPFramework : NSObject
 
 @end
