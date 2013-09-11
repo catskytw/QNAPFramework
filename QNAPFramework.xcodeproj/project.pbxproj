@@ -18,7 +18,6 @@
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
-		0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F17A17D4942F00183046 /* QNAPFramework.m */; };
 		0CA5F18317D4942F00183046 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18217D4942F00183046 /* SenTestingKit.framework */; };
 		0CA5F18517D4942F00183046 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F18417D4942F00183046 /* UIKit.framework */; };
 		0CA5F18617D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
@@ -118,7 +117,6 @@
 		0CA5F17317D4942F00183046 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFramework-Prefix.pch"; sourceTree = "<group>"; };
 		0CA5F17817D4942F00183046 /* QNAPFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QNAPFramework.h; sourceTree = "<group>"; };
-		0CA5F17A17D4942F00183046 /* QNAPFramework.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAPFramework.m; sourceTree = "<group>"; };
 		0CA5F18117D4942F00183046 /* QNAPFrameworkTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QNAPFrameworkTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CA5F18217D4942F00183046 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		0CA5F18417D4942F00183046 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -156,7 +154,6 @@
 		A32281B117D6658A00017366 /* QNAPFrameworkBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "QNAPFrameworkBundle-Info.plist"; sourceTree = "<group>"; };
 		A32281B317D6658A00017366 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A32281B517D6658A00017366 /* QNAPFrameworkBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFrameworkBundle-Prefix.pch"; sourceTree = "<group>"; };
-		A32281BB17D7900100017366 /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudManager.h; path = CommunicationManager/QNMyCloudManager.h; sourceTree = "<group>"; };
 		A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudManager.m; path = CommunicationManager/QNMyCloudManager.m; sourceTree = "<group>"; };
 		A3B67F4B17D7B1A100E4066A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = QNAPFramework/CoreDataObject/User.h; sourceTree = SOURCE_ROOT; };
@@ -305,7 +302,6 @@
 				A3E12BA717D6103E00A3982D /* FileStation */,
 				A36E1ED317D4D98E004C0435 /* CommunicationManager */,
 				0CA5F17817D4942F00183046 /* QNAPFramework.h */,
-				0CA5F17A17D4942F00183046 /* QNAPFramework.m */,
 				0CA5F17617D4942F00183046 /* Supporting Files */,
 				3C9FD55648F1F10AA937E9B6 /* Category */,
 			);
@@ -464,7 +460,6 @@
 				A3E12BAD17D611BC00A3982D /* QNModuleBaseObject.m */,
 				A3F00C4C17D63C2C004E9C70 /* QNMappingProtoType.h */,
 				A3F00C4D17D63C2C004E9C70 /* QNMappingProtoType.m */,
-				A32281BB17D7900100017366 /* SettingInfo.h */,
 			);
 			name = SuperClass;
 			sourceTree = "<group>";
@@ -693,7 +688,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C2134C617E059CC0009FA09 /* QNFileLogin.m in Sources */,
-				0CA5F17B17D4942F00183046 /* QNAPFramework.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
 				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,

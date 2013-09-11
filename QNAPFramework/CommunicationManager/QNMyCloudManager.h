@@ -11,6 +11,7 @@
 #import <AFOAuth2Client/AFOAuth2Client.h>
 #import "QNModuleBaseObject.h"
 #import "Response.h"
+#import "QNAPFramework.h"
 
 @interface QNMyCloudManager : QNModuleBaseObject
 @property(nonatomic, strong) NSString *clientId;

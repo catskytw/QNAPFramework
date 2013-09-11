@@ -12,8 +12,8 @@
 #import "QNAPCommunicationManager.h"
 #import "User.h"
 #import "Response.h"
-#import <CocoaLumberjack/DDLog.h>
 #import <MagicalRecord/NSManagedObject+MagicalRecord.h>
+#import "QNAPFramework.h"
 #define credentialIdentifier @"myCloudCredential"
 
 @implementation QNMyCloudManager
