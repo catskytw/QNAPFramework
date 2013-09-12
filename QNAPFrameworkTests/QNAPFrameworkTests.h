@@ -13,4 +13,5 @@
 @interface QNAPFrameworkTests : SenTestCase
 @property QNAPCommunicationManager *communicationManager;
 @property QNMyCloudManager *myCloudManager;
+@property QNFileStationAPIManager *fileManager;
 @end

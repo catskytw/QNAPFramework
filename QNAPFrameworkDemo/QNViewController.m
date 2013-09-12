@@ -10,7 +10,7 @@
 #import "QNAPCommunicationManager.h"
 #import <CocoaLumberjack/DDLog.h>
 #import "SettingInfo.h"
-
+#import <RestKit/RestKit.h>
 @interface QNViewController ()
 
 @end
@@ -20,27 +20,43 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSURL *resourceURL = [[NSBundle mainBundle] URLForResource:@"QNAPFrameworkBundle" withExtension:@"bundle"];
-    NSBundle *qnapResourceBundle = [NSBundle bundleWithURL: resourceURL];
-    [[QNAPCommunicationManager share] settingMisc: qnapResourceBundle];
-    self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL withClientId:CLIENT_ID withClientSecret:CLIENT_SECRET];
-    [self.myCloudManager fetchOAuthToken:ACCOUNT
-                            withPassword:PASSWORD
-                        withSuccessBlock:^(AFOAuthCredential *credential) {
-                            [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *result){
-                            }
-                                                 withFailiureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
-                                                 }];
-                        }
-                        withFailureBlock:^(NSError *error){
-                            DDLogError(@"token failure: %@", error);
-                        }];
+    self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatioAPIManager:NASURL];
+    [self.fileStationManager loginWithAccount:NAS_ACCOUNT
+                                 withPassword:NAS_PASSWORD
+                             withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
+                                 [self.loginLabel setText:@"登入成功"];
+                             }
+                             withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
+                                 [self.loginLabel setText:@"登入失敗"];
+                             }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)downloadSampleFile:(id)sender{
+    [self.fileStationManager downloadFileWithFilePath:@"/Public"
+                                         withFileName:@"1.mov"
+                                             isFolder:NO
+                                            withRange:nil
+                                     withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                         [self.downloadPercent setText:@"下載完成"];
+                                     }
+                                     withFailureBlock:^(RKObjectRequestOperation *o, NSError *e){
+                                         [self.downloadPercent setText:@"下載失敗"];
+                                     }
+                                  withInProgressBlock:^(long long r, long long t){
+                                      CGFloat per = (CGFloat)r/(CGFloat)t;
+                                      CGFloat rMB = r/1048576.0f;
+                                      CGFloat tMB = t/1048576.0f;
+                                      per *= 100.0f;
+                                      
+                                      NSString *s = [NSString stringWithFormat:@"p:%0.1f,r:%0.1f,t:%0.1f", per, rMB, tMB];
+                                      [self.downloadPercent setText:s];
+                                  }];
 }
 
 @end

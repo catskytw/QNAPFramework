@@ -20,7 +20,7 @@
 @dynamic dsv2URL;
 @dynamic dsv3Supported;
 @dynamic forceSSL;
-@dynamic grouopname;
+@dynamic groupname;
 @dynamic hdaRoot_ALMOST_FULL;
 @dynamic hostname;
 @dynamic httpHost;

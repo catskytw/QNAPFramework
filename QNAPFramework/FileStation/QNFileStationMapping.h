@@ -12,6 +12,7 @@
 
 @interface QNFileStationMapping : QNMappingProtoType
 + (RKEntityMapping *)mappingForLogin;
++ (RKEntityMapping *)mappingForLoginError;
 + (NSDictionary *)allMappingInAuthLogin;
-
++ (RKDynamicMapping *)dynamicMappingWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping;
 @end

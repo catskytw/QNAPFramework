@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "QNMyCloudManager.h"
+#import "QNFileStationAPIManager.h"
 
 @interface QNViewController : UIViewController
 @property QNMyCloudManager *myCloudManager;
+@property QNFileStationAPIManager *fileStationManager;
+
+@property IBOutlet UILabel *loginLabel;
+@property IBOutlet UILabel *downloadPercent;
+@property IBOutlet UIButton *downloadBtn;
+
+- (IBAction)downloadSampleFile:(id)sender;
 @end

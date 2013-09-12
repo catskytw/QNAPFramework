@@ -45,4 +45,9 @@
     }
     return (NSDictionary*)mutablDic;
 }
+
++ (void)dynamicMappingResult:(id)dynamicObject{
+    DDLogWarn(@"dynamic mapping detected: %@", NSStringFromClass([dynamicObject class]));
+}
+
 @end

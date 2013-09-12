@@ -14,5 +14,6 @@
 
 + (RKEntityMapping *)entityMapping:(NSString*)entityName withManagerObjectStore:(RKManagedObjectStore*)managedObjectStore isXMLParser:(BOOL)isXMLParser;
 + (NSDictionary *)convertAllKeysFromRKPropertInspectorToDictionary:(NSArray*)allKeys;
++ (void)dynamicMappingResult:(id)dynamicObject;
 
 @end

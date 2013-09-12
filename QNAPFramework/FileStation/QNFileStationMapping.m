@@ -25,7 +25,7 @@
     [customLogo setIdentificationAttributes:@[@"customFrontLogo", @"customLoginLogo"]];
     
     RKEntityMapping *passwdConstraints = [self entityMapping:@"QNFilePasswdConstraints" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:YES];
-    [customLogo setIdentificationAttributes:@[@"passwdConstraint01", @"passwdConstraint02", @"passwdConstraint03", @"passwdConstraint04"]];
+    [passwdConstraints setIdentificationAttributes:@[@"passwdConstraint01", @"passwdConstraint02", @"passwdConstraint03", @"passwdConstraint04"]];
 
     RKRelationshipMapping *firmwareRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"firmware"
                                                                                           toKeyPath:@"relationship_firmware"
@@ -37,7 +37,7 @@
                                                                                           toKeyPath:@"relationship_customLogo"
                                                                                         withMapping:customLogo];
     RKRelationshipMapping *passwdConstraintsRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"passwdConstraints"
-                                                                                          toKeyPath:@"relationship_firmware"
+                                                                                          toKeyPath:@"relationship_passwdConstraints"
                                                                                         withMapping:passwdConstraints];
     
     [fileStationLoginMapping addPropertyMapping:firmwareRelation];
@@ -48,6 +48,26 @@
     return fileStationLoginMapping;
 }
 
+
++ (RKEntityMapping *)mappingForLoginError{
+    /**
+     <doQuick><![CDATA[]]></doQuick><is_booting><![CDATA[0]]></is_booting><authPassed><![CDATA[0]]></authPassed><errorValue><![CDATA[-1]]></errorValue><username><![CDATA[admin]]></username></QDocRoot>
+     */
+    return [self entityMapping:@"QNFileLoginError" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:YES];
+}
+
++ (RKDynamicMapping *)dynamicMappingWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping{
+    RKDynamicMapping *rDynamicMapping = [RKDynamicMapping new];
+    [rDynamicMapping setObjectMappingForRepresentationBlock:^RKObjectMapping *(id representation) {
+        if ([[[representation valueForKey:@"authPassed"] valueForKey:@"text"] isEqualToString:@"0"]) {
+            return errorMapping;
+        } else if ([[[representation valueForKey:@"authPassed"] valueForKey:@"text"] isEqualToString:@"1"]) {
+            return correctResponseMapping;
+        }
+        return nil;
+    }];
+    return rDynamicMapping;
+}
 
 
 + (NSDictionary *)allMappingInAuthLogin{
