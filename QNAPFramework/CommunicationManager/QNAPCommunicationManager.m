@@ -30,7 +30,7 @@ int ddLogLevel;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
+        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_INFO];
         [singletonCommunicationManager settingMisc:nil];
         
     }
@@ -87,7 +87,9 @@ int ddLogLevel;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor blueColor] backgroundColor:nil forFlag:LOG_FLAG_VERBOSE];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
-    RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    
+    if(_ddLogLevel & LOG_FLAG_VERBOSE)
+        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 
 - (void)settingMisc:(NSBundle *)resourceBundle{

@@ -18,7 +18,16 @@
 + (void)closeCommunicationManager;
 #pragma mark - Factory methods
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
+
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
+
 - (void)settingMisc:(NSBundle *)resourceBundle;
+
+/**
+ *  Give logLevel from CocoaLumberjack. See DDLog.h
+ *  If LOG_FLAG_VERBOSE, it would print HTTP's request and response(including header and body in both)
+ *
+ *  @param _ddLogLevel Log Level
+ */
 - (void)activateDebugLogLevel:(int)_ddLogLevel;
 @end
