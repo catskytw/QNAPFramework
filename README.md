@@ -17,10 +17,10 @@ self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatio
 An easy way to login!
 Another downloading sample:
 ```objc
-[self.fileManager downloadFileWithFilePath:@"/Public"
-                              withFileName:@"1.mov"
+[self.fileManager downloadFileWithFilePath:YOUR_FILE_PATH
+                              withFileName:YOUR_FILE_NAME
                                   isFolder:NO
-                                 withRange:nil
+                                 withRange:nil //give the range for resume downloading
                           withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                               DDLogVerbose(@"download success!");
                               //update your UI status
