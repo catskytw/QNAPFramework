@@ -1,5 +1,5 @@
 # QNAPFramework
-***
+
 ##Overview
 You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains FileManagerAPI, MusicStation API, PhotoStation API, myCloud API and so on. You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. For login example, you only simply invoke a method such as:
 
@@ -78,6 +78,6 @@ $ pod install
 $ open App.xcworkspace
 ```
 If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
-***
+
 ##Getting Started
 
