@@ -1,4 +1,4 @@
-### QNAPFramework.
+### QNAPFramework
 You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains FileManagerAPI, MusicStation API, PhotoStation API, myCloud API and so on. You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. For login example, you only simply invoke a method such as:
 
 ```Objective-C
@@ -41,5 +41,11 @@ QNAPFramework is integrated with several powerful libraries to complete its work
 * Integrated with [SDWebImage](https://github.com/rs/SDWebImage) which giving you a lazy loading of pictures and managing the picture cache easily.
 * Others: [AFOAuth2Client](https://github.com/AFNetworking/AFOAuth2Client), [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack), [Expecta](https://github.com/specta/expecta)
 
-### How to install
+### Installation
+The only way to install QNAPFramework is vai [Cocoapods](http://cocoapods.org/). You can install cocoapods packages easily on your MacOS:
+
+```
+$ [sudo] gem install cocoapods
+$ pod setup
+```
 
