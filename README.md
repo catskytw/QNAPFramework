@@ -43,16 +43,16 @@ QNAPFramework is integrated with several powerful libraries to complete its work
 
 ### Installation
 The only way to install QNAPFramework is via [Cocoapods](http://cocoapods.org/). Please follow these steps:
-1. Installing cocoapods package:
++ Installing cocoapods package:
 ```
 $ [sudo] gem install cocoapods
 $ pod setup
 ```
-2. Adding QNAPFramework cocoapods' spec into your repo list, the magic trick is:
++ Adding QNAPFramework cocoapods' spec into your repo list, the magic trick is:
 ```
 pod repo add Private-Cocoapods https://github.com/catskytw/PrivateCocoapods.git
 ```
-3. Now, you can search QNAPFramework package via cocoapods:
++ Now, you can search QNAPFramework package via cocoapods:
 ```
 $ pod search QNAPFramework
 -> QNAPFramework (0.1.6)
@@ -64,17 +64,15 @@ $ pod search QNAPFramework
    - Sub specs:
      - QNAPFramework/no-arc (0.1.6)
 ```
-4. Creating your iOS project and editing Podfile. 
++ Creating your iOS project and editing Podfile. 
 ```
 $ edit Podfile
 platform :ios, '5.0'
 pod 'QNAPFramework',       '~> 0.1.6'
 ```
-5. Installing the dependenies of your project, and always open the .xcworkspace
++ Installing the dependenies of your project, and always open the .xcworkspace
 ```
 $ pod install
 $ open App.xcworkspace
 ```
 If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
-
-
