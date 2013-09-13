@@ -1,64 +1,70 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <title>Qnapframework by catskytw</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Qnapframework : QNAP, framework" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Qnapframework</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Qnapframework</h1>
-          <h2>QNAP, framework</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/catskytw/QNAPFramework">View on GitHub</a>
+
+          <h1 id="project_title">Qnapframework</h1>
+          <h2 id="project_tagline">QNAP, framework</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/catskytw/QNAPFramework/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/catskytw/QNAPFramework/tarball/master">Download this project as a tar.gz file</a>
+            </section>
         </header>
+    </div>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/catskytw/QNAPFramework/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/catskytw/QNAPFramework/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/catskytw/QNAPFramework" id="view-on-github" class="button"><span>View on GitHub</span></a>
-        </section>
-
-        <hr>
-
-        <section id="main_content">
-          <h3>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
 <a name="qnapframework" class="anchor" href="#qnapframework"><span class="octicon octicon-link"></span></a>QNAPFramework.</h3>
 
-<pre><code>You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains FileManagerAPI, MusicStation API, PhotoStation API, myCloud API and so on. You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. You only simply invoke a method such as:
-</code></pre>
+<p>You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains FileManagerAPI, MusicStation API, PhotoStation API, myCloud API and so on. You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. You only simply invoke a method such as:</p>
 
-<hr><p><code>
-    //create a fileStationManager
-    self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatioAPIManager:NASURL];
-    //login method
-    [self.fileStationManager loginWithAccount:NAS_ACCOUNT
-                                 withPassword:NAS_PASSWORD
-                             withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
-                                 [self.loginLabel setText:@"登入成功"];
-                             }
-                             withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
-                                 [self.loginLabel setText:@"登入失敗"];
-                             }];
-</code></p>
-        </section>
+<div class="highlight highlight-Objective-C"><pre><span class="c1">//create a fileStationManager</span>
+<span class="n">self</span><span class="p">.</span><span class="n">fileStationManager</span> <span class="o">=</span> <span class="p">[[</span><span class="n">QNAPCommunicationManager</span> <span class="n">share</span><span class="p">]</span> <span class="n">factoryForFileStatioAPIManager</span><span class="o">:</span><span class="n">NASURL</span><span class="p">];</span>
+<span class="c1">//login method</span>
+<span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">fileStationManager</span> <span class="n">loginWithAccount</span><span class="o">:</span><span class="n">NAS_ACCOUNT</span>
+                             <span class="nl">withPassword:</span><span class="n">NAS_PASSWORD</span>
+                         <span class="nl">withSuccessBlock:</span><span class="o">^</span><span class="p">(</span><span class="n">RKObjectRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="n">RKMappingResult</span> <span class="o">*</span><span class="n">mappingResult</span><span class="p">,</span> <span class="n">QNFileLogin</span> <span class="o">*</span><span class="n">login</span><span class="p">){</span>
+                             <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">loginLabel</span> <span class="n">setText</span><span class="o">:</span><span class="s">@"登入成功"</span><span class="p">];</span>
+                         <span class="p">}</span>
+                         <span class="nl">withFailureBlock:</span><span class="o">^</span><span class="p">(</span><span class="n">RKObjectRequestOperation</span> <span class="o">*</span><span class="n">operation</span><span class="p">,</span> <span class="n">QNFileLoginError</span> <span class="o">*</span><span class="n">error</span><span class="p">){</span>
+                             <span class="p">[</span><span class="n">self</span><span class="p">.</span><span class="n">loginLabel</span> <span class="n">setText</span><span class="o">:</span><span class="s">@"登入失敗"</span><span class="p">];</span>
+                         <span class="p">}];</span>
+</pre></div>
 
-        <footer>
-          Qnapframework is maintained by <a href="https://github.com/catskytw">catskytw</a><br>
-          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
+<p>An easy way to login!</p>
 
-        
-      </div>
+<h3>
+<a name="how-to-install" class="anchor" href="#how-to-install"><span class="octicon octicon-link"></span></a>How to install</h3>
+      </section>
     </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Qnapframework maintained by <a href="https://github.com/catskytw">catskytw</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
   </body>
 </html>
