@@ -44,7 +44,7 @@ QNAPFramework is integrated with several powerful libraries to complete its work
 * Others: [AFOAuth2Client](https://github.com/AFNetworking/AFOAuth2Client), [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack), [Expecta](https://github.com/specta/expecta)
 
 ## Installation
-The only way to install QNAPFramework is via [Cocoapods](http://cocoapods.org/). Please follow these steps:
+The only way to install QNAPFramework is via [Cocoapods](http://cocoapods.org/). Please follow these steps:<br/>
 Installing cocoapods package:
 ```bat
 $ [sudo] gem install cocoapods
