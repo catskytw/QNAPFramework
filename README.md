@@ -15,6 +15,25 @@ self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatio
                          }];
 ```
 An easy way to login!
+Another downloading sample:
+```objc
+[self.fileManager downloadFileWithFilePath:@"/Public"
+                              withFileName:@"1.mov"
+                                  isFolder:NO
+                                 withRange:nil
+                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                              DDLogVerbose(@"download success!");
+                              //update your UI status
+                          }
+                          withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                              DDLogError(@"download error, Error: %@ !", error);
+                              //give an alert to show error
+                          }
+                       withInProgressBlock:^(long long totalBytesRead, long long totalBytesExpectedToRead){
+                           DDLogVerbose(@"download file progress %lldbytes/%lldbytes", totalBytesRead, totalBytesExpectedToRead);
+                           //update progress bar
+                       }];
+```
 
 QNAPFramework is integrated several powerful libraries to complete its works:
 * Based on [RESTKit](https://github.com/RestKit/RestKit) which is a powerful object mapping engine that seamlessly integrates with Core Data and a simple set of networking primitives for mapping HTTP requests and responses built on top of [AFNetworking](https://github.com/AFNetworking/AFNetworking).
