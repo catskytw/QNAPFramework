@@ -42,7 +42,7 @@ QNAPFramework is integrated with several powerful libraries to complete its work
 * Integrated with [MagicalRecord](https://github.com/magicalpanda/MagicalRecord) by sharing same NSManagedObjectContext and NSPersistentStoreCoordinator, which may save you a lot of effort in dealing with CoreData.
 * Integrated with [SDWebImage](https://github.com/rs/SDWebImage) which giving you a lazy loading of pictures and managing the picture cache easily.
 * Others: [AFOAuth2Client](https://github.com/AFNetworking/AFOAuth2Client), [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack), [Expecta](https://github.com/specta/expecta)
-***
+
 ## Installation
 The only way to install QNAPFramework is via [Cocoapods](http://cocoapods.org/). Please follow these steps:
 Installing cocoapods package:
