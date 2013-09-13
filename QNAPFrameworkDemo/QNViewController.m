@@ -21,6 +21,9 @@
 {
     [super viewDidLoad];
     self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatioAPIManager:NASURL];
+    self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL
+                                                                        withClientId:CLIENT_ID
+                                                                    withClientSecret:CLIENT_SECRET];
     [self.fileStationManager loginWithAccount:NAS_ACCOUNT
                                  withPassword:NAS_PASSWORD
                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
@@ -29,6 +32,14 @@
                              withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
                                  [self.loginLabel setText:@"登入失敗"];
                              }];
+    [self.myCloudManager fetchOAuthToken:MyCloud_ACCOUNT
+                            withPassword:MyCloud_PASSWORD
+                        withSuccessBlock:^(AFOAuthCredential *credential){
+                            
+                        } withFailureBlock:^(NSError *error){
+                            
+                        }];
+    
 }
 
 - (void)didReceiveMemoryWarning

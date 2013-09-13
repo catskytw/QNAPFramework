@@ -8,9 +8,11 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "QNAPCommunicationManager.h"
+#import "QNViewController.h"
 
 
 @interface QNAPFrameworkTests : SenTestCase
+@property QNViewController *viewController;
 @property QNAPCommunicationManager *communicationManager;
 @property QNMyCloudManager *myCloudManager;
 @property QNFileStationAPIManager *fileManager;

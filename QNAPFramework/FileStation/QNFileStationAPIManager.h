@@ -15,6 +15,7 @@
     NSString *_authSid;
 }
 @property(nonatomic, strong) RKObjectManager *rkObjectManager;
+@property(nonatomic, strong, readonly) NSString *authSid;
 /**
  *  login action in FileStations Version 1.0
  *  TODO: checkout the version above
@@ -40,9 +41,23 @@
  */
 - (void)downloadFileWithFilePath:(NSString *)filePath withFileName:(NSString *)fileName isFolder:(BOOL)isFolder withRange:(NSRange *)fileRange withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure withInProgressBlock:(void(^)(long long totalBytesRead, long long totalBytesExpectedToRead))inProgress;
 
-//You should know the relative rules of NSURL
+/**
+ *  Get a thumbNail for a specified pic. This method uses the url as a key to search the image from cache first, and downloads from network if there is no image in cache.
+ *  In next time, the image could be fetched from cache directly unlee executing [QNFileStationAPIManager clearThumnailCache];
+ *
+ *  Attention: You have to give the correct fileName and filePath which are following up the relative's rule in NSURL
+ *  Please see https://developer.apple.com/library/ios/documentation/cocoa/reference/foundation/Classes/NSURL_Class/Reference/Reference.html#//apple_ref/doc/uid/20000301-4355
+ *
+ *  @param fileName   picName
+ *  @param filePath   picPath
+ *  @param success    executing block after loading successful
+ *  @param failure    executing block after loading failure
+ *  @param inProgress invoke this block while download
+ */
 - (void)thumbnailWithFile:(NSString *)fileName withPath:(NSString *)filePath withSuccessBlock:(void(^)(UIImage *image))success withFailureBlock:(void(^)(NSError *error))failure withInProgressBlock:(void(^)(NSUInteger receivedSize, long long expectedSize))inProgress;
 
-
-
+/**
+ *  Clean all images,which is downloaded from [QNFileStationAPIManager tuhmbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:], in ImageCache
+ */
+- (void)clearThumbnailCache;
 @end

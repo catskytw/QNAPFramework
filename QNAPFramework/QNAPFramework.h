@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <CocoaLumberjack/DDLog.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
+#define CredentialIdentifier @"myCloudCredential"
+
+
 #ifndef LOG_VERBOSE
 extern int ddLogLevel;
 #endif

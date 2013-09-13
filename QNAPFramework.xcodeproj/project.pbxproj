@@ -19,6 +19,9 @@
 		0C23DAA717E19F2A001C72DE /* myCloudCoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = A322816C17D656FB00017366 /* myCloudCoreData.xcdatamodeld */; };
 		0C23DAA817E19F2A001C72DE /* FileManagerCoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 0C2134B317E047390009FA09 /* FileManagerCoreData.xcdatamodeld */; };
 		0C23DAB517E1BD2B001C72DE /* RKObjectManager_DownloadProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAB417E1BD2B001C72DE /* RKObjectManager_DownloadProgress.m */; };
+		0C23DAB817E2E3C6001C72DE /* QNAPFrameworkUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAB717E2E3C5001C72DE /* QNAPFrameworkUtil.m */; };
+		0C23DABC17E2EBEE001C72DE /* QNMusicStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DABB17E2EBEE001C72DE /* QNMusicStationAPIManager.m */; };
+		0C23DAC017E2EC1B001C72DE /* QNPhotoStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DABF17E2EC1B001C72DE /* QNPhotoStationAPIManager.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -108,6 +111,12 @@
 		0C23DAA517E19B63001C72DE /* QNFileLoginError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileLoginError.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNFileLoginError.m; sourceTree = SOURCE_ROOT; };
 		0C23DAB317E1BD2B001C72DE /* RKObjectManager_DownloadProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKObjectManager_DownloadProgress.h; sourceTree = "<group>"; };
 		0C23DAB417E1BD2B001C72DE /* RKObjectManager_DownloadProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKObjectManager_DownloadProgress.m; sourceTree = "<group>"; };
+		0C23DAB617E2E3C5001C72DE /* QNAPFrameworkUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNAPFrameworkUtil.h; path = SuperClass/QNAPFrameworkUtil.h; sourceTree = "<group>"; };
+		0C23DAB717E2E3C5001C72DE /* QNAPFrameworkUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNAPFrameworkUtil.m; path = SuperClass/QNAPFrameworkUtil.m; sourceTree = "<group>"; };
+		0C23DABA17E2EBEE001C72DE /* QNMusicStationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMusicStationAPIManager.h; sourceTree = "<group>"; };
+		0C23DABB17E2EBEE001C72DE /* QNMusicStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMusicStationAPIManager.m; sourceTree = "<group>"; };
+		0C23DABE17E2EC1B001C72DE /* QNPhotoStationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNPhotoStationAPIManager.h; sourceTree = "<group>"; };
+		0C23DABF17E2EC1B001C72DE /* QNPhotoStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNPhotoStationAPIManager.m; sourceTree = "<group>"; };
 		0C53E4C517E16743008B4AFD /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
@@ -244,6 +253,24 @@
 			path = FileStation/CoreDataObject;
 			sourceTree = "<group>";
 		};
+		0C23DAB917E2EBA4001C72DE /* MusicStation */ = {
+			isa = PBXGroup;
+			children = (
+				0C23DABA17E2EBEE001C72DE /* QNMusicStationAPIManager.h */,
+				0C23DABB17E2EBEE001C72DE /* QNMusicStationAPIManager.m */,
+			);
+			path = MusicStation;
+			sourceTree = "<group>";
+		};
+		0C23DABD17E2EC08001C72DE /* PhotoStation */ = {
+			isa = PBXGroup;
+			children = (
+				0C23DABE17E2EC1B001C72DE /* QNPhotoStationAPIManager.h */,
+				0C23DABF17E2EC1B001C72DE /* QNPhotoStationAPIManager.m */,
+			);
+			path = PhotoStation;
+			sourceTree = "<group>";
+		};
 		0CA5F16717D4942F00183046 = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +314,8 @@
 		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
 			isa = PBXGroup;
 			children = (
+				0C23DABD17E2EC08001C72DE /* PhotoStation */,
+				0C23DAB917E2EBA4001C72DE /* MusicStation */,
 				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
 				A3E12BA817D6104F00A3982D /* MyCloud */,
 				A3E12BA717D6103E00A3982D /* FileStation */,
@@ -417,6 +446,8 @@
 			children = (
 				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
 				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
+				0C23DAB617E2E3C5001C72DE /* QNAPFrameworkUtil.h */,
+				0C23DAB717E2E3C5001C72DE /* QNAPFrameworkUtil.m */,
 			);
 			name = CommunicationManager;
 			sourceTree = "<group>";
@@ -676,6 +707,9 @@
 				0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */,
 				0C23DAA617E19B63001C72DE /* QNFileLoginError.m in Sources */,
 				0C23DAB517E1BD2B001C72DE /* RKObjectManager_DownloadProgress.m in Sources */,
+				0C23DAB817E2E3C6001C72DE /* QNAPFrameworkUtil.m in Sources */,
+				0C23DABC17E2EBEE001C72DE /* QNMusicStationAPIManager.m in Sources */,
+				0C23DAC017E2EC1B001C72DE /* QNPhotoStationAPIManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

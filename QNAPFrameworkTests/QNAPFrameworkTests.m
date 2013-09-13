@@ -13,64 +13,53 @@
 #import <Expecta/Expecta.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <MagicalRecord/MagicalRecord.h>
+#import "QNAPFramework.h"
 #import "SettingInfo.h"
 #import "UserActivity.h"
 #import "App.h"
 #import "Response.h"
+#import "QNAppDelegate.h"
+#import "QNAPFrameworkUtil.h"
 @implementation QNAPFrameworkTests
 
 - (void)setUp {
-    __block NSNumber *isFetchToken = nil;
-    __block NSNumber *isFetchSid = nil;
     [super setUp];
     [Expecta setAsynchronousTestTimeout:10000];
-    [[QNAPCommunicationManager share] settingMisc: nil];
-    self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL
-                                                                        withClientId:CLIENT_ID
-                                                                    withClientSecret:CLIENT_SECRET];
-    [self.myCloudManager fetchOAuthToken:MyCloud_ACCOUNT
-                            withPassword:MyCloud_PASSWORD
-                        withSuccessBlock:^(AFOAuthCredential *credential){
-                            isFetchToken = @YES;
-                        }withFailureBlock:^(NSError *error){
-                            
-                        }];
-    self.fileManager = [[QNAPCommunicationManager share] factoryForFileStatioAPIManager:NASURL];
-    [self.fileManager loginWithAccount:NAS_ACCOUNT
-                          withPassword:NAS_PASSWORD
-                      withSuccessBlock:^(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult, QNFileLogin *login){
-                          isFetchSid = @YES;
-                      }
-                      withFailureBlock:nil];
-    expect(isFetchToken).willNot.beNil();    
-    expect(isFetchSid).willNot.beNil();
+    QNAppDelegate *appDelegate = (QNAppDelegate *)[[UIApplication sharedApplication] delegate ];
+    self.viewController = (QNViewController *)appDelegate.window.rootViewController;
     
+    self.myCloudManager = self.viewController.myCloudManager;
+    self.fileManager = self.viewController.fileStationManager;
+    
+    while (!self.fileManager.authSid || ![AFOAuthCredential retrieveCredentialWithIdentifier:CredentialIdentifier].accessToken) {
+        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+    }
+    [[QNAPCommunicationManager share] settingMisc: nil];
 }
 
 - (void)tearDown {
     self.myCloudManager = nil;
     self.fileManager = nil;
-    [QNAPCommunicationManager closeCommunicationManager];
-    
     [super tearDown];
 }
 
 #pragma mark - TestCase
-- (void)testToken {
-    __block AFOAuthCredential *_credential = nil;
-    [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential) {
-        DDLogInfo(@"credential %@", credential.accessToken);
-        _credential = credential;
-    }
-                        withFailureBlock:^(NSError *error) {
-                            _credential = [AFOAuthCredential new];
-                            DDLogError(@"error while acquiring accessToken %@", error);
-                        }
-     ];
-    expect(_credential).willNot.beNil();
-}
+//- (void)testCase4_FetchingToken {
+//    __block AFOAuthCredential *_credential = nil;
+//    [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential) {
+//        DDLogInfo(@"credential %@", credential.accessToken);
+//        _credential = credential;
+//    }
+//                        withFailureBlock:^(NSError *error) {
+//                            _credential = [AFOAuthCredential new];
+//                            DDLogError(@"error while acquiring accessToken %@", error);
+//                        }
+//     ];
+//    expect(_credential).willNot.beNil();
+//}
 
-- (void)testMyCloudReadMyInformation {
+- (void)testCase5_MyCloudReadMyInformation {
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
@@ -78,7 +67,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testMyCloudUpdateMyInformation{
+- (void)testCase6_MyCloudUpdateMyInformation{
     NSDictionary *userInfo = @{@"email":@"catskytw@gmail.com",
                                @"first_name":@"Change",
                                @"last_name":@"Chen",
@@ -98,7 +87,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testMyCloudListMyActivities{
+- (void)testCase7_MyCloudListMyActivities{
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager listMyActivities:0
                                 withLimit:10
@@ -112,7 +101,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testMyCloudChangePassword{
+- (void)testCase9_MyCloudChangePassword{
     __block BOOL hasResponse = NO;
     [self.myCloudManager changeMyPassword:@"12345678"
                           withNewPassword:@"12345678"
@@ -128,38 +117,65 @@
     expect(hasResponse).willNot.beFalsy();
 }
 
-- (void)testFileManagerLogin{
-    __block BOOL _hasResponse = false;
-    [self.fileManager loginWithAccount:NAS_ACCOUNT
-                          withPassword:NAS_PASSWORD
-                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
-                          _hasResponse = true;
-                          DDLogInfo(@"login information %@", login);
-                      }
-                      withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
-                          _hasResponse = true;
-                          if(error)
-                              DDLogError(@"Error while FileStationLogin %@", error.errorValue);
-                      }];
-    expect(_hasResponse).willNot.beFalsy();
-}
+//- (void)testCase9_FileManagerLogin{
+//    __block BOOL _hasResponse = false;
+//    [self.fileManager loginWithAccount:NAS_ACCOUNT
+//                          withPassword:NAS_PASSWORD
+//                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
+//                          _hasResponse = true;
+//                          DDLogInfo(@"login information %@", login);
+//                      }
+//                      withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
+//                          _hasResponse = true;
+//                          if(error)
+//                              DDLogError(@"Error while FileStationLogin %@", error.errorValue);
+//                      }];
+//    expect(_hasResponse).willNot.beFalsy();
+//}
 
-- (void)testDownloadFile{
-    __block BOOL _hasResponse = false;
+- (void)testCase90_FileManagerDownloadFile{
+    __block BOOL _hasDownload = false;
     [self.fileManager downloadFileWithFilePath:@"/Public"
-                                     withFiles:@[@"1.mov"]
+                                  withFileName:@"1.mov"
                                       isFolder:NO
                                      withRange:nil
                               withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                   DDLogVerbose(@"download success");
+                                  _hasDownload = YES;
                               }
                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                   DDLogError(@"download error, Error: %@", error);
+                                  _hasDownload = YES;
                               }
-                           withInProgressBlock:^(CGFloat percentage){
-                               DDLogVerbose(@"download percentage is %f", percentage);
-                               _hasResponse = YES;
+                           withInProgressBlock:^(long long totalBytesRead, long long totalBytesExpectedToRead){
+                               DDLogVerbose(@"download file progress %lldbytes/%lldbytes", totalBytesRead, totalBytesExpectedToRead);
+                               _hasDownload = YES;
                            }];
-    expect(_hasResponse).willNot.beFalsy();
+    expect(_hasDownload).willNot.beFalsy();
+//    while (!_hasDownload){
+//        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+//        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+//    }
+}
+
+- (void)testCase2_FileManagerDownloadThumbnail{
+    __block BOOL _hasDownload = NO;
+    [self.fileManager thumbnailWithFile:@"1.JPG"
+                               withPath:@"/Public"
+                       withSuccessBlock:^(UIImage *image){
+                           DDLogVerbose(@"received thumbnailImage %@", image);
+                           _hasDownload = YES;
+                       }
+                       withFailureBlock:^(NSError *error){
+                           DDLogError(@"received thumbnail failiure %@", error);
+                           _hasDownload = YES;
+                       }
+                    withInProgressBlock:^(NSUInteger receivedSize, long long expectedSize){
+                        DDLogVerbose(@"received thumbnail %i bytes/%lld bytes", receivedSize, expectedSize);
+                    }];
+    while (!_hasDownload){
+        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+    }
 }
 @end

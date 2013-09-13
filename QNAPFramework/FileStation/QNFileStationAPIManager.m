@@ -8,6 +8,7 @@
 
 #import "QNFileStationAPIManager.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <AFNetworking/AFHTTPClient.h>
 #import "QNFileStationMapping.h"
 #import "QNAPCommunicationManager.h"
 #import "RKXMLReaderSerialization.h"
@@ -15,7 +16,9 @@
 #import "RKObjectManager_DownloadProgress.h"
 
 @implementation QNFileStationAPIManager
-- (instancetype)initWithBaseURL:(NSString *)baseURL{
+@synthesize authSid = _authSid;
+
+- (id)initWithBaseURL:(NSString *)baseURL{
     if((self = [super initWithBaseURL:baseURL])){
         self.baseURL = baseURL;
         self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
@@ -54,6 +57,7 @@
                                          NSArray *allQNLogin = [QNFileLogin MR_findAllInContext:self.rkObjectManager.managedObjectStore.mainQueueManagedObjectContext];
                                          QNFileLogin *targetLogin = allQNLogin[0];
                                          _authSid = [NSString stringWithString:targetLogin.authSid];
+                                         [QNAPCommunicationManager share].sid = _authSid;
                                          DDLogInfo(@"fetching login information successfully...Sid: %@", targetLogin.authSid);
                                          
                                          if(success){
@@ -77,7 +81,9 @@
     //http://changenas.myqnapcloud.com:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=6nmadgva&isfolder=0&source_path=/Public&source_file=1.mov&source_total=1
     //http://IP:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=xxxx&isfolder=0&source_path=/Public&source_file=test.txt&source_file=test2.txt&source_total=2
     //two source_file? WTF.
-    if(!filePath || !fileName)
+    
+    //maybe Using AOP concept here is better. TODO item.
+    if(!filePath || !fileName || !_authSid)
         return;
     
     NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
@@ -92,19 +98,32 @@
     [self.rkObjectManager getObject:nil
                                path:@"cgi-bin/filemanager/utilRequest.cgi"
                          parameters:parameters
-                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}
-                            failure:^(RKObjectRequestOperation *operation, NSError *error){}
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                DDLogVerbose(@"downloadFile %@ successful!", fileName);
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                DDLogError(@"downloadFile %@ failure!", fileName);
+                            }
                          inProgress:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead){
                              inProgress(totalBytesRead, totalBytesExpectedToRead);
                          }];
 }
 
 - (void)thumbnailWithFile:(NSString *)fileName withPath:(NSString *)filePath withSuccessBlock:(void(^)(UIImage *image))success withFailureBlock:(void(^)(NSError *error))failure withInProgressBlock:(void(^)(NSUInteger receivedSize, long long expectedSize))inProgress{
-    NSURL *_baseURL = [NSURL URLWithString:self.baseURL];
-    NSURL *pathURL = [NSURL URLWithString:filePath relativeToURL:_baseURL];
-    NSURL *targetURL = [NSURL URLWithString:fileName relativeToURL:pathURL];
     
-    [[SDWebImageManager sharedManager] downloadWithURL:targetURL
+
+    AFHTTPClient *client = [[AFHTTPClient alloc] initWithBaseURL:[NSURL URLWithString:self.baseURL]];
+    NSMutableURLRequest *request =[client requestWithMethod:@"GET"
+                                                       path:@"cgi-bin/filemanager/utilRequest.cgi"
+                                                 parameters:
+                                   @{
+                                   @"func":@"get_thumb",
+                                   @"sid":_authSid,
+                                   @"name":fileName,
+                                   @"path":filePath,
+                                   @"size":@"320"}
+                                   ];
+    [[SDWebImageManager sharedManager] downloadWithURL:[request URL]
                                                options:0
                                               progress:^(NSUInteger receivedSize, long long expectedSize){
                                                   inProgress(receivedSize, expectedSize);
@@ -115,4 +134,10 @@
                                              }];
     
 }
+
+- (void)clearThumbnailCache{
+    [[[SDWebImageManager sharedManager] imageCache] clearMemory];
+    [[[SDWebImageManager sharedManager] imageCache] clearDisk];
+}
+
 @end

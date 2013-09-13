@@ -13,6 +13,7 @@
 @interface QNAPCommunicationManager : NSObject
 @property(nonatomic, strong) NSMutableArray *allModules;
 @property(nonatomic, strong) RKManagedObjectStore *objectManager;
+@property(nonatomic, strong) NSString *sid;
 
 + (QNAPCommunicationManager *)share;
 + (void)closeCommunicationManager;

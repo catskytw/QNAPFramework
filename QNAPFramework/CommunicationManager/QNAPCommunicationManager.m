@@ -30,7 +30,7 @@ int ddLogLevel;
          */
         singletonCommunicationManager = [QNAPCommunicationManager new];
         singletonCommunicationManager.allModules = [NSMutableArray array];
-        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_INFO];
+        [singletonCommunicationManager activateDebugLogLevel:LOG_LEVEL_VERBOSE];
         [singletonCommunicationManager settingMisc:nil];
         
     }

@@ -14,7 +14,6 @@
 #import "Response.h"
 #import <MagicalRecord/NSManagedObject+MagicalRecord.h>
 #import "QNAPFramework.h"
-#define credentialIdentifier @"myCloudCredential"
 
 @implementation QNMyCloudManager
 
@@ -38,7 +37,7 @@
     [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"
                                      parameters:@{@"grant_type":kAFOAuthClientCredentialsGrantType}
                                         success:^(AFOAuthCredential *credential){
-                                            [AFOAuthCredential storeCredential:credential withIdentifier:credentialIdentifier];
+                                            [AFOAuthCredential storeCredential:credential withIdentifier:CredentialIdentifier];
                                             self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
                                             self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
                                             [self addingAccessTokenInHeader];
@@ -61,7 +60,7 @@
                                        password:password
                                           scope:nil
                                         success:^(AFOAuthCredential *credential){
-                                            [AFOAuthCredential storeCredential:credential withIdentifier:credentialIdentifier];
+                                            [AFOAuthCredential storeCredential:credential withIdentifier:CredentialIdentifier];
                                             self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
                                             self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
                                             [self addingAccessTokenInHeader];
@@ -210,7 +209,7 @@
     [self.rkObjectManager.HTTPClient setDefaultHeader:@"Content-Type" value:@"application/json; charset=UTF-8"];
 }
 - (void)addingAccessTokenInHeader{
-    AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier:credentialIdentifier];
+    AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier:CredentialIdentifier];
     NSString *tokenString = [NSString stringWithFormat:@"Bearer %@", credential.accessToken];
     [self.rkObjectManager.HTTPClient setDefaultHeader:@"Authorization" value:tokenString];
 }
