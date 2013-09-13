@@ -42,10 +42,39 @@ QNAPFramework is integrated with several powerful libraries to complete its work
 * Others: [AFOAuth2Client](https://github.com/AFNetworking/AFOAuth2Client), [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack), [Expecta](https://github.com/specta/expecta)
 
 ### Installation
-The only way to install QNAPFramework is vai [Cocoapods](http://cocoapods.org/). You can install cocoapods packages easily on your MacOS:
-
+The only way to install QNAPFramework is via [Cocoapods](http://cocoapods.org/). Please follow these steps:
+1. Installing cocoapods package:
 ```
 $ [sudo] gem install cocoapods
 $ pod setup
 ```
+2. Adding QNAPFramework cocoapods' spec into your repo list, the magic trick is:
+```
+pod repo add Private-Cocoapods https://github.com/catskytw/PrivateCocoapods.git
+```
+3. Now, you can search QNAPFramework package via cocoapods:
+```
+$ pod search QNAPFramework
+-> QNAPFramework (0.1.6)
+   A short description of QNAPFramework.
+   pod 'QNAPFramework', '~> 0.1.6'
+   - Homepage: https://github.com/catskytw/QNAPFramework
+   - Source:   https://github.com/catskytw/QNAPFramework.git
+   - Versions: 0.1.6, 0.1.5, 0.1.4, 0.1.0 [QNAPCocoapods repo]
+   - Sub specs:
+     - QNAPFramework/no-arc (0.1.6)
+```
+4. Creating your iOS project and editing Podfile. 
+```
+$ edit Podfile
+platform :ios, '5.0'
+pod 'QNAPFramework',       '~> 0.1.6'
+```
+5. Installing the dependenies of your project, and always open the .xcworkspace
+```
+$ pod install
+$ open App.xcworkspace
+```
+If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
+
 
