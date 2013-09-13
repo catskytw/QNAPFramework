@@ -117,23 +117,26 @@
     expect(hasResponse).willNot.beFalsy();
 }
 
-//- (void)testCase9_FileManagerLogin{
-//    __block BOOL _hasResponse = false;
-//    [self.fileManager loginWithAccount:NAS_ACCOUNT
-//                          withPassword:NAS_PASSWORD
-//                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
-//                          _hasResponse = true;
-//                          DDLogInfo(@"login information %@", login);
-//                      }
-//                      withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
-//                          _hasResponse = true;
-//                          if(error)
-//                              DDLogError(@"Error while FileStationLogin %@", error.errorValue);
-//                      }];
-//    expect(_hasResponse).willNot.beFalsy();
-//}
+- (void)testCase901_FileManagerLogin{
+    __block BOOL _hasResponse = false;
+    [self.fileManager loginWithAccount:NAS_ACCOUNT
+                          withPassword:NAS_PASSWORD
+                      withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
+                          _hasResponse = true;
+                          DDLogInfo(@"login information %@", login);
+                      }
+                      withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
+                          _hasResponse = true;
+                          if(error)
+                              DDLogError(@"Error while FileStationLogin %@", error.errorValue);
+                      }];
+    while (!self.fileManager.authSid) {
+        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+    }
+}
 
-- (void)testCase90_FileManagerDownloadFile{
+- (void)testCase902_FileManagerDownloadFile{
     __block BOOL _hasDownload = false;
     [self.fileManager downloadFileWithFilePath:@"/Public"
                                   withFileName:@"1.mov"
