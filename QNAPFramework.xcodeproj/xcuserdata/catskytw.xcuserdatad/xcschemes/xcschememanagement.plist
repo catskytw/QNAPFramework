@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>All in QNAPFrameworkTests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
 		<key>QNAPFramework.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

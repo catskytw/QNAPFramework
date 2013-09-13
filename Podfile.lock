@@ -4,6 +4,15 @@ PODS:
     - AFNetworking (~> 1.0)
   - CocoaLumberjack (1.6.2)
   - Expecta (0.2.2)
+  - libwebp (0.3.0-rc7):
+    - libwebp/dec
+    - libwebp/dsp
+    - libwebp/utils
+    - libwebp/webp
+  - libwebp/dec (0.3.0-rc7)
+  - libwebp/dsp (0.3.0-rc7)
+  - libwebp/utils (0.3.0-rc7)
+  - libwebp/webp (0.3.0-rc7)
   - MagicalRecord (2.1)
   - RestKit (0.20.3):
     - RestKit/Core
@@ -20,6 +29,11 @@ PODS:
   - RestKit/ObjectMapping (0.20.3)
   - RestKit/Support (0.20.3):
     - TransitionKit (= 1.1.1)
+  - SDWebImage (3.4):
+    - libwebp
+    - SDWebImage/MapKit
+  - SDWebImage/MapKit (3.4):
+    - libwebp
   - SOCKit (1.1)
   - TransitionKit (1.1.1)
 
@@ -29,14 +43,17 @@ DEPENDENCIES:
   - Expecta (~> 0.2.2)
   - MagicalRecord (~> 2.1)
   - RestKit (~> 0.20.0rc)
+  - SDWebImage (~> 3.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 7f9bcd7c287a75476cd5c61e82fd3380e93e4c54
   AFOAuth2Client: 039596f19e8a4bdd852cb3fc44ddbe45e12c290a
   CocoaLumberjack: d73e1e317ced14ab930797dda6c17156ff17aaa1
   Expecta: 99adbb2e366a02796477523bfd426143350d9caf
+  libwebp: 40517fa1fd3716eded73b4696c45fc0b66e4b414
   MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
   RestKit: 1f181c180105a92f11ec4f6cd7de37625e516d83
+  SDWebImage: f13f791e411c632489824aa7f129e230b52bf5c4
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
   TransitionKit: d0e3344aac92991395d4c2e72d9c5a8ceeb12910
 

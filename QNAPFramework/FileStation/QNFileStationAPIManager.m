@@ -7,6 +7,7 @@
 //
 
 #import "QNFileStationAPIManager.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "QNFileStationMapping.h"
 #import "QNAPCommunicationManager.h"
 #import "RKXMLReaderSerialization.h"
@@ -73,8 +74,8 @@
 }
 
 - (void)downloadFileWithFilePath:(NSString *)filePath withFileName:(NSString *)fileName isFolder:(BOOL)isFolder withRange:(NSRange *)fileRange withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure withInProgressBlock:(void(^)(long long totalBytesRead, long long totalBytesExpectedToRead))inProgress{
-    //h ttp://changenas.myqnapcloud.com:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=6nmadgva&isfolder=0&source_path=/Public&source_file=1.mov&source_total=1
-    //h ttp://IP:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=xxxx&isfolder=0&source_path=/Public&source_file=test.txt&source_file=test2.txt&source_total=2
+    //http://changenas.myqnapcloud.com:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=6nmadgva&isfolder=0&source_path=/Public&source_file=1.mov&source_total=1
+    //http://IP:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=xxxx&isfolder=0&source_path=/Public&source_file=test.txt&source_file=test2.txt&source_total=2
     //two source_file? WTF.
     if(!filePath || !fileName)
         return;
@@ -96,5 +97,22 @@
                          inProgress:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead){
                              inProgress(totalBytesRead, totalBytesExpectedToRead);
                          }];
+}
+
+- (void)thumbnailWithFile:(NSString *)fileName withPath:(NSString *)filePath withSuccessBlock:(void(^)(UIImage *image))success withFailureBlock:(void(^)(NSError *error))failure withInProgressBlock:(void(^)(NSUInteger receivedSize, long long expectedSize))inProgress{
+    NSURL *_baseURL = [NSURL URLWithString:self.baseURL];
+    NSURL *pathURL = [NSURL URLWithString:filePath relativeToURL:_baseURL];
+    NSURL *targetURL = [NSURL URLWithString:fileName relativeToURL:pathURL];
+    
+    [[SDWebImageManager sharedManager] downloadWithURL:targetURL
+                                               options:0
+                                              progress:^(NSUInteger receivedSize, long long expectedSize){
+                                                  inProgress(receivedSize, expectedSize);
+                                              }
+                                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished){
+                                                 if(finished)
+                                                     (image)?success(image):failure(error);
+                                             }];
+    
 }
 @end
