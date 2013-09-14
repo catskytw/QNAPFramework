@@ -81,3 +81,12 @@ If you want to upgrade while a new version of QNAPFramework is published, run `p
 
 ##Getting Started
 
+##More Detail
+###AOP:<br/>
+In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming) concept, whose aspects are log, analysis and security check.
+We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes, thus we could insert any jointpoint into any target which could purify the logic in our methods.
+
+###Debug Level:<br/>
+In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunication settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
+
+
