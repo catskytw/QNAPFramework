@@ -88,5 +88,5 @@ We provide a tool named QNAPObjectProxy based on NSProxy which reflects any sele
 
 ###Debug Level:<br/>
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunication settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
-[<image src="https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png">]
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png)
 
