@@ -87,6 +87,6 @@ In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-or
 We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes, thus we could insert any jointpoint into any target which could purify the logic in our methods.
 
 ###Debug Level:<br/>
-In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunication settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
+In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
 ![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png)
 
