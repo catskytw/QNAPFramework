@@ -11,6 +11,7 @@
 #import <RestKit/RestKit.h>
 #import "QNFileLogin.h"
 #import "QNFileLoginError.h"
+#import "QNAPFramework.h"
 @interface QNFileStationAPIManager : QNModuleBaseObject{
     NSString *_authSid;
 }

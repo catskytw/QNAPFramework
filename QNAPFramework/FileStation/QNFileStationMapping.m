@@ -56,7 +56,7 @@
     return [self entityMapping:@"QNFileLoginError" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:YES];
 }
 
-+ (RKDynamicMapping *)dynamicMappingWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping{
++ (RKDynamicMapping *)dynamicMappingLoginWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping{
     RKDynamicMapping *rDynamicMapping = [RKDynamicMapping new];
     [rDynamicMapping setObjectMappingForRepresentationBlock:^RKObjectMapping *(id representation) {
         if ([[[representation valueForKey:@"authPassed"] valueForKey:@"text"] isEqualToString:@"0"]) {

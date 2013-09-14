@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="QNFolder" representedClassName="QNFolder" syncable="YES">
+        <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fileType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linkID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="parentFolder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNMultimediaLogin" representedClassName="QNMultimediaLogin" syncable="YES">
+        <attribute name="sid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNMultimediaLoginInfo" representedClassName="QNMultimediaLoginInfo" syncable="YES">
+        <attribute name="builtinFirmwareVersion" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNSongInfo" syncable="YES"/>
+    <elements>
+        <element name="QNFolder" positionX="160" positionY="192" width="128" height="135"/>
+        <element name="QNSongInfo" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="QNMultimediaLogin" positionX="162" positionY="234" width="128" height="58"/>
+        <element name="QNMultimediaLoginInfo" positionX="160" positionY="192" width="128" height="60"/>
+    </elements>
+</model>

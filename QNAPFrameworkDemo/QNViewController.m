@@ -24,6 +24,17 @@
     self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL
                                                                         withClientId:CLIENT_ID
                                                                     withClientSecret:CLIENT_SECRET];
+    self.musicStationManager = [[QNAPCommunicationManager share] factoryForMusicStatioAPIManager:NASURL];
+
+    [self.musicStationManager loginForMultimediaSid:NAS_ACCOUNT
+                                       withPassword:NAS_PASSWORD
+                                   withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                       [self.loginLabel setText:@"登入成功"];
+                                   }
+                                   withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                       [self.loginLabel setText:@"登入失敗"];
+                                   }];
+
     [self.fileStationManager loginWithAccount:NAS_ACCOUNT
                                  withPassword:NAS_PASSWORD
                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
@@ -39,7 +50,6 @@
                         } withFailureBlock:^(NSError *error){
                             
                         }];
-    
 }
 
 - (void)didReceiveMemoryWarning

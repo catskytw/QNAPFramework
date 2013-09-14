@@ -9,11 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "QNFileStationAPIManager.h"
 #import "QNMyCloudManager.h"
+#import "QNMusicStationAPIManager.h"
 
 @interface QNAPCommunicationManager : NSObject
 @property(nonatomic, strong) NSMutableArray *allModules;
 @property(nonatomic, strong) RKManagedObjectStore *objectManager;
-@property(nonatomic, strong) NSString *sid;
+@property(nonatomic, weak) RKObjectManager *weakRKObjectManager;
+@property(nonatomic, strong) NSString *sidForQTS;
+@property(nonatomic, strong) NSString *sidForMultimedia;
+@property(nonatomic, strong) NSString *myCloudAccessToken;
 
 + (QNAPCommunicationManager *)share;
 + (void)closeCommunicationManager;
@@ -21,6 +25,8 @@
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
 
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret;
+
+- (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString*)baseURL;
 
 - (void)settingMisc:(NSBundle *)resourceBundle;
 

@@ -38,7 +38,7 @@
     //mapping the first layer
     RKEntityMapping *responseMapping = [QNFileStationMapping mappingForLogin];
     RKEntityMapping *errorMapping = [QNFileStationMapping mappingForLoginError];
-    RKDynamicMapping *dynamicMapping = [QNFileStationMapping dynamicMappingWithCorrectMapping:responseMapping withErrorResponseMapping:errorMapping];
+    RKDynamicMapping *dynamicMapping = [QNFileStationMapping dynamicMappingLoginWithCorrectMapping:responseMapping withErrorResponseMapping:errorMapping];
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:dynamicMapping
                                                                                             method:RKRequestMethodGET
@@ -57,7 +57,7 @@
                                          NSArray *allQNLogin = [QNFileLogin MR_findAllInContext:self.rkObjectManager.managedObjectStore.mainQueueManagedObjectContext];
                                          QNFileLogin *targetLogin = allQNLogin[0];
                                          _authSid = [NSString stringWithString:targetLogin.authSid];
-                                         [QNAPCommunicationManager share].sid = _authSid;
+                                         [QNAPCommunicationManager share].sidForQTS = _authSid;
                                          DDLogInfo(@"fetching login information successfully...Sid: %@", targetLogin.authSid);
                                          
                                          if(success){

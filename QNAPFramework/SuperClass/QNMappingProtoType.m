@@ -10,10 +10,15 @@
 #import <RestKit/RestKit.h>
 #import "Response.h"
 #import "QNAPCommunicationManager.h"
+#import "NSString+QNAPUtil.h"
 
 @implementation QNMappingProtoType
 
 + (RKEntityMapping *)entityMapping:(NSString*)entityName withManagerObjectStore:(RKManagedObjectStore*)managedObjectStore isXMLParser:(BOOL)isXMLParser{
+    return [QNMappingProtoType entityMapping:entityName withManagerObjectStore:managedObjectStore isXMLParser:isXMLParser isFirstChatUppercase:NO];
+}
+
++ (RKEntityMapping *)entityMapping:(NSString*)entityName withManagerObjectStore:(RKManagedObjectStore*)managedObjectStore isXMLParser:(BOOL)isXMLParser isFirstChatUppercase:(BOOL)isFirstCharUppercase{
     RKEntityMapping *targetEntityMapping = [RKEntityMapping mappingForEntityForName:entityName inManagedObjectStore:managedObjectStore];
     NSManagedObjectModel *managerObjectModel = managedObjectStore.managedObjectModel;
     NSEntityDescription *targetEntityDescription = [[managerObjectModel entitiesByName] objectForKey:entityName];
@@ -32,15 +37,36 @@
     [mutableKeysArray removeObjectsInArray:discardArray];
     
     if(isXMLParser)
+        (isFirstCharUppercase)?
+        [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray isForcingFirstCharUppercase:YES]]:
         [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray]];
     else
         [targetEntityMapping addAttributeMappingsFromArray:mutableKeysArray];
     return targetEntityMapping;
 }
 
++ (RKDynamicMapping *)dynamicMappingWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping withErrorKey:(NSString *)errorNodeKey isXMLParser:(BOOL)isXML{
+    
+    RKDynamicMapping *rDynamicMapping = [RKDynamicMapping new];
+    [rDynamicMapping setObjectMappingForRepresentationBlock:^RKObjectMapping *(id representation) {
+        NSString *judgeKey = (isXML)?[[representation valueForKey:errorNodeKey] valueForKey:@"text"]:[representation valueForKey:errorNodeKey];
+        if ([judgeKey isEqualToString:@"0"])
+            return errorMapping;
+        else
+            return correctResponseMapping;
+    }];
+    return rDynamicMapping;
+}
+
 + (NSDictionary *)convertAllKeysFromRKPropertInspectorToDictionary:(NSArray*)allKeys{
+    return [QNMappingProtoType convertAllKeysFromRKPropertInspectorToDictionary:allKeys isForcingFirstCharUppercase:NO];
+}
+
++ (NSDictionary *)convertAllKeysFromRKPropertInspectorToDictionary:(NSArray *)allKeys isForcingFirstCharUppercase:(BOOL)isForce{
     NSMutableDictionary *mutablDic = [[NSMutableDictionary alloc] init];
     for (NSString *key in allKeys) {
+        (isForce)?
+        [mutablDic setValue:key forKey:[NSString stringWithFormat:@"%@.text",[key forceFirstCharUppercase]]]:
         [mutablDic setValue:key forKey:[NSString stringWithFormat:@"%@.text",key]];
     }
     return (NSDictionary*)mutablDic;

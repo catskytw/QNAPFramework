@@ -44,7 +44,13 @@ int ddLogLevel;
         return nil;
     QNFileStationAPIManager *fileStationsAPIManager = [[QNFileStationAPIManager alloc] initWithBaseURL:baseURL];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:fileStationsAPIManager];
-    return (searchExistingModule==nil)?fileStationsAPIManager:(QNFileStationAPIManager *)searchExistingModule;
+    if(searchExistingModule==nil){
+        self.weakRKObjectManager = fileStationsAPIManager.rkObjectManager;
+        return fileStationsAPIManager;
+    }
+    else{
+        return (QNFileStationAPIManager *)searchExistingModule;
+    }
 }
 
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
@@ -56,6 +62,14 @@ int ddLogLevel;
                                         withClientSecret:clientSecret];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:myCloudManager];
     return (searchExistingModule == nil)?myCloudManager:(QNMyCloudManager *)searchExistingModule;
+}
+
+- (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString*)baseURL{
+    if([self validateUrl:baseURL])
+        return nil;
+    QNMusicStationAPIManager *musicStationsAPIManager = [[QNMusicStationAPIManager alloc] initWithBaseURL:baseURL];
+    QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:musicStationsAPIManager];
+    return (searchExistingModule==nil)?musicStationsAPIManager:(QNMusicStationAPIManager *)searchExistingModule;
 }
 
 #pragma mark - PrivateMethod
@@ -88,8 +102,8 @@ int ddLogLevel;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
     
-//    if(_ddLogLevel & LOG_FLAG_VERBOSE)
-//        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    if(_ddLogLevel & LOG_FLAG_VERBOSE)
+        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 
 - (void)settingMisc:(NSBundle *)resourceBundle{

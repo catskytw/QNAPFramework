@@ -24,17 +24,17 @@
 
 - (void)setUp {
     [super setUp];
-    [Expecta setAsynchronousTestTimeout:10000];
+    [Expecta setAsynchronousTestTimeout:10];
     QNAppDelegate *appDelegate = (QNAppDelegate *)[[UIApplication sharedApplication] delegate ];
     self.viewController = (QNViewController *)appDelegate.window.rootViewController;
     
     self.myCloudManager = self.viewController.myCloudManager;
     self.fileManager = self.viewController.fileStationManager;
+    self.musicManager = self.viewController.musicStationManager;
     
-    while (!self.fileManager.authSid || ![AFOAuthCredential retrieveCredentialWithIdentifier:CredentialIdentifier].accessToken) {
-        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
-        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
-    }
+    NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:5];
+    [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+        
     [[QNAPCommunicationManager share] settingMisc: nil];
 }
 
@@ -180,5 +180,18 @@
         NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
         [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
     }
+}
+
+- (void)testCase3_MusicManagerGetFolderList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getFolderListWithFolderID:nil
+                                withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                    _hasResponse = YES;
+                                }
+                                withFaliureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                    _hasResponse = YES;
+                                }];
+    expect(_hasResponse).willNot.beFalsy();
+
 }
 @end

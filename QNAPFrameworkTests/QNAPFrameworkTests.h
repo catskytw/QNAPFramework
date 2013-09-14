@@ -16,4 +16,5 @@
 @property QNAPCommunicationManager *communicationManager;
 @property QNMyCloudManager *myCloudManager;
 @property QNFileStationAPIManager *fileManager;
+@property QNMusicStationAPIManager *musicManager;
 @end

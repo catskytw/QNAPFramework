@@ -7,6 +7,7 @@
 //
 
 #import "RKObjectManager.h"
+#import "QNAPFramework.h"
 
 @interface RKObjectManager (RKObjectManager_DownloadProgress)
 - (void)getObject:(id)object

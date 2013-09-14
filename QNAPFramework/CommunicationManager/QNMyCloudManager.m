@@ -60,6 +60,7 @@
                                        password:password
                                           scope:nil
                                         success:^(AFOAuthCredential *credential){
+                                            [QNAPCommunicationManager share].myCloudAccessToken = [NSString stringWithString:credential.accessToken];
                                             [AFOAuthCredential storeCredential:credential withIdentifier:CredentialIdentifier];
                                             self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
                                             self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;

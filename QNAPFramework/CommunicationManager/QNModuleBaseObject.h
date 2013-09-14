@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <RestKit/RestKit.h>
 @interface QNModuleBaseObject : NSObject
 @property(nonatomic, strong)NSString *baseURL;
+@property(nonatomic, weak) RKObjectManager *weakRKObjectManager;
+
 - (id)initWithBaseURL:(NSString *)baseURL;
 - (NSArray *)allErrorMessageResponseDescriptor;
 

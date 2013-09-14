@@ -15,3 +15,23 @@
 #ifndef LOG_VERBOSE
 extern int ddLogLevel;
 #endif
+
+/**
+ *  success block executing after API success
+ *
+ *  @param ^QNSuccessBlock RKObjectRequestOperation and RKObjectMapping, you can access the return objects from mappingResult
+ */
+typedef void (^QNSuccessBlock)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult);
+
+/**
+ *  Failure block executing after API failure, maybe including client error or server error.
+ *
+ *  @param ^QNFailureBlock <#^QNFailureBlock description#>
+ */
+
+typedef void (^QNFailureBlock)(RKObjectRequestOperation *operation, NSError *error);
+
+/**
+ *  <#Description#>
+ */
+typedef void (^QNInProgressBlock)(long long totalBytesRead, long long totalBytesExpectedToRead);

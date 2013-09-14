@@ -14,5 +14,5 @@
 + (RKEntityMapping *)mappingForLogin;
 + (RKEntityMapping *)mappingForLoginError;
 + (NSDictionary *)allMappingInAuthLogin;
-+ (RKDynamicMapping *)dynamicMappingWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping;
++ (RKDynamicMapping *)dynamicMappingLoginWithCorrectMapping:(RKEntityMapping *)correctResponseMapping withErrorResponseMapping:(RKEntityMapping *)errorMapping;
 @end
