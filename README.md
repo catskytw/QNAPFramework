@@ -81,3 +81,7 @@ If you want to upgrade while a new version of QNAPFramework is published, run `p
 
 ##Getting Started
 
+##More Detail
+###AOP: In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming) concept, whose aspects are log, analysis and security check.
+We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes and we suggest you to use it, if you really know how much AOP can assist your project.
+
