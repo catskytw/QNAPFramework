@@ -17,6 +17,8 @@
 }
 @property(nonatomic, strong) RKObjectManager *rkObjectManager;
 @property(nonatomic, strong, readonly) NSString *authSid;
+- (void)setting;
+
 /**
  *  login action in FileStations Version 1.0
  *  TODO: checkout the version above

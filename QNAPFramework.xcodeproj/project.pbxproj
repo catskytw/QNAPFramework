@@ -57,6 +57,10 @@
 		A322819517D6604A00017366 /* QNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A322819417D6604A00017366 /* QNViewController.m */; };
 		A32281A317D662B000017366 /* libQNAPFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17017D4942F00183046 /* libQNAPFramework.a */; };
 		A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */; };
+		A3A0592617E4CF5C007CBC65 /* AOPInterceptorInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0591F17E4CF5C007CBC65 /* AOPInterceptorInfo.m */; };
+		A3A0592717E4CF5C007CBC65 /* AOPMethodLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0592117E4CF5C007CBC65 /* AOPMethodLogger.m */; };
+		A3A0592817E4CF5C007CBC65 /* AOPProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0592317E4CF5C007CBC65 /* AOPProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		A3A0592917E4CF5C007CBC65 /* AOPThreadInvoker.m in Sources */ = {isa = PBXBuildFile; fileRef = A3A0592517E4CF5C007CBC65 /* AOPThreadInvoker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A3B67F4D17D7B1A100E4066A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B67F4C17D7B1A100E4066A /* User.m */; };
 		A3B67F5017D7B1A100E4066A /* SourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B67F4F17D7B1A100E4066A /* SourceInfo.m */; };
 		A3B67F5317D7B1A100E4066A /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B67F5217D7B1A100E4066A /* App.m */; };
@@ -183,6 +187,14 @@
 		A32281B517D6658A00017366 /* QNAPFrameworkBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QNAPFrameworkBundle-Prefix.pch"; sourceTree = "<group>"; };
 		A36E1ED417D4D9B2004C0435 /* QNMyCloudManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNMyCloudManager.h; path = CommunicationManager/QNMyCloudManager.h; sourceTree = "<group>"; };
 		A36E1ED517D4D9B2004C0435 /* QNMyCloudManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNMyCloudManager.m; path = CommunicationManager/QNMyCloudManager.m; sourceTree = "<group>"; };
+		A3A0591E17E4CF5C007CBC65 /* AOPInterceptorInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPInterceptorInfo.h; sourceTree = "<group>"; };
+		A3A0591F17E4CF5C007CBC65 /* AOPInterceptorInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPInterceptorInfo.m; sourceTree = "<group>"; };
+		A3A0592017E4CF5C007CBC65 /* AOPMethodLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPMethodLogger.h; sourceTree = "<group>"; };
+		A3A0592117E4CF5C007CBC65 /* AOPMethodLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPMethodLogger.m; sourceTree = "<group>"; };
+		A3A0592217E4CF5C007CBC65 /* AOPProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPProxy.h; sourceTree = "<group>"; };
+		A3A0592317E4CF5C007CBC65 /* AOPProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPProxy.m; sourceTree = "<group>"; };
+		A3A0592417E4CF5C007CBC65 /* AOPThreadInvoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AOPThreadInvoker.h; sourceTree = "<group>"; };
+		A3A0592517E4CF5C007CBC65 /* AOPThreadInvoker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AOPThreadInvoker.m; sourceTree = "<group>"; };
 		A3B67F4B17D7B1A100E4066A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = QNAPFramework/CoreDataObject/User.h; sourceTree = SOURCE_ROOT; };
 		A3B67F4C17D7B1A100E4066A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = QNAPFramework/CoreDataObject/User.m; sourceTree = SOURCE_ROOT; };
 		A3B67F4E17D7B1A100E4066A /* SourceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SourceInfo.h; path = QNAPFramework/CoreDataObject/SourceInfo.h; sourceTree = SOURCE_ROOT; };
@@ -353,6 +365,7 @@
 		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
 			isa = PBXGroup;
 			children = (
+				A3A0591D17E4CE21007CBC65 /* Util */,
 				0C23DABD17E2EC08001C72DE /* PhotoStation */,
 				0C23DAB917E2EBA4001C72DE /* MusicStation */,
 				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
@@ -492,6 +505,21 @@
 				0C23DAB717E2E3C5001C72DE /* QNAPFrameworkUtil.m */,
 			);
 			name = CommunicationManager;
+			sourceTree = "<group>";
+		};
+		A3A0591D17E4CE21007CBC65 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				A3A0591E17E4CF5C007CBC65 /* AOPInterceptorInfo.h */,
+				A3A0591F17E4CF5C007CBC65 /* AOPInterceptorInfo.m */,
+				A3A0592017E4CF5C007CBC65 /* AOPMethodLogger.h */,
+				A3A0592117E4CF5C007CBC65 /* AOPMethodLogger.m */,
+				A3A0592217E4CF5C007CBC65 /* AOPProxy.h */,
+				A3A0592317E4CF5C007CBC65 /* AOPProxy.m */,
+				A3A0592417E4CF5C007CBC65 /* AOPThreadInvoker.h */,
+				A3A0592517E4CF5C007CBC65 /* AOPThreadInvoker.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		A3E12BA717D6103E00A3982D /* FileStation */ = {
@@ -760,6 +788,10 @@
 				0C23DAD417E44F82001C72DE /* QNError.m in Sources */,
 				0C23DAE317E47483001C72DE /* QNMultimediaLogin.m in Sources */,
 				0C23DAE617E47789001C72DE /* QNMultimediaLoginInfo.m in Sources */,
+				A3A0592617E4CF5C007CBC65 /* AOPInterceptorInfo.m in Sources */,
+				A3A0592717E4CF5C007CBC65 /* AOPMethodLogger.m in Sources */,
+				A3A0592817E4CF5C007CBC65 /* AOPProxy.m in Sources */,
+				A3A0592917E4CF5C007CBC65 /* AOPThreadInvoker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

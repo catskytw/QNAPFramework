@@ -21,12 +21,16 @@
 - (id)initWithBaseURL:(NSString *)baseURL{
     if((self = [super initWithBaseURL:baseURL])){
         self.baseURL = baseURL;
-        self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
-        self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
-        [self.rkObjectManager setAcceptHeaderWithMIMEType:@"text/xml"];
-        [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:@"text/xml"];        
+        [self setting];
     }
     return self;
+}
+
+- (void)setting{
+    self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
+    self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
+    [self.rkObjectManager setAcceptHeaderWithMIMEType:@"text/xml"];
+    [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:@"text/xml"];
 }
 #pragma mark - FileStation API
 - (void)loginWithAccount:(NSString*)account withPassword:(NSString*)password withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult, QNFileLogin *loginInfo))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, QNFileLoginError *loginError))failure{

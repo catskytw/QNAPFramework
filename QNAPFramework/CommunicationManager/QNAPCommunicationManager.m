@@ -14,6 +14,7 @@
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <CocoaLumberjack/DDLog.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
+#import "AOPProxy.h"
 
 #import "User.h"
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
@@ -36,13 +37,33 @@ int ddLogLevel;
     }
     return singletonCommunicationManager;
 }
+#pragma mark - FileManager Interceptor
+- (void)beforeInterceptorForFileManager:(NSInvocation *)i{
+    /***
+     This method running before any selector in fileManager instance.
+     What does this method do are:
+     1. check sidForMultimedia if valided.
+     2. check RKObjectManager
+     
+     may adding checking the parameters.
+     */
+    NSLog(@"beforeInterceptor here...");
+}
 
 #pragma mark - Factory Methods
 
 -(QNFileStationAPIManager*)factoryForFileStatioAPIManager:(NSString*)baseURL{
     if([self validateUrl:baseURL])
         return nil;
-    QNFileStationAPIManager *fileStationsAPIManager = [[QNFileStationAPIManager alloc] initWithBaseURL:baseURL];
+    
+    //設定QNFileStationAPIManager
+    QNFileStationAPIManager *fileStationsAPIManager = (QNFileStationAPIManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNFileStationAPIManager class]];
+    [fileStationsAPIManager setBaseURL:baseURL];
+    [fileStationsAPIManager setting];
+    
+    //攔截器
+    [(AOPProxy *)fileStationsAPIManager interceptMethodStartForSelector:@selector(loginWithAccount:withPassword:withSuccessBlock:withFailureBlock:) withInterceptorTarget:self interceptorSelector:@selector(beforeInterceptorForFileManager:)];
+    
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:fileStationsAPIManager];
     if(searchExistingModule==nil){
         self.weakRKObjectManager = fileStationsAPIManager.rkObjectManager;
