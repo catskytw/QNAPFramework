@@ -24,12 +24,14 @@
 		0C23DAC017E2EC1B001C72DE /* QNPhotoStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DABF17E2EC1B001C72DE /* QNPhotoStationAPIManager.m */; };
 		0C23DAC317E43300001C72DE /* QNMusicMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAC217E43300001C72DE /* QNMusicMapping.m */; };
 		0C23DAC717E439E8001C72DE /* MusicStationCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAC517E439E8001C72DE /* MusicStationCoreData.xcdatamodeld */; };
-		0C23DACA17E43B62001C72DE /* QNFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAC917E43B62001C72DE /* QNFolder.m */; };
 		0C23DACD17E43DC9001C72DE /* NSString+QNAPUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DACC17E43DC9001C72DE /* NSString+QNAPUtil.m */; };
 		0C23DACE17E448DE001C72DE /* MusicStationCoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 0C23DAC517E439E8001C72DE /* MusicStationCoreData.xcdatamodeld */; };
 		0C23DAD417E44F82001C72DE /* QNError.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAD317E44F81001C72DE /* QNError.m */; };
 		0C23DAE317E47483001C72DE /* QNMultimediaLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAE217E47483001C72DE /* QNMultimediaLogin.m */; };
 		0C23DAE617E47789001C72DE /* QNMultimediaLoginInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAE517E47789001C72DE /* QNMultimediaLoginInfo.m */; };
+		0C23DAF517E70CAD001C72DE /* QNMusicListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAF417E70CAD001C72DE /* QNMusicListResponse.m */; };
+		0C23DB0417E725A5001C72DE /* QNFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0317E725A5001C72DE /* QNFolder.m */; };
+		0C23DB0717E725A6001C72DE /* QNFolderSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0617E725A6001C72DE /* QNFolderSummary.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -132,8 +134,6 @@
 		0C23DAC117E43300001C72DE /* QNMusicMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMusicMapping.h; sourceTree = "<group>"; };
 		0C23DAC217E43300001C72DE /* QNMusicMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMusicMapping.m; sourceTree = "<group>"; };
 		0C23DAC617E439E8001C72DE /* MusicStationCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicStationCoreData.xcdatamodel; sourceTree = "<group>"; };
-		0C23DAC817E43B62001C72DE /* QNFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFolder.h; sourceTree = "<group>"; };
-		0C23DAC917E43B62001C72DE /* QNFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFolder.m; sourceTree = "<group>"; };
 		0C23DACB17E43DC9001C72DE /* NSString+QNAPUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QNAPUtil.h"; sourceTree = "<group>"; };
 		0C23DACC17E43DC9001C72DE /* NSString+QNAPUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QNAPUtil.m"; sourceTree = "<group>"; };
 		0C23DAD217E44F81001C72DE /* QNError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNError.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNError.h; sourceTree = SOURCE_ROOT; };
@@ -142,6 +142,12 @@
 		0C23DAE217E47483001C72DE /* QNMultimediaLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMultimediaLogin.m; sourceTree = "<group>"; };
 		0C23DAE417E47789001C72DE /* QNMultimediaLoginInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMultimediaLoginInfo.h; sourceTree = "<group>"; };
 		0C23DAE517E47789001C72DE /* QNMultimediaLoginInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMultimediaLoginInfo.m; sourceTree = "<group>"; };
+		0C23DAF317E70CAC001C72DE /* QNMusicListResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNMusicListResponse.h; sourceTree = "<group>"; };
+		0C23DAF417E70CAD001C72DE /* QNMusicListResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNMusicListResponse.m; sourceTree = "<group>"; };
+		0C23DB0217E725A5001C72DE /* QNFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFolder.h; sourceTree = "<group>"; };
+		0C23DB0317E725A5001C72DE /* QNFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFolder.m; sourceTree = "<group>"; };
+		0C23DB0517E725A6001C72DE /* QNFolderSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFolderSummary.h; sourceTree = "<group>"; };
+		0C23DB0617E725A6001C72DE /* QNFolderSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFolderSummary.m; sourceTree = "<group>"; };
 		0C53E4C517E16743008B4AFD /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
@@ -312,12 +318,16 @@
 		0C23DAC417E439BE001C72DE /* CoreDataObject */ = {
 			isa = PBXGroup;
 			children = (
-				0C23DAC817E43B62001C72DE /* QNFolder.h */,
-				0C23DAC917E43B62001C72DE /* QNFolder.m */,
 				0C23DAE117E47483001C72DE /* QNMultimediaLogin.h */,
 				0C23DAE217E47483001C72DE /* QNMultimediaLogin.m */,
 				0C23DAE417E47789001C72DE /* QNMultimediaLoginInfo.h */,
 				0C23DAE517E47789001C72DE /* QNMultimediaLoginInfo.m */,
+				0C23DAF317E70CAC001C72DE /* QNMusicListResponse.h */,
+				0C23DAF417E70CAD001C72DE /* QNMusicListResponse.m */,
+				0C23DB0517E725A6001C72DE /* QNFolderSummary.h */,
+				0C23DB0617E725A6001C72DE /* QNFolderSummary.m */,
+				0C23DB0217E725A5001C72DE /* QNFolder.h */,
+				0C23DB0317E725A5001C72DE /* QNFolder.m */,
 			);
 			path = CoreDataObject;
 			sourceTree = "<group>";
@@ -783,7 +793,6 @@
 				0C23DAC017E2EC1B001C72DE /* QNPhotoStationAPIManager.m in Sources */,
 				0C23DAC317E43300001C72DE /* QNMusicMapping.m in Sources */,
 				0C23DAC717E439E8001C72DE /* MusicStationCoreData.xcdatamodeld in Sources */,
-				0C23DACA17E43B62001C72DE /* QNFolder.m in Sources */,
 				0C23DACD17E43DC9001C72DE /* NSString+QNAPUtil.m in Sources */,
 				0C23DAD417E44F82001C72DE /* QNError.m in Sources */,
 				0C23DAE317E47483001C72DE /* QNMultimediaLogin.m in Sources */,
@@ -792,6 +801,9 @@
 				A3A0592717E4CF5C007CBC65 /* AOPMethodLogger.m in Sources */,
 				A3A0592817E4CF5C007CBC65 /* AOPProxy.m in Sources */,
 				A3A0592917E4CF5C007CBC65 /* AOPThreadInvoker.m in Sources */,
+				0C23DAF517E70CAD001C72DE /* QNMusicListResponse.m in Sources */,
+				0C23DB0417E725A5001C72DE /* QNFolder.m in Sources */,
+				0C23DB0717E725A6001C72DE /* QNFolderSummary.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

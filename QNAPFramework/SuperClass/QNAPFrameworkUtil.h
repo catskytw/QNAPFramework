@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface QNAPFrameworkUtil : NSObject
-+ (void)waitUntilConditionYES:(NSNumber *)condition;
++ (void)waitUntilConditionYES:(int *)condition;
 @end

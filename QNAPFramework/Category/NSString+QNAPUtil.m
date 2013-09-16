@@ -10,7 +10,7 @@
 
 @implementation NSString (QNAPUtil)
 - (NSString *)forceFirstCharUppercase{
-    NSString *firstChar = [self substringWithRange:NSMakeRange(0, 1)];
+    NSString *firstChar = [[self substringWithRange:NSMakeRange(0, 1)] uppercaseString];
     return [self stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:firstChar];
 }
 

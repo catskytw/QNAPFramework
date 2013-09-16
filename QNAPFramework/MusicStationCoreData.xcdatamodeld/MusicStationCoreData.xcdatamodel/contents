@@ -1,12 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="QNFolder" representedClassName="QNFolder" syncable="YES">
+        <attribute name="album" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="albumartist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="audio_playtime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="extension" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorite" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="fileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fileType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="formatid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="genre" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="linkID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="parentFolder" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaType" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="songID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tracknumber" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="useCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_QNFolderSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="QNFolderSummary" inverseName="relationship_QNFolder" inverseEntity="QNFolderSummary" syncable="YES"/>
+    </entity>
+    <entity name="QNFolderSummary" representedClassName="QNFolderSummary" syncable="YES">
+        <attribute name="currPage" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="pageSize" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="totalCounts" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_QNFolder" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNFolder" inverseName="relationship_QNFolderSummary" inverseEntity="QNFolder" syncable="YES"/>
     </entity>
     <entity name="QNMultimediaLogin" representedClassName="QNMultimediaLogin" syncable="YES">
         <attribute name="sid" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,11 +35,17 @@
     <entity name="QNMultimediaLoginInfo" representedClassName="QNMultimediaLoginInfo" syncable="YES">
         <attribute name="builtinFirmwareVersion" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="QNMusicListResponse" representedClassName="QNMusicListResponse" syncable="YES">
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_QNFolderSummary" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="QNFolderSummary" syncable="YES"/>
+    </entity>
     <entity name="QNSongInfo" syncable="YES"/>
     <elements>
-        <element name="QNFolder" positionX="160" positionY="192" width="128" height="135"/>
-        <element name="QNSongInfo" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="QNFolder" positionX="-441" positionY="144" width="128" height="358"/>
         <element name="QNMultimediaLogin" positionX="162" positionY="234" width="128" height="58"/>
-        <element name="QNMultimediaLoginInfo" positionX="160" positionY="192" width="128" height="60"/>
+        <element name="QNMultimediaLoginInfo" positionX="-326" positionY="36" width="128" height="60"/>
+        <element name="QNSongInfo" positionX="63" positionY="-63" width="128" height="45"/>
+        <element name="QNFolderSummary" positionX="-126" positionY="99" width="128" height="103"/>
+        <element name="QNMusicListResponse" positionX="-117" positionY="90" width="128" height="73"/>
     </elements>
 </model>

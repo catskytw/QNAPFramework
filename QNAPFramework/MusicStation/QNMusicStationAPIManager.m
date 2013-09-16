@@ -50,8 +50,81 @@
 }
 
 - (void)getFolderListWithFolderID:(NSString* )folderId withSuccessBlock:(QNSuccessBlock)success withFaliureBlock:(QNFailureBlock)failure{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
+                                       @{
+                                       @"act":@"list",
+                                       @"type":@"folder",
+                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia
+                                       }];
+    [self musicStationAPIProtoTypeWithProtoTypeId:folderId
+                                   withParameters:parameters
+                                 withSuccessBlock:success
+                                 withFailureBlock:failure];
+}
+
+- (void)getSongListWithArtistId:(NSString *)artistId withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
+                                       @{
+                                       @"act":@"list",
+                                       @"type":@"artist",
+                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia
+                                       }];
+    [self musicStationAPIProtoTypeWithProtoTypeId:artistId
+                                   withParameters:parameters
+                                 withSuccessBlock:success
+                                 withFailureBlock:failure];
+}
+
+- (void)getAlbumListWithAlbumId:(NSString *)albumId pageSize:(NSInteger)pageSize currPage:(NSInteger)currPage withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
+                                       @{
+                                       @"act":@"list",
+                                       @"type":@"album",
+                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia,
+                                       @"pagesize":@(pageSize),
+                                       @"currpage":@(currPage)
+                                       }];
+    [self musicStationAPIProtoTypeWithProtoTypeId:albumId
+                                   withParameters:parameters
+                                 withSuccessBlock:success
+                                 withFailureBlock:failure];
+}
+
+- (void)getGenreListWithGenreId:(NSString *)genreId pageSize:(NSInteger)pageSize currPage:(NSInteger)currPage withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
+                                       @{
+                                       @"act":@"list",
+                                       @"type":@"genre",
+                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia,
+                                       @"pagesize":@(pageSize),
+                                       @"currpage":@(currPage)
+                                       }];
+    [self musicStationAPIProtoTypeWithProtoTypeId:genreId
+                                   withParameters:parameters
+                                 withSuccessBlock:success
+                                 withFailureBlock:failure];
+
+}
+
+- (void)getRecentListWithPageSize:(NSInteger)pageSize currPage:(NSInteger)currPage withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
+                                       @{
+                                       @"act":@"list",
+                                       @"type":@"recent",
+                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia,
+                                       @"pagesize":@(pageSize),
+                                       @"currpage":@(currPage)
+                                       }];
+    [self musicStationAPIProtoTypeWithProtoTypeId:nil
+                                   withParameters:parameters
+                                 withSuccessBlock:success
+                                 withFailureBlock:failure];
+}
+
+#pragma mark - PrivateMethod
+
+- (void)musicStationAPIProtoTypeWithProtoTypeId:(NSString *)protoTypeId withParameters:(NSDictionary *)parameters withSuccessBlock:(QNSuccessBlock) success withFailureBlock:(QNFailureBlock) failure{
     RKEntityMapping *folderMapping = [QNMusicMapping mappingForFolder];
-    [folderMapping setIdentificationAttributes:@[@"linkID"]];
     
     RKEntityMapping *errorMapping = [QNMusicMapping mappingForError];
     [errorMapping setIdentificationAttributes:@[@"status", @"errorcode"]];
@@ -67,14 +140,9 @@
                                                                                            keyPath:@"QDocRoot"
                                                                                        statusCodes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(RKStatusCodeClassSuccessful, RKStatusCodeClassServerError+100)]];
     [self.weakRKObjectManager addResponseDescriptor:responseDescriptor];
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:
-                                       @{
-                                       @"act":@"list",
-                                       @"type":@"folder",
-                                       @"sid":[QNAPCommunicationManager share].sidForMultimedia
-                                       }];
-    if(folderId)
-        [parameters setValue:folderId forKey:@"Linkid"];
+
+    if(protoTypeId)
+        [parameters setValue:protoTypeId forKey:@"Linkid"];
     
     [self.weakRKObjectManager getObject:nil
                                    path:@"musicstation/api/medialist_api.php"
@@ -85,14 +153,12 @@
                                         failure(operation, (NSError *)mappingResult);
                                     }
                                     else{
-                                        DDLogVerbose(@"get folder list %@", [mappingResult firstObject]);
                                         success(operation, mappingResult);
                                     }
                                 }
                                 failure:^(RKObjectRequestOperation *operation, NSError *error){
                                     failure(operation, error);
                                 }];
-
 }
 
 @end

@@ -10,8 +10,8 @@
 
 @implementation QNAPFrameworkUtil
 
-+ (void)waitUntilConditionYES:(NSNumber *)condition{
-    while (![condition boolValue]){
++ (void)waitUntilConditionYES:(int *)condition{
+    while (!condition){
         NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
         [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
     }

@@ -16,6 +16,8 @@
 @interface QNMyCloudManager : QNModuleBaseObject
 @property(nonatomic, strong) NSString *clientId;
 @property(nonatomic, strong) NSString *clientSecret;
+@property(nonatomic, strong) NSString *account;
+@property(nonatomic, strong) NSString *password;
 @property(nonatomic, strong) RKObjectManager *rkObjectManager;
 
 /**
@@ -52,6 +54,17 @@
  */
 - (void)fetchOAuthToken:(NSString *)account withPassword:(NSString *)password withSuccessBlock:(void(^)(AFOAuthCredential *credential))success
        withFailureBlock:(void(^)(NSError *error))failure;
+
+/**
+ *  A subMethod invoked by fetchOAuthToek:withPassword:withSuccessBlock:withFailureBlock
+ *  This method should not be bound in AOP or would be unfinity invoking.
+ *
+ *  @param success <#success description#>
+ *  @param failure <#failure description#>
+ */
+- (void)refetchOAuthTokenWithSuccessBlock:(void(^)(AFOAuthCredential *credential))success
+                         withFailureBlock:(void(^)(NSError *error))failure;
+
 
 #pragma mark - /me
 /**

@@ -37,9 +37,10 @@
     [mutableKeysArray removeObjectsInArray:discardArray];
     
     if(isXMLParser)
-        (isFirstCharUppercase)?
-        [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray isForcingFirstCharUppercase:YES]]:
-        [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray]];
+        if(isFirstCharUppercase)
+            [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray isForcingFirstCharUppercase:YES]];
+        else
+            [targetEntityMapping addAttributeMappingsFromDictionary:[self convertAllKeysFromRKPropertInspectorToDictionary:mutableKeysArray]];
     else
         [targetEntityMapping addAttributeMappingsFromArray:mutableKeysArray];
     return targetEntityMapping;

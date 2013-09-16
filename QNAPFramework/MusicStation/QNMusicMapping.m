@@ -12,10 +12,37 @@
 @implementation QNMusicMapping
 
 + (RKEntityMapping *)mappingForFolder{
-    return  [QNMusicMapping entityMapping:@"QNFolder"
-                   withManagerObjectStore:[QNAPCommunicationManager share].objectManager
-                              isXMLParser:YES
-                     isFirstChatUppercase:YES];
+    RKEntityMapping *response = [QNMusicMapping entityMapping:@"QNMusicListResponse"
+                                       withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                                  isXMLParser:YES];
+    
+    RKEntityMapping *mapping = [QNMusicMapping entityMapping:@"QNFolderSummary"
+                                      withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                                 isXMLParser:YES
+                                        isFirstChatUppercase:YES];
+    RKEntityMapping *subMapping = [QNMusicMapping entityMapping:@"QNFolder"
+                                         withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                                    isXMLParser:YES
+                                           isFirstChatUppercase:YES];
+    [mapping addAttributeMappingsFromDictionary:
+     @{
+     @"audio_playtime.text":@"audio_playtime"
+     }];
+    [subMapping setIdentificationAttributes:@[ @"linkID"]];
+    
+    
+    RKRelationshipMapping *datasRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"datas"
+                                                                                       toKeyPath:@"relationship_QNFolderSummary"
+                                                                                     withMapping:mapping];
+    
+    [response addPropertyMapping:datasRelation];
+
+    RKRelationshipMapping *dataRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"data"
+                                                                                      toKeyPath:@"relationship_QNFolder"
+                                                                                    withMapping:subMapping];
+    
+    [mapping addPropertyMapping:dataRelation];
+    return response;
 }
 
 + (RKEntityMapping *)mappingForError{

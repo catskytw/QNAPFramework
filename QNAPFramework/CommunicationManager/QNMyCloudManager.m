@@ -52,12 +52,19 @@
 
 - (void)fetchOAuthToken:(NSString *)account withPassword:(NSString *)password withSuccessBlock:(void(^)(AFOAuthCredential *credential))success
        withFailureBlock:(void(^)(NSError *error))failure{
+    self.account = account;
+    self.password = password;
+    [self refetchOAuthTokenWithSuccessBlock:success withFailureBlock:failure];
+}
+
+- (void)refetchOAuthTokenWithSuccessBlock:(void(^)(AFOAuthCredential *credential))success
+                         withFailureBlock:(void(^)(NSError *error))failure{
     AFOAuth2Client *oauthClient = [AFOAuth2Client clientWithBaseURL:[NSURL URLWithString:self.baseURL]
                                                            clientID:self.clientId
                                                              secret:self.clientSecret];
     [oauthClient authenticateUsingOAuthWithPath:@"/oauth/token"
-                                       username:account
-                                       password:password
+                                       username:self.account
+                                       password:self.password
                                           scope:nil
                                         success:^(AFOAuthCredential *credential){
                                             [QNAPCommunicationManager share].myCloudAccessToken = [NSString stringWithString:credential.accessToken];
@@ -73,6 +80,7 @@
                                             if(failure)
                                                 failure(error);
                                         }];
+
 }
 #pragma mark - MyCloudAPI V1.1
 - (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *response))failure{

@@ -15,6 +15,8 @@
 #import <CocoaLumberjack/DDLog.h>
 #import <CocoaLumberjack/DDTTYLogger.h>
 #import "AOPProxy.h"
+#import <objc/runtime.h>
+#import "QNAPFrameworkUtil.h"
 
 #import "User.h"
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
@@ -38,6 +40,53 @@ int ddLogLevel;
     return singletonCommunicationManager;
 }
 #pragma mark - FileManager Interceptor
+- (BOOL)bindAllInterceptorForFileManager:(id)classInstance{
+    /** TODO:
+     *  Maybe we should use `class_copyMethodList(object_getClass(t), &mc)` to replace this foolish array.
+     *  The only one problem is that all properties' getter and setter are included in class_copyMethodList, which might cause a deadlock if checking sidForxxx.
+     *  Sigh!
+     */
+
+    NSArray *bindingMethods = @[@"loginWithAccount:withPassword:withSuccessBlock:withFailureBlock:",
+                                @"downloadFileWithFilePath:withFileName:isFolder:withRange:withSuccessBlock:withFailureBlock:withInProgressBlock:",
+                                @"thumbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:"
+                                ];
+    for(NSString *methodName in bindingMethods){
+        [(AOPProxy *)classInstance interceptMethodStartForSelector:NSSelectorFromString(methodName)
+                                             withInterceptorTarget:self
+                                               interceptorSelector:@selector(beforeInterceptorForFileManager:)];
+        [(AOPProxy *)classInstance interceptMethodEndForSelector:NSSelectorFromString(methodName)
+                                           withInterceptorTarget:self
+                                             interceptorSelector:@selector(afterInterceptorForFileManager:)];
+    }
+    return YES;
+}
+
+- (BOOL) bindAllInterceptorForMyCloud:(id)classInstance{
+    /** TODO:
+     *  Maybe we should use `class_copyMethodList(object_getClass(t), &mc)` to replace this foolish array.
+     *  The only one problem is that all properties' getter and setter are included in class_copyMethodList, which might cause a deadlock if checking sidForxxx.
+     *  Sigh!
+     */
+
+    [self listAllMethod:[[QNMyCloudManager alloc] init]];
+    NSArray *bindingMethods = @[@"readMyInformation:withFailiureBlock:",
+                                @"updateMyInformation:withSuccessBlock:withFailureBlock:",
+                                @"listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:",
+                                @"changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:"
+                                ];
+    for(NSString *methodName in bindingMethods){
+        [(AOPProxy *)classInstance interceptMethodStartForSelector:NSSelectorFromString(methodName)
+                                             withInterceptorTarget:self
+                                               interceptorSelector:@selector(beforeInterceptorForMyCloud:)];
+        [(AOPProxy *)classInstance interceptMethodEndForSelector:NSSelectorFromString(methodName)
+                                           withInterceptorTarget:self
+                                             interceptorSelector:@selector(afterInterceptorForMyCloud:)];
+    }
+    return YES;
+}
+
+
 - (void)beforeInterceptorForFileManager:(NSInvocation *)i{
     /***
      This method running before any selector in fileManager instance.
@@ -47,7 +96,33 @@ int ddLogLevel;
      
      may adding checking the parameters.
      */
-    NSLog(@"beforeInterceptor here...");
+    NSLog(@"Selector %@ beforeInterceptor here...", NSStringFromSelector([i selector]));
+    if(![QNAPCommunicationManager share].sidForQTS){
+    }
+}
+
+- (void)afterInterceptorForFileManager:(NSInvocation *)i{
+    NSLog(@"Selector %@ afterInterceptor here...", NSStringFromSelector([i selector]));
+}
+
+- (void)beforeInterceptorForMyCloud:(NSInvocation *)i{
+    NSLog(@"Selector %@ beforeInterceptor here...", NSStringFromSelector([i selector]));
+    AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier: CredentialIdentifier];
+    if(!credential.accessToken || [credential isExpired]){
+        __block int isFetchingSuccess = NO;
+        QNMyCloudManager *previousMyCloudManager = (QNMyCloudManager *)[self searchModuleWithClassName:@"QNMyCloudManager"];
+        [previousMyCloudManager refetchOAuthTokenWithSuccessBlock:^(AFOAuthCredential *credential){
+            isFetchingSuccess = YES;
+        }
+                                                 withFailureBlock:^(NSError *error){
+                                                     isFetchingSuccess = YES;
+                                                 }];
+        [QNAPFrameworkUtil waitUntilConditionYES:&isFetchingSuccess];
+    }
+}
+
+- (void)afterInterceptorForMyCloud:(NSInvocation *)i{
+    
 }
 
 #pragma mark - Factory Methods
@@ -62,7 +137,7 @@ int ddLogLevel;
     [fileStationsAPIManager setting];
     
     //攔截器
-    [(AOPProxy *)fileStationsAPIManager interceptMethodStartForSelector:@selector(loginWithAccount:withPassword:withSuccessBlock:withFailureBlock:) withInterceptorTarget:self interceptorSelector:@selector(beforeInterceptorForFileManager:)];
+    [self bindAllInterceptorForFileManager:fileStationsAPIManager];
     
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:fileStationsAPIManager];
     if(searchExistingModule==nil){
@@ -77,10 +152,15 @@ int ddLogLevel;
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
     if([self validateUrl:baseURL])
         return nil;
-    QNMyCloudManager *myCloudManager = [[QNMyCloudManager alloc]
-                                        initWithMyCloudBaseURL:baseURL
-                                        withClientId:clientId
-                                        withClientSecret:clientSecret];
+    QNMyCloudManager *myCloudManager =(QNMyCloudManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNMyCloudManager class]];
+    myCloudManager.baseURL = baseURL;
+    myCloudManager.clientSecret = clientSecret;
+    myCloudManager.clientId = clientId;
+
+    
+    //攔截器
+    [self bindAllInterceptorForMyCloud:myCloudManager];
+
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:myCloudManager];
     return (searchExistingModule == nil)?myCloudManager:(QNMyCloudManager *)searchExistingModule;
 }
@@ -94,6 +174,16 @@ int ddLogLevel;
 }
 
 #pragma mark - PrivateMethod
+- (void)listAllMethod:(id)instance{
+    int i=0;
+    unsigned int mc = 0;
+    Method * mlist = class_copyMethodList(object_getClass(instance), &mc);
+    NSLog(@"%d methods", mc);
+    for(i=0;i<mc;i++)
+        NSLog(@"Method no #%d: %s", i, sel_getName(method_getName(mlist[i])));
+
+}
+
 - (BOOL) validateUrl: (NSString *) candidate {
     NSString *urlRegEx =
     @"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
@@ -101,10 +191,21 @@ int ddLogLevel;
     return [urlTest evaluateWithObject:candidate];
 }
 
--(QNModuleBaseObject *)sameModuleWithTargetModule:(QNModuleBaseObject*)targetModule{
+- (QNModuleBaseObject *)sameModuleWithTargetModule:(QNModuleBaseObject*)targetModule{
     @synchronized(self.allModules){
         for (QNModuleBaseObject *examModule in self.allModules) {
             if([examModule.baseURL isEqualToString:targetModule.baseURL] && [targetModule isMemberOfClass:[examModule class]]){
+                return examModule;
+            }
+        }
+        return nil;
+    }
+}
+
+- (QNModuleBaseObject *)searchModuleWithClassName:(NSString *)className{
+    @synchronized(self.allModules){
+        for (QNModuleBaseObject *examModule in self.allModules) {
+            if([examModule isKindOfClass: NSClassFromString(className)]){
                 return examModule;
             }
         }

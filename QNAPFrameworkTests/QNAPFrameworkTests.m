@@ -20,6 +20,9 @@
 #import "Response.h"
 #import "QNAppDelegate.h"
 #import "QNAPFrameworkUtil.h"
+#import "QNMusicListResponse.h"
+#import "QNFolderSummary.h"
+#import "QNFolder.h"
 @implementation QNAPFrameworkTests
 
 - (void)setUp {
@@ -123,7 +126,7 @@
                           withPassword:NAS_PASSWORD
                       withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
                           _hasResponse = true;
-                          DDLogInfo(@"login information %@", login);
+                          DDLogInfo(@"login information %@", login.authSid);
                       }
                       withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
                           _hasResponse = true;
@@ -182,7 +185,7 @@
     }
 }
 
-- (void)testCase3_MusicManagerGetFolderList{
+- (void)testCase30_MusicManagerGetFolderList{
     __block BOOL _hasResponse = NO;
     [self.musicManager getFolderListWithFolderID:nil
                                 withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
@@ -194,4 +197,60 @@
     expect(_hasResponse).willNot.beFalsy();
 
 }
+
+- (void)testCase31_MusicManagerGetSongList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getSongListWithArtistId:nil
+                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                  _hasResponse = YES;
+                              }
+                              withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                  _hasResponse = YES;
+                              }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase32_MusicManagerGetAlbumList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getAlbumListWithAlbumId:nil
+                                      pageSize:10
+                                      currPage:0
+                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                  _hasResponse = YES;
+                              }
+                              withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                  _hasResponse = YES;
+                              }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase33_MusicManagerGetGenreList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getGenreListWithGenreId:nil
+                                      pageSize:10
+                                      currPage:0
+                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                  _hasResponse = YES;
+                              }
+                              withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                  _hasResponse = YES;
+                              }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase34_MusicManagerGetRecentList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getRecentListWithPageSize:10
+                                        currPage:0
+                              withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                  _hasResponse = YES;
+                                  QNMusicListResponse *response = [mappingResult firstObject];
+                                  DDLogVerbose(@"QNFolderSummary pageSize:%@, totalCount: %i", [[response relationship_QNFolderSummary] pageSize], [[[response relationship_QNFolderSummary] relationship_QNFolder] count]);
+                              }
+                              withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                  _hasResponse = YES;
+                              }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
 @end
