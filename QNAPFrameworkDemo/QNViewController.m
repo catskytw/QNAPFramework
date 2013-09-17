@@ -52,11 +52,13 @@
                         } withFailureBlock:^(NSError *error){
                             
                         }];
+//    [QNAPFrameworkUtil waitUntilConditionBlock:^BOOL(){
+//        return ([QNAPCommunicationManager share].sidForMultimedia && [QNAPCommunicationManager share].sidForMultimedia);
+//    }];
     
-    [QNAPFrameworkUtil waitUntilConditionBlock:^BOOL(void){
-        return ([QNAPCommunicationManager share].sidForMultimedia && [QNAPCommunicationManager share].sidForQTS);
-    }];
+
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

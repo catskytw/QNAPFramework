@@ -48,6 +48,21 @@
     return fileStationLoginMapping;
 }
 
++ (RKEntityMapping *)mappingForSearchFiles{
+    RKEntityMapping *responseMapping = [self entityMapping:@"QNSearchResponse"
+                            withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                       isXMLParser:NO];
+    RKEntityMapping *searchFileMapping = [self entityMapping:@"QNSearchFileInfo"
+                                      withManagerObjectStore:[QNAPCommunicationManager share].objectManager
+                                                 isXMLParser:NO];
+    [searchFileMapping setIdentificationAttributes:@[@"filename", @"epochmt"]];
+    
+    RKRelationshipMapping *searchFileRelation = [RKRelationshipMapping relationshipMappingFromKeyPath:@"datas"
+                                                                                            toKeyPath:@"relationship_QNSearchFileInfo"
+                                                                                          withMapping:searchFileMapping];
+    [responseMapping addPropertyMapping:searchFileRelation];
+    return responseMapping;
+}
 
 + (RKEntityMapping *)mappingForLoginError{
     /**

@@ -33,12 +33,12 @@
     
     self.myCloudManager = self.viewController.myCloudManager;
     self.fileManager = self.viewController.fileStationManager;
-    self.musicManager = self.viewController.musicStationManager;
+    self.musicManager = self.viewController.musicStationManager;    
+    [[QNAPCommunicationManager share] settingMisc: nil];
     
     NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:5];
     [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
-        
-    [[QNAPCommunicationManager share] settingMisc: nil];
+
 }
 
 - (void)tearDown {
@@ -47,22 +47,25 @@
     [super tearDown];
 }
 
-#pragma mark - TestCase
-//- (void)testCase4_FetchingToken {
-//    __block AFOAuthCredential *_credential = nil;
-//    [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential) {
-//        DDLogInfo(@"credential %@", credential.accessToken);
-//        _credential = credential;
-//    }
-//                        withFailureBlock:^(NSError *error) {
-//                            _credential = [AFOAuthCredential new];
-//                            DDLogError(@"error while acquiring accessToken %@", error);
-//                        }
-//     ];
-//    expect(_credential).willNot.beNil();
-//}
+#pragma mark - MyCloud TestCase
+- (void)testCase4_FetchingToken {
+    __block AFOAuthCredential *_credential = nil;
+    [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential) {
+        DDLogInfo(@"credential %@", credential.accessToken);
+        _credential = credential;
+    }
+                        withFailureBlock:^(NSError *error) {
+                            _credential = [AFOAuthCredential new];
+                            DDLogError(@"error while acquiring accessToken %@", error);
+                        }
+     ];
+    while (!_credential.accessToken) {
+        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
+    }
+}
 
-- (void)testCase5_MyCloudReadMyInformation {
+- (void)testCase10_MyCloudReadMyInformation {
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
@@ -70,7 +73,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase6_MyCloudUpdateMyInformation{
+- (void)testCase11_MyCloudUpdateMyInformation{
     NSDictionary *userInfo = @{@"email":@"catskytw@gmail.com",
                                @"first_name":@"Change",
                                @"last_name":@"Chen",
@@ -90,7 +93,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase7_MyCloudListMyActivities{
+- (void)testCase12_MyCloudListMyActivities{
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager listMyActivities:0
                                 withLimit:10
@@ -104,7 +107,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase9_MyCloudChangePassword{
+- (void)testCase13_MyCloudChangePassword{
     __block BOOL hasResponse = NO;
     [self.myCloudManager changeMyPassword:@"12345678"
                           withNewPassword:@"12345678"
@@ -120,7 +123,8 @@
     expect(hasResponse).willNot.beFalsy();
 }
 
-- (void)testCase901_FileManagerLogin{
+#pragma mark - FileManager TestCase
+- (void)testCase20_FileManagerLogin{
     __block BOOL _hasResponse = false;
     [self.fileManager loginWithAccount:NAS_ACCOUNT
                           withPassword:NAS_PASSWORD
@@ -139,7 +143,7 @@
     }
 }
 
-- (void)testCase902_FileManagerDownloadFile{
+- (void)testCase21_FileManagerDownloadFile{
     __block BOOL _hasDownload = false;
     [self.fileManager downloadFileWithFilePath:@"/Public"
                                   withFileName:@"1.mov"
@@ -164,7 +168,7 @@
 //    }
 }
 
-- (void)testCase2_FileManagerDownloadThumbnail{
+- (void)testCase22_FileManagerDownloadThumbnail{
     __block BOOL _hasDownload = NO;
     [self.fileManager thumbnailWithFile:@"1.JPG"
                                withPath:@"/Public"
@@ -185,11 +189,29 @@
     }
 }
 
+- (void)testCase23_FileManagerSearchFiles{
+    __block BOOL _finished = NO;
+    [self.fileManager searchFiles:@"mp3"
+                   withSourcePath:@"/Multimedia"
+                    withSortField:QNFileModefiedTimeSort
+                  withLimitNumber:20
+                   withStartIndex:0
+                            isASC:NO
+                 withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                     _finished = YES;
+                 }
+                 withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                     _finished = YES;
+                 }];
+    expect(_finished).willNot.beFalsy();
+}
+#pragma mark - MusicStationManager TestCase
 - (void)testCase30_MusicManagerGetFolderList{
     __block BOOL _hasResponse = NO;
     [self.musicManager getFolderListWithFolderID:nil
                                 withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                     _hasResponse = YES;
+                                    [self analysisMusicResponse:[mappingResult firstObject]];
                                 }
                                 withFaliureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                     _hasResponse = YES;
@@ -203,6 +225,7 @@
     [self.musicManager getSongListWithArtistId:nil
                               withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                   _hasResponse = YES;
+                                  [self analysisMusicResponse:[mappingResult firstObject]];
                               }
                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                   _hasResponse = YES;
@@ -217,6 +240,7 @@
                                       currPage:0
                               withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                   _hasResponse = YES;
+                                  [self analysisMusicResponse:[mappingResult firstObject]];
                               }
                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                   _hasResponse = YES;
@@ -231,6 +255,7 @@
                                       currPage:0
                               withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                   _hasResponse = YES;
+                                  [self analysisMusicResponse:[mappingResult firstObject]];
                               }
                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                   _hasResponse = YES;
@@ -244,13 +269,55 @@
                                         currPage:0
                               withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                   _hasResponse = YES;
-                                  QNMusicListResponse *response = [mappingResult firstObject];
-                                  DDLogVerbose(@"QNFolderSummary pageSize:%@, totalCount: %i", [[response relationship_QNFolderSummary] pageSize], [[[response relationship_QNFolderSummary] relationship_QNFolder] count]);
+                                  [self analysisMusicResponse:[mappingResult firstObject]];
                               }
                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                   _hasResponse = YES;
                               }];
     expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase35_MusicManagerGetFavoriteList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getMyFavoriteListWithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+        _hasResponse = YES;
+        [self analysisMusicResponse:[mappingResult firstObject]];
+    }
+                                        withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                            _hasResponse = YES;
+                                        }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase36_MusicManagerGetUPNPList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getUPNPListWithLinkId:nil
+                            withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                _hasResponse = YES;
+                                [self analysisMusicResponse:[mappingResult firstObject]];
+                            }
+                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                _hasResponse = YES;
+                            }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+- (void)testCase37_MusicManagerGetUPNPList{
+    __block BOOL _hasResponse = NO;
+    [self.musicManager getUPNPListWithLinkId:nil
+                            withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                _hasResponse = YES;
+                                [self analysisMusicResponse:[mappingResult firstObject]];
+                            }
+                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                _hasResponse = YES;
+                            }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+
+#pragma mark - Private Methods
+- (void)analysisMusicResponse:(QNMusicListResponse *)response{
+    DDLogVerbose(@"QNFolderSummary pageSize:%@, totalCount: %i", [[response relationship_QNFolderSummary] pageSize], [[[response relationship_QNFolderSummary] relationship_QNFolder] count]);
 }
 
 @end

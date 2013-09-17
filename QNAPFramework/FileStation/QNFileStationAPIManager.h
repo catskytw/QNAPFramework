@@ -12,6 +12,16 @@
 #import "QNFileLogin.h"
 #import "QNFileLoginError.h"
 #import "QNAPFramework.h"
+typedef enum{
+    QNFileNameSort = 0,
+    QNFileSizeSort,
+    QNFileTypeSort,
+    QNFileModefiedTimeSort,
+    QNFilePrivilegeSort,
+    QNFileOwnerSort,
+    QNFileGroupSort
+}QNFileSortType;
+
 @interface QNFileStationAPIManager : QNModuleBaseObject{
     NSString *_authSid;
 }
@@ -59,6 +69,17 @@
  */
 - (void)thumbnailWithFile:(NSString *)fileName withPath:(NSString *)filePath withSuccessBlock:(void(^)(UIImage *image))success withFailureBlock:(void(^)(NSError *error))failure withInProgressBlock:(void(^)(NSUInteger receivedSize, long long expectedSize))inProgress;
 
+/**
+ *  search files of conditions(parameters)
+ *
+ *  @param keyword    a keyword of the files you want to search
+ *  @param sourcePath the root directory
+ *  @param sortType   sortType, an enum of QNFileSortType
+ *  @param limit      a number of limitation
+ *  @param startIndex start index
+ *  @param isASC      if yes, sorting in ASC,vice versa.
+ */
+- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 /**
  *  Clean all images,which is downloaded from [QNFileStationAPIManager tuhmbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:], in ImageCache
  */

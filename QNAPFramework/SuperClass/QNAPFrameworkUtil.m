@@ -7,7 +7,6 @@
 //
 
 #import "QNAPFrameworkUtil.h"
-
 @implementation QNAPFrameworkUtil
 
 + (void)waitUntilConditionYES:(int *)condition{
@@ -18,7 +17,10 @@
 }
 
 + (void)waitUntilConditionBlock:(__strong CheckConditionBlock)checkCondition{
-    int r = checkCondition();
-    [QNAPFrameworkUtil waitUntilConditionYES:&r];
+    while(!checkCondition()){
+        NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:0.1];
+        [[NSRunLoop currentRunLoop] runUntilDate:nextTry];        
+    }
 }
+
 @end

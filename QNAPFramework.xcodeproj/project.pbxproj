@@ -32,6 +32,8 @@
 		0C23DAF517E70CAD001C72DE /* QNMusicListResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DAF417E70CAD001C72DE /* QNMusicListResponse.m */; };
 		0C23DB0417E725A5001C72DE /* QNFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0317E725A5001C72DE /* QNFolder.m */; };
 		0C23DB0717E725A6001C72DE /* QNFolderSummary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0617E725A6001C72DE /* QNFolderSummary.m */; };
+		0C23DB0A17E86468001C72DE /* QNSearchFileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0917E86468001C72DE /* QNSearchFileInfo.m */; };
+		0C23DB0D17E86469001C72DE /* QNSearchResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB0C17E86469001C72DE /* QNSearchResponse.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -148,6 +150,10 @@
 		0C23DB0317E725A5001C72DE /* QNFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFolder.m; sourceTree = "<group>"; };
 		0C23DB0517E725A6001C72DE /* QNFolderSummary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNFolderSummary.h; sourceTree = "<group>"; };
 		0C23DB0617E725A6001C72DE /* QNFolderSummary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNFolderSummary.m; sourceTree = "<group>"; };
+		0C23DB0817E86468001C72DE /* QNSearchFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNSearchFileInfo.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNSearchFileInfo.h; sourceTree = SOURCE_ROOT; };
+		0C23DB0917E86468001C72DE /* QNSearchFileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNSearchFileInfo.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNSearchFileInfo.m; sourceTree = SOURCE_ROOT; };
+		0C23DB0B17E86469001C72DE /* QNSearchResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNSearchResponse.h; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNSearchResponse.h; sourceTree = SOURCE_ROOT; };
+		0C23DB0C17E86469001C72DE /* QNSearchResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNSearchResponse.m; path = QNAPFramework/FileStation/FileStationCoreDataObject/QNSearchResponse.m; sourceTree = SOURCE_ROOT; };
 		0C53E4C517E16743008B4AFD /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
@@ -289,6 +295,10 @@
 				0C23DAA517E19B63001C72DE /* QNFileLoginError.m */,
 				0C23DAD217E44F81001C72DE /* QNError.h */,
 				0C23DAD317E44F81001C72DE /* QNError.m */,
+				0C23DB0B17E86469001C72DE /* QNSearchResponse.h */,
+				0C23DB0C17E86469001C72DE /* QNSearchResponse.m */,
+				0C23DB0817E86468001C72DE /* QNSearchFileInfo.h */,
+				0C23DB0917E86468001C72DE /* QNSearchFileInfo.m */,
 			);
 			name = CoreDataObject;
 			path = FileStation/CoreDataObject;
@@ -804,6 +814,8 @@
 				0C23DAF517E70CAD001C72DE /* QNMusicListResponse.m in Sources */,
 				0C23DB0417E725A5001C72DE /* QNFolder.m in Sources */,
 				0C23DB0717E725A6001C72DE /* QNFolderSummary.m in Sources */,
+				0C23DB0A17E86468001C72DE /* QNSearchFileInfo.m in Sources */,
+				0C23DB0D17E86469001C72DE /* QNSearchResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

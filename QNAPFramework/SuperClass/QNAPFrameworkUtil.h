@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "QNMusicListResponse.h"
 typedef BOOL(^CheckConditionBlock)(void);
 
 @interface QNAPFrameworkUtil : NSObject

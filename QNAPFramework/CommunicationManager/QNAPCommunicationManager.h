@@ -15,8 +15,8 @@
 @property(nonatomic, strong) NSMutableArray *allModules;
 @property(nonatomic, strong) RKManagedObjectStore *objectManager;
 @property(nonatomic, weak) RKObjectManager *weakRKObjectManager;
-@property(nonatomic, strong) NSString *sidForQTS;
-@property(nonatomic, strong) NSString *sidForMultimedia;
+@property(nonatomic, strong) __block NSString *sidForQTS;
+@property(nonatomic, strong) __block NSString *sidForMultimedia;
 @property(nonatomic, strong) NSString *myCloudAccessToken;
 
 + (QNAPCommunicationManager *)share;

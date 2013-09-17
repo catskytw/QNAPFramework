@@ -47,8 +47,7 @@ int ddLogLevel;
      *  Sigh!
      */
 
-    NSArray *bindingMethods = @[@"loginWithAccount:withPassword:withSuccessBlock:withFailureBlock:",
-                                @"downloadFileWithFilePath:withFileName:isFolder:withRange:withSuccessBlock:withFailureBlock:withInProgressBlock:",
+    NSArray *bindingMethods = @[@"downloadFileWithFilePath:withFileName:isFolder:withRange:withSuccessBlock:withFailureBlock:withInProgressBlock:",
                                 @"thumbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:"
                                 ];
     for(NSString *methodName in bindingMethods){
@@ -105,7 +104,7 @@ int ddLogLevel;
 - (void)beforeInterceptorForFileManager:(NSInvocation *)i{
     QNFileStationAPIManager *thisFileStation = (QNFileStationAPIManager *)[i target];
     //檢查fileManager的baseURL
-    if(!thisFileStation.baseURL || ![self validateUrl:[thisFileStation baseURL]]){
+    if(!thisFileStation.baseURL){
         DDLogError(@"The baseURL for fileStation is %@", thisFileStation.baseURL);
     }
     //檢查sidForQTS
@@ -116,12 +115,12 @@ int ddLogLevel;
 }
 
 - (void)afterInterceptorForFileManager:(NSInvocation *)i{
-    DDLogVerbose(@"Class %@ Method %@ is completed!", NSStringFromClass([i target]), NSStringFromSelector([i selector]));}
+    DDLogVerbose(@"Method %@ is finished!", NSStringFromSelector([i selector]));}
 
 - (void)beforeInterceptorForMyCloud:(NSInvocation *)i{
     QNMyCloudManager *myCloudManager = (QNMyCloudManager *)[i target];
     //檢查myCloudManager的baseURL
-    if(!myCloudManager.baseURL || ![self validateUrl:myCloudManager.baseURL]){
+    if(!myCloudManager.baseURL){
         
     }
     
@@ -140,24 +139,23 @@ int ddLogLevel;
 }
 
 - (void)afterInterceptorForMyCloud:(NSInvocation *)i{
-    DDLogVerbose(@"Class %@ Method %@ is completed!", NSStringFromClass([i target]), NSStringFromSelector([i selector]));
+    DDLogVerbose(@"Method %@ is finished!", NSStringFromSelector([i selector]));
 }
 
 - (void)beforeInterceptorForMusicStaion:(NSInvocation *)i{
     QNMusicStationAPIManager *thisMusicStation = (QNMusicStationAPIManager *)[i target];
     //檢查fileManager的baseURL
-    if(!thisMusicStation.baseURL || ![self validateUrl:[thisMusicStation baseURL]]){
+    if(!thisMusicStation.baseURL){
         DDLogError(@"The baseURL for fileStation is %@", thisMusicStation.baseURL);
     }
     //檢查sidForQTS
     if(![QNAPCommunicationManager share].sidForMultimedia){
         DDLogError(@"sidForMultimedia is null!!");
-        //TODO maybe login again?
     }
 }
 
 - (void)afterInterceptorForMusicStaion:(NSInvocation *)i{
-    
+    DDLogVerbose(@"Method %@ is finished!", NSStringFromSelector([i selector]));
 }
 #pragma mark - Factory Methods
 
@@ -200,6 +198,7 @@ int ddLogLevel;
 - (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString*)baseURL{
     QNMusicStationAPIManager *musicStationsAPIManager = (QNMusicStationAPIManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNMusicStationAPIManager class]];
     musicStationsAPIManager.baseURL = baseURL;
+    [musicStationsAPIManager setting];
     [self bindAllInterceptorForMusicStation:musicStationsAPIManager];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:musicStationsAPIManager];
     return (searchExistingModule==nil)?musicStationsAPIManager:(QNMusicStationAPIManager *)searchExistingModule;

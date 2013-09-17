@@ -85,13 +85,46 @@
         <attribute name="passwdConstraint03" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="passwdConstraint04" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
+    <entity name="QNSearchFileInfo" representedClassName="QNSearchFileInfo" syncable="YES">
+        <attribute name="epochmt" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="exist" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="filename" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="filesize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="filetype" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="group" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iscommpressed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isfolder" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mp4_240" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mp4_360" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mp4_720" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="mt" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="owner" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="play" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="privilege" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="qbox_share_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="qbox_share_id_status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="qbox_type" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="trans" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="QNSearchResponse" representedClassName="QNSearchResponse" syncable="YES">
+        <attribute name="acl" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_acl_enable" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_winacl_enable" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="is_winacl_support" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="medialib" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rtt_support" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="total" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_QNSearchFileInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNSearchFileInfo" syncable="YES"/>
+    </entity>
     <elements>
+        <element name="QNError" positionX="160" positionY="192" width="128" height="75"/>
         <element name="QNFileCustomLogo" positionX="0" positionY="0" width="128" height="75"/>
         <element name="QNFileFirmware" positionX="0" positionY="0" width="128" height="90"/>
         <element name="QNFileLogin" positionX="0" positionY="0" width="128" height="780"/>
+        <element name="QNFileLoginError" positionX="160" positionY="192" width="128" height="120"/>
         <element name="QNFileModel" positionX="0" positionY="0" width="128" height="135"/>
         <element name="QNFilePasswdConstraints" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="QNFileLoginError" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="QNError" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="QNSearchResponse" positionX="160" positionY="192" width="128" height="165"/>
+        <element name="QNSearchFileInfo" positionX="160" positionY="192" width="128" height="330"/>
     </elements>
 </model>

@@ -82,11 +82,13 @@
 }
 
 - (void)downloadFileWithFilePath:(NSString *)filePath withFileName:(NSString *)fileName isFolder:(BOOL)isFolder withRange:(NSRange *)fileRange withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure withInProgressBlock:(void(^)(long long totalBytesRead, long long totalBytesExpectedToRead))inProgress{
-    //http://changenas.myqnapcloud.com:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=6nmadgva&isfolder=0&source_path=/Public&source_file=1.mov&source_total=1
-    //http://IP:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=xxxx&isfolder=0&source_path=/Public&source_file=test.txt&source_file=test2.txt&source_total=2
-    //two source_file? WTF.
-    
-    //maybe Using AOP concept here is better. TODO item.
+    /**
+     *http://changenas.myqnapcloud.com:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=6nmadgva&isfolder=0&source_path=/Public&source_file=1.mov&source_total=1
+     *http://IP:8080/cgi-bin/filemanager/utilRequest.cgi?func=download&sid=xxxx&isfolder=0&source_path=/Public&source_file=test.txt&source_file=test2.txt&source_total=2
+     *two source_file? WTF.
+     *
+     *maybe Using AOP concept here is better. TODO item.
+     */
     if(!filePath || !fileName || !_authSid)
         return;
     
@@ -137,6 +139,65 @@
                                                      (image)?success(image):failure(error);
                                              }];
     
+}
+
+- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
+    
+    RKEntityMapping * responseMapping = [QNFileStationMapping mappingForSearchFiles];
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:nil
+                                                                                           keyPath:nil
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [self.rkObjectManager addResponseDescriptor:responseDescriptor];
+
+    NSDictionary *dic = @{@"func":@"search",
+                          @"sid":_authSid,
+                          @"keyword":keyword,
+                          @"source_path":sourcePath,
+                          @"dir":(isASC?@"ASC":@"DESC"),
+                          @"start":@(startIndex),
+                          @"limit":@(limit),
+                          @"sort":[self convertQNFileSortType:sortType]
+                          };
+    
+    [self.rkObjectManager getObject:nil
+                               path:@"cgi-bin/filemanager/utilRequest.cgi"
+                         parameters:dic
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                            }];
+}
+
+- (NSString *)convertQNFileSortType:(QNFileSortType)sortType{
+    NSString *r = nil;
+    switch (sortType) {
+        case QNFileGroupSort:
+            r = @"group";
+            break;
+        case QNFileModefiedTimeSort:
+            r = @"mt";
+            break;
+        case QNFileOwnerSort:
+            r = @"owner";
+            break;
+        case QNFilePrivilegeSort:
+            r = @"privilege";
+            break;
+        case QNFileSizeSort:
+            r = @"filesize";
+            break;
+        case QNFileTypeSort:
+            r = @"filetype";
+            break;
+        default:
+        case QNFileNameSort:
+            r = @"filename";
+            break;
+    }
+    return r;
 }
 
 - (void)clearThumbnailCache{

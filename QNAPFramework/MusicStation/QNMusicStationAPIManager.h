@@ -11,15 +11,24 @@
 #import "QNAPFramework.h"
 #import "QNMusicMapping.h"
 
-@interface QNMusicStationAPIManager : QNModuleBaseObject
+typedef enum{
+    QNSearchSongAll = 1,
+    QNSearchSongName,
+    QNSearchSongAlbum,
+    QNSearchSongArtist
+} QNSearchSongType;
 
+@interface QNMusicStationAPIManager : QNModuleBaseObject
+- (void)setting;
+
+#pragma mark - MusicStation API
 /**
- *  Login for fetching multimedia sid. No doubt about it, you can do anything you want in success block or failure block.
+ *  Login method for fetching multimedia sid. This method is not hooked in AOP interceptors.
  *
- *  @param account  <#account description#>
- *  @param password <#password description#>
- *  @param success  <#success description#>
- *  @param failure  <#failure description#>
+ *  @param account  Your NAS account
+ *  @param password Your NAS password
+ *  @param success  executing after login success
+ *  @param failure  executing after login fail
  */
 - (void)loginForMultimediaSid:(NSString *)account withPassword:(NSString *)password withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
@@ -32,4 +41,16 @@
 - (void)getGenreListWithGenreId:(NSString *)genreId pageSize:(NSInteger)pageSize currPage:(NSInteger)currPage withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
 - (void)getRecentListWithPageSize:(NSInteger)pageSize currPage:(NSInteger)currPage withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+
+- (void)getMyFavoriteListWithSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+
+- (void)getUPNPListWithLinkId:(NSString *)linkId withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+
+- (void)fetchingMultimediaImage:(NSString *)imagePath withSuccessBlock:(void(^)(UIImage *image))success withFailureBlock:(void(^)(NSError *error))failure withInProgressBlock:(QNInProgressBlock)inProgress;
+
+- (void)searchSongListWithKeyword:(NSString *)keyword withQueryType:(QNSearchSongType)searchType withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+
+- (void)getFileWithFileID:(NSString *)fId withFileExtension:(NSString *)fileExtension withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure withInProgressBlock:(QNInProgressBlock)inProgress;
+
+
 @end
