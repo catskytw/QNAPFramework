@@ -39,7 +39,7 @@ int ddLogLevel;
     }
     return singletonCommunicationManager;
 }
-#pragma mark - FileManager Interceptor
+#pragma mark - Binding Interceptors
 - (BOOL)bindAllInterceptorForFileManager:(id)classInstance{
     /** TODO:
      *  Maybe we should use `class_copyMethodList(object_getClass(t), &mc)` to replace this foolish array.
@@ -62,14 +62,12 @@ int ddLogLevel;
     return YES;
 }
 
-- (BOOL) bindAllInterceptorForMyCloud:(id)classInstance{
+- (BOOL)bindAllInterceptorForMyCloud:(id)classInstance{
     /** TODO:
      *  Maybe we should use `class_copyMethodList(object_getClass(t), &mc)` to replace this foolish array.
      *  The only one problem is that all properties' getter and setter are included in class_copyMethodList, which might cause a deadlock if checking sidForxxx.
      *  Sigh!
      */
-
-    [self listAllMethod:[[QNMyCloudManager alloc] init]];
     NSArray *bindingMethods = @[@"readMyInformation:withFailiureBlock:",
                                 @"updateMyInformation:withSuccessBlock:withFailureBlock:",
                                 @"listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:",
@@ -86,48 +84,84 @@ int ddLogLevel;
     return YES;
 }
 
+- (BOOL)bindAllInterceptorForMusicStation:(id)classInstance{
+//    [self listAllMethod:[QNMusicStationAPIManager new]];
+    NSArray *bindingMethods = @[@"getFolderListWithFolderID:withSuccessBlock:withFaliureBlock:",
+                                @"getSongListWithArtistId:withSuccessBlock:withFailureBlock:",
+                                @"getAlbumListWithAlbumId:pageSize:currPage:withSuccessBlock:withFailureBlock:",
+                                @"getGenreListWithGenreId:pageSize:currPage:withSuccessBlock:withFailureBlock:",@"getRecentListWithPageSize:currPage:withSuccessBlock:withFailureBlock:"];
+    for(NSString *methodName in bindingMethods){
+        [(AOPProxy *)classInstance interceptMethodStartForSelector:NSSelectorFromString(methodName)
+                                             withInterceptorTarget:self
+                                               interceptorSelector:@selector(beforeInterceptorForMusicStaion:)];
+        [(AOPProxy *)classInstance interceptMethodEndForSelector:NSSelectorFromString(methodName)
+                                           withInterceptorTarget:self
+                                             interceptorSelector:@selector(afterInterceptorForMusicStaion:)];
+    }
+    return YES;
+}
 
+#pragma mark - Interceptors
 - (void)beforeInterceptorForFileManager:(NSInvocation *)i{
-    /***
-     This method running before any selector in fileManager instance.
-     What does this method do are:
-     1. check sidForMultimedia if valided.
-     2. check RKObjectManager
-     
-     may adding checking the parameters.
-     */
-    NSLog(@"Selector %@ beforeInterceptor here...", NSStringFromSelector([i selector]));
+    QNFileStationAPIManager *thisFileStation = (QNFileStationAPIManager *)[i target];
+    //檢查fileManager的baseURL
+    if(!thisFileStation.baseURL || ![self validateUrl:[thisFileStation baseURL]]){
+        DDLogError(@"The baseURL for fileStation is %@", thisFileStation.baseURL);
+    }
+    //檢查sidForQTS
     if(![QNAPCommunicationManager share].sidForQTS){
+        DDLogError(@"sidForQTS is null!!");
+        //TODO maybe login again?
     }
 }
 
 - (void)afterInterceptorForFileManager:(NSInvocation *)i{
-    NSLog(@"Selector %@ afterInterceptor here...", NSStringFromSelector([i selector]));
-}
+    DDLogVerbose(@"Class %@ Method %@ is completed!", NSStringFromClass([i target]), NSStringFromSelector([i selector]));}
 
 - (void)beforeInterceptorForMyCloud:(NSInvocation *)i{
-    NSLog(@"Selector %@ beforeInterceptor here...", NSStringFromSelector([i selector]));
+    QNMyCloudManager *myCloudManager = (QNMyCloudManager *)[i target];
+    //檢查myCloudManager的baseURL
+    if(!myCloudManager.baseURL || ![self validateUrl:myCloudManager.baseURL]){
+        
+    }
+    
+    //檢查credetial是否有token以及是否過期
     AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier: CredentialIdentifier];
     if(!credential.accessToken || [credential isExpired]){
         __block int isFetchingSuccess = NO;
         QNMyCloudManager *previousMyCloudManager = (QNMyCloudManager *)[self searchModuleWithClassName:@"QNMyCloudManager"];
-        [previousMyCloudManager refetchOAuthTokenWithSuccessBlock:^(AFOAuthCredential *credential){
-            isFetchingSuccess = YES;
-        }
+        [previousMyCloudManager refetchOAuthTokenWithSuccessBlock:^(AFOAuthCredential *credential){isFetchingSuccess = YES;}
                                                  withFailureBlock:^(NSError *error){
                                                      isFetchingSuccess = YES;
                                                  }];
+        //We should wait here as being synchronized.
         [QNAPFrameworkUtil waitUntilConditionYES:&isFetchingSuccess];
     }
 }
 
 - (void)afterInterceptorForMyCloud:(NSInvocation *)i{
-    
+    DDLogVerbose(@"Class %@ Method %@ is completed!", NSStringFromClass([i target]), NSStringFromSelector([i selector]));
 }
 
+- (void)beforeInterceptorForMusicStaion:(NSInvocation *)i{
+    QNMusicStationAPIManager *thisMusicStation = (QNMusicStationAPIManager *)[i target];
+    //檢查fileManager的baseURL
+    if(!thisMusicStation.baseURL || ![self validateUrl:[thisMusicStation baseURL]]){
+        DDLogError(@"The baseURL for fileStation is %@", thisMusicStation.baseURL);
+    }
+    //檢查sidForQTS
+    if(![QNAPCommunicationManager share].sidForMultimedia){
+        DDLogError(@"sidForMultimedia is null!!");
+        //TODO maybe login again?
+    }
+}
+
+- (void)afterInterceptorForMusicStaion:(NSInvocation *)i{
+    
+}
 #pragma mark - Factory Methods
 
--(QNFileStationAPIManager*)factoryForFileStatioAPIManager:(NSString*)baseURL{
+- (QNFileStationAPIManager*)factoryForFileStatioAPIManager:(NSString*)baseURL{
     if([self validateUrl:baseURL])
         return nil;
     
@@ -150,8 +184,6 @@ int ddLogLevel;
 }
 
 - (QNMyCloudManager *)factoryForMyCloudManager:(NSString *)baseURL withClientId:(NSString *)clientId withClientSecret:(NSString *)clientSecret{
-    if([self validateUrl:baseURL])
-        return nil;
     QNMyCloudManager *myCloudManager =(QNMyCloudManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNMyCloudManager class]];
     myCloudManager.baseURL = baseURL;
     myCloudManager.clientSecret = clientSecret;
@@ -166,9 +198,9 @@ int ddLogLevel;
 }
 
 - (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString*)baseURL{
-    if([self validateUrl:baseURL])
-        return nil;
-    QNMusicStationAPIManager *musicStationsAPIManager = [[QNMusicStationAPIManager alloc] initWithBaseURL:baseURL];
+    QNMusicStationAPIManager *musicStationsAPIManager = (QNMusicStationAPIManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNMusicStationAPIManager class]];
+    musicStationsAPIManager.baseURL = baseURL;
+    [self bindAllInterceptorForMusicStation:musicStationsAPIManager];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:musicStationsAPIManager];
     return (searchExistingModule==nil)?musicStationsAPIManager:(QNMusicStationAPIManager *)searchExistingModule;
 }

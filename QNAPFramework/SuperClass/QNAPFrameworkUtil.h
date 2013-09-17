@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef BOOL(^CheckConditionBlock)(void);
 
 @interface QNAPFrameworkUtil : NSObject
 + (void)waitUntilConditionYES:(int *)condition;
++ (void)waitUntilConditionBlock:(__strong CheckConditionBlock)checkCondition;
+
 @end

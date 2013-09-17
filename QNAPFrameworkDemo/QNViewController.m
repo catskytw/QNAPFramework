@@ -11,6 +11,8 @@
 #import <CocoaLumberjack/DDLog.h>
 #import "SettingInfo.h"
 #import <RestKit/RestKit.h>
+#import "QNAPFrameworkUtil.h"
+
 @interface QNViewController ()
 
 @end
@@ -50,8 +52,11 @@
                         } withFailureBlock:^(NSError *error){
                             
                         }];
+    
+    [QNAPFrameworkUtil waitUntilConditionBlock:^BOOL(void){
+        return ([QNAPCommunicationManager share].sidForMultimedia && [QNAPCommunicationManager share].sidForQTS);
+    }];
 }
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

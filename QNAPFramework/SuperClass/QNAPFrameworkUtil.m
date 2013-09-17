@@ -16,4 +16,9 @@
         [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
     }
 }
+
++ (void)waitUntilConditionBlock:(__strong CheckConditionBlock)checkCondition{
+    int r = checkCondition();
+    [QNAPFrameworkUtil waitUntilConditionYES:&r];
+}
 @end
