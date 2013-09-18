@@ -8,7 +8,6 @@
 
 #import "QNMappingProtoType.h"
 #import <RestKit/RestKit.h>
-#import "Response.h"
 #import "QNAPCommunicationManager.h"
 #import "NSString+QNAPUtil.h"
 

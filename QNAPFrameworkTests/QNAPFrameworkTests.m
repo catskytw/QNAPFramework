@@ -15,14 +15,13 @@
 #import <MagicalRecord/MagicalRecord.h>
 #import "QNAPFramework.h"
 #import "SettingInfo.h"
-#import "UserActivity.h"
-#import "App.h"
-#import "Response.h"
 #import "QNAppDelegate.h"
 #import "QNAPFrameworkUtil.h"
 #import "QNMusicListResponse.h"
 #import "QNFolderSummary.h"
 #import "QNFolder.h"
+#import "MyCloudCloudLinkResponse.h"
+#import "QNSearchFileInfo.h"
 @implementation QNAPFrameworkTests
 
 - (void)setUp {
@@ -38,7 +37,7 @@
     
     NSDate* nextTry = [NSDate dateWithTimeIntervalSinceNow:5];
     [[NSRunLoop currentRunLoop] runUntilDate:nextTry];
-
+    
 }
 
 - (void)tearDown {
@@ -48,7 +47,8 @@
 }
 
 #pragma mark - MyCloud TestCase
-- (void)testCase4_FetchingToken {
+- (void)testCase999_MyCloudFetchingToken {
+    //we should always test this function at the last case(set up the name as testCase999), or interference other mycloudAPIs testing.
     __block AFOAuthCredential *_credential = nil;
     [self.myCloudManager fetchOAuthToken:^(AFOAuthCredential *credential) {
         DDLogInfo(@"credential %@", credential.accessToken);
@@ -65,7 +65,7 @@
     }
 }
 
-- (void)testCase10_MyCloudReadMyInformation {
+- (void)testCase12_MyCloudReadMyInformation {
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager readMyInformation:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
         _operation = operation;
@@ -73,7 +73,7 @@
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase11_MyCloudUpdateMyInformation{
+- (void)testCase13_MyCloudUpdateMyInformation{
     NSDictionary *userInfo = @{@"email":@"catskytw@gmail.com",
                                @"first_name":@"Change",
                                @"last_name":@"Chen",
@@ -88,12 +88,12 @@
                             withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                 _operation = operation;
                             }
-                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response) {
+                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, MyCloudResponse *response) {
                             }];
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase12_MyCloudListMyActivities{
+- (void)testCase14_MyCloudListMyActivities{
     __block RKObjectRequestOperation *_operation = nil;
     [self.myCloudManager listMyActivities:0
                                 withLimit:10
@@ -101,28 +101,40 @@
                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                              _operation = operation;
                          }
-                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, MyCloudResponse *response){
                          }];
     
     expect(_operation).willNot.beNil();
 }
 
-- (void)testCase13_MyCloudChangePassword{
+- (void)testCase15_MyCloudChangePassword{
     __block BOOL hasResponse = NO;
     [self.myCloudManager changeMyPassword:@"12345678"
                           withNewPassword:@"12345678"
                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingRestul){
-                             Response *response = [mappingRestul firstObject];
+                             MyCloudResponse *response = [mappingRestul firstObject];
                              DDLogInfo(@"changePassword response code:%@  message:%@",response.code, response.message);
                              hasResponse = YES;
                          }
-                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, Response *response){
+                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error, MyCloudResponse *response){
                              hasResponse = YES;
                          }];
     
     expect(hasResponse).willNot.beFalsy();
 }
 
+- (void)testCase16_MyCloudGetCloudLink{
+    __block BOOL _finished = NO;
+    [self.myCloudManager getCloudLinkWithOffset:0
+                                      withLimit:0
+                                ithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, MyCloudCloudLinkResponse *cloudlink){
+                                    DDLogVerbose(@"myCloudLink %@", cloudlink.cloud_link_id);
+                                }
+                               withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                   DDLogError(@"myCloudLink Error: %@", error);
+                               }];
+    expect(_finished).willNot.beFalsy();
+}
 #pragma mark - FileManager TestCase
 - (void)testCase20_FileManagerLogin{
     __block BOOL _hasResponse = false;
@@ -197,13 +209,12 @@
                   withLimitNumber:20
                    withStartIndex:0
                             isASC:NO
-                 withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                 withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *result, QNSearchResponse *obj){
                      _finished = YES;
-                 }
-                 withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                 }withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                      _finished = YES;
                  }];
-    expect(_finished).willNot.beFalsy();
+     expect(_finished).willNot.beFalsy();
 }
 #pragma mark - MusicStationManager TestCase
 - (void)testCase30_MusicManagerGetFolderList{
@@ -302,16 +313,17 @@
     expect(_hasResponse).willNot.beFalsy();
 }
 
-- (void)testCase37_MusicManagerGetUPNPList{
+- (void)testCase37_MusicManagerGetFile{
     __block BOOL _hasResponse = NO;
-    [self.musicManager getUPNPListWithLinkId:nil
-                            withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                _hasResponse = YES;
-                                [self analysisMusicResponse:[mappingResult firstObject]];
-                            }
-                            withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
-                                _hasResponse = YES;
-                            }];
+    [self.musicManager getFileWithFileID:@"4"
+                       withFileExtension:@""
+                        withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                        }
+                        withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                        }
+                     withInProgressBlock:^(long long totalBytesRead, long long totalBytesExpectedToRead){
+                         DDLogVerbose(@"MusicManager Get File received data: %lld/%lld", totalBytesRead, totalBytesExpectedToRead);
+                     }];
     expect(_hasResponse).willNot.beFalsy();
 }
 

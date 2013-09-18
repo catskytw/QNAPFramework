@@ -21,5 +21,7 @@
 
 + (RKEntityMapping *)mappingForUser;
 + (RKEntityMapping *)mappingForResponse;
++ (RKEntityMapping *)mappingForCloudlink;
+
 + (RKEntityMapping *)mappingForUserActivities;
 @end

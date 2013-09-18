@@ -1,15 +1,15 @@
 //
-//  User.m
+//  MyCloudUser.m
 //  QNAPFramework
 //
-//  Created by Chen-chih Liao on 13/9/5.
+//  Created by Change.Liao on 13/9/18.
 //  Copyright (c) 2013年 QNAP. All rights reserved.
 //
 
-#import "User.h"
+#import "MyCloudUser.h"
 
 
-@implementation User
+@implementation MyCloudUser
 
 @dynamic birthday;
 @dynamic email;

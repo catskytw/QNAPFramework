@@ -10,10 +10,9 @@
 #import <Expecta/Expecta.h>
 #import "QNMyCloudMapping.h"
 #import "QNAPCommunicationManager.h"
-#import "User.h"
-#import "Response.h"
 #import <MagicalRecord/NSManagedObject+MagicalRecord.h>
 #import "QNAPFramework.h"
+#import "MyCloudUser.h"
 
 @implementation QNMyCloudManager
 
@@ -82,12 +81,8 @@
                                         }];
 
 }
-#pragma mark - MyCloudAPI V1.1
-- (void)readMyInformation:(void(^)(RKObjectRequestOperation *operaion, RKMappingResult *mappingResult))success withFailiureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *response))failure{
-    //self.rkObjectManager不可為nil
-    if(!self.rkObjectManager)
-        DDLogError(@"RKObjectManager is nil!");
-    
+#pragma mark - MyCloudAPI V2.0 resource /ME
+- (void)readMyInformation:(QNSuccessBlock)success withFailiureBlock:(QNFailureBlockExtMyCloudResponse)failure{
     RKEntityMapping *mapping = [QNMyCloudMapping mappingForUser];
     //should be user_id
     mapping.identificationAttributes = @[@"first_name", @"last_name", @"email"];
@@ -106,7 +101,7 @@
                                    }
                                    failure:^(RKObjectRequestOperation *operation, NSError *error){
                                        NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
-                                       Response *errorResponse = [errorResponses objectAtIndex:0];
+                                       MyCloudResponse *errorResponse = [errorResponses objectAtIndex:0];
                                        
                                        DDLogError(@"HTTP Request Error! %@", error);
                                        
@@ -115,12 +110,12 @@
                                    }];
 }
 
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
     if(!userInfo){
         DDLogError(@"update MyInformation fail caused by the giving a nil userInfo!");
         return;
     }
-    User *user = [User MR_createEntity];
+    MyCloudUser *user = [MyCloudUser MR_createEntity];
     [self settingValuesIntoEntity:user withInformationDic:userInfo];
     
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
@@ -133,7 +128,7 @@
                                                                                            keyPath:nil
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     RKRequestDescriptor *requestDescriptor = [RKRequestDescriptor requestDescriptorWithMapping:requestMapping
-                                                                                   objectClass:[User class]
+                                                                                   objectClass:[MyCloudUser class]
                                                                                    rootKeyPath:nil
                                                                                         method:RKRequestMethodPUT];
     [self.rkObjectManager addRequestDescriptor:requestDescriptor];
@@ -151,7 +146,7 @@
                              }
                              failure:^(RKObjectRequestOperation *operation, NSError *error){
                                  NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
-                                 Response *errorResponse = [errorResponses objectAtIndex:0];
+                                 MyCloudResponse *errorResponse = [errorResponses objectAtIndex:0];
                                  DDLogError(@"update myInformation failure, code:%@, message:%@", errorResponse.code, errorResponse.message);
                                  if(failure)
                                      failure(operation, error, errorResponse);
@@ -159,7 +154,7 @@
     user = nil;
 }
 
-- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForUserActivities];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodGET
@@ -178,14 +173,14 @@
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
                                 DDLogError(@"listMyActivities failure");
                                 NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
-                                Response *errorResponse = [errorResponses objectAtIndex:0];
+                                MyCloudResponse *errorResponse = [errorResponses objectAtIndex:0];
 
                                 if(failure)
                                     failure(operation, error, errorResponse);
                             }];
 }
 
-- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(void(^)(RKObjectRequestOperation *operation, RKMappingResult *mappingResult))success withFailureBlock:(void(^)(RKObjectRequestOperation *operation, NSError *error, Response *responseObject))failure{
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodPUT
@@ -199,17 +194,39 @@
                                path:@"v1.1/me/password"
                          parameters:@{@"old_password":oldPassword, @"new_password":newPassword}
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                DDLogVerbose(@"changePassword: %@", ((Response *)([mappingResult firstObject])).message);
+                                DDLogVerbose(@"changePassword: %@", ((MyCloudResponse *)([mappingResult firstObject])).message);
                                 if(success)
                                     success(operation, mappingResult);
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
-                                DDLogError(@"changePassword Error: %@", error);
                                 NSArray *errorResponses = [[error userInfo] valueForKey:@"RKObjectMapperErrorObjectsKey"];
-                                Response *errorResponse = [errorResponses objectAtIndex:0];
-
+                                MyCloudResponse *errorResponse = [errorResponses objectAtIndex:0];
+                                DDLogError(@"changePassword Error: %@", errorResponse.message);
                                 if(failure)
                                     failure(operation, error, errorResponse);
+                            }];
+}
+
+#pragma mark - MyCloudAPI V2.0 resource /cloudLink
+- (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNSuccessBlockExtMyCloudCloudLinkResponse)success withFailureBlock:(QNFailureBlock)failure{
+    RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForCloudlink];
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
+                                                                                            method:RKRequestMethodGET
+                                                                                       pathPattern:nil
+                                                                                           keyPath:nil
+                                                                                       statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    [self.rkObjectManager addResponseDescriptor:responseDescriptor];
+    [self.rkObjectManager getObject:nil
+                               path:@"v1.1/cloudlink"
+                         parameters:nil
+                            success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingRestul){
+                                if(success)
+                                    success(operation, mappingRestul, (MyCloudCloudLinkResponse *)[mappingRestul firstObject]);
+                            }
+                            failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                if(failure)
+                                    failure(operation, error);
                             }];
 }
 #pragma mark - HeaderOperation

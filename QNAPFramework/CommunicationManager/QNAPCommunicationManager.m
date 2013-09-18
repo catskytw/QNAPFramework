@@ -18,7 +18,6 @@
 #import <objc/runtime.h>
 #import "QNAPFrameworkUtil.h"
 
-#import "User.h"
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
 int ddLogLevel;
 
@@ -38,6 +37,15 @@ int ddLogLevel;
         
     }
     return singletonCommunicationManager;
+}
+
+- (BOOL)activateAllStation:(NSDictionary *)parameters{
+    self.fileStationsManager = [self factoryForFileStatioAPIManager:[parameters valueForKey:@"NASURL"]];
+    self.musicStationManager = [self factoryForMusicStatioAPIManager:[parameters valueForKey:@"NASURL"]];
+    self.myCloudManager = [self factoryForMyCloudManager:[parameters valueForKey:@"MyCloudURL"]
+                                            withClientId:[parameters valueForKey:@"ClientId"]
+                                        withClientSecret:[parameters valueForKey:@"ClientSecret"]];
+    return (self.musicStationManager && self.fileStationsManager && self.myCloudManager)?YES:NO;
 }
 #pragma mark - Binding Interceptors
 - (BOOL)bindAllInterceptorForFileManager:(id)classInstance{
@@ -173,7 +181,7 @@ int ddLogLevel;
     
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:fileStationsAPIManager];
     if(searchExistingModule==nil){
-        self.weakRKObjectManager = fileStationsAPIManager.rkObjectManager;
+        self.rkObjectManager = fileStationsAPIManager.rkObjectManager;
         return fileStationsAPIManager;
     }
     else{
@@ -255,8 +263,8 @@ int ddLogLevel;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
     
-    if(_ddLogLevel & LOG_FLAG_VERBOSE)
-        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+//    if(_ddLogLevel & LOG_FLAG_VERBOSE)
+//        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 
 - (void)settingMisc:(NSBundle *)resourceBundle{

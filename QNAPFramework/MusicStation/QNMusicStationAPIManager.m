@@ -23,7 +23,7 @@
 }
 
 - (void)setting{
-    self.weakRKObjectManager = [QNAPCommunicationManager share].weakRKObjectManager;
+    self.weakRKObjectManager = [QNAPCommunicationManager share].rkObjectManager;
 }
 
 #pragma mark - MusicStation API

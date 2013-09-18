@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <CocoaLumberjack/DDLog.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
+
+@class QNSearchResponse;
+@class QNFileLoginError;
+@class MyCloudResponse;
+@class MyCloudCloudLinkResponse;
 #define CredentialIdentifier @"myCloudCredential"
 
 
@@ -16,6 +21,28 @@
 extern int ddLogLevel;
 #endif
 
+/**
+ *  Expent the successBlockName
+ *
+ *  @param classname the string of QNSuccessBlock's extention and parameter.
+ *
+ *  @return a specified success block with the response object's name.
+ */
+#ifndef QNSuccessBlockExt
+#define QNSuccessBlockExt(classname) typedef void (^QNSuccessBlockExt##classname)(RKObjectRequestOperation *operation, RKMappingResult *result, classname *obj)
+#endif
+
+#ifndef QNFailureBlockExt
+#define QNFailureBlockExt(classname) typedef void (^QNFailureBlockExt##classname)(RKObjectRequestOperation *operation, NSError *error, classname *obj)
+#endif
+
+#pragma mark - successBlocks
+QNSuccessBlockExt(QNSearchResponse);
+QNSuccessBlockExt(MyCloudCloudLinkResponse);
+
+#pragma mark - failureBlocks
+QNFailureBlockExt(QNFileLoginError);
+QNFailureBlockExt(MyCloudResponse);
 /**
  *  success block executing after API success
  *

@@ -22,11 +22,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatioAPIManager:NASURL];
-    self.myCloudManager = [[QNAPCommunicationManager share] factoryForMyCloudManager:MyCloudServerBaseURL
-                                                                        withClientId:CLIENT_ID
-                                                                    withClientSecret:CLIENT_SECRET];
-    self.musicStationManager = [[QNAPCommunicationManager share] factoryForMusicStatioAPIManager:NASURL];
+
+    [[QNAPCommunicationManager share] activateAllStation:@{
+     @"NASURL":NASURL,
+     @"MyCloudURL":MyCloudServerBaseURL,
+     @"ClientId":CLIENT_ID,
+     @"ClientSecret":CLIENT_SECRET
+     }];
+    
+    self.fileStationManager = [QNAPCommunicationManager share].fileStationsManager;
+    self.myCloudManager = [QNAPCommunicationManager share].myCloudManager;
+    self.musicStationManager = [QNAPCommunicationManager share].musicStationManager;
 
     [self.musicStationManager loginForMultimediaSid:NAS_ACCOUNT
                                        withPassword:NAS_PASSWORD
@@ -45,6 +51,7 @@
                              withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
                                  [self.loginLabel setText:@"登入失敗"];
                              }];
+    
     [self.myCloudManager fetchOAuthToken:MyCloud_ACCOUNT
                             withPassword:MyCloud_PASSWORD
                         withSuccessBlock:^(AFOAuthCredential *credential){

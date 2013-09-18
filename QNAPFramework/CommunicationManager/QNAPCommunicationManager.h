@@ -14,13 +14,33 @@
 @interface QNAPCommunicationManager : NSObject
 @property(nonatomic, strong) NSMutableArray *allModules;
 @property(nonatomic, strong) RKManagedObjectStore *objectManager;
-@property(nonatomic, weak) RKObjectManager *weakRKObjectManager;
-@property(nonatomic, strong) __block NSString *sidForQTS;
-@property(nonatomic, strong) __block NSString *sidForMultimedia;
+@property(nonatomic, weak) RKObjectManager *rkObjectManager;
+
+@property(nonatomic, strong) NSString *sidForQTS;
+@property(nonatomic, strong) NSString *sidForMultimedia;
 @property(nonatomic, strong) NSString *myCloudAccessToken;
+
+@property(nonatomic, strong) QNFileStationAPIManager *fileStationsManager;
+@property(nonatomic, strong) QNMyCloudManager *myCloudManager;
+@property(nonatomic, strong) QNMusicStationAPIManager *musicStationManager;
 
 + (QNAPCommunicationManager *)share;
 + (void)closeCommunicationManager;
+
+/**
+ *  active all stations
+ *
+ *  @param parameters This Dictionary should look like this:
+ * @{
+ * @"NASURL":NASURL,
+ * @"MyCloudURL":MyCloudServerBaseURL,
+ * @"ClientId":CLIENT_ID,
+ * @"ClientSecret":CLIENT_SECRET
+ * }
+ *
+ *  @return YES if all stations activated, vice versa.
+ */
+- (BOOL)activateAllStation:(NSDictionary *)parameters;
 #pragma mark - Factory methods
 - (QNFileStationAPIManager *)factoryForFileStatioAPIManager:(NSString *)baseURL;
 

@@ -11,6 +11,7 @@
 #import "QNAPFramework.h"
 #import "QNMusicMapping.h"
 
+@class QNFileLogin;
 typedef enum{
     QNSearchSongAll = 1,
     QNSearchSongName,

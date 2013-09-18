@@ -1,15 +1,15 @@
 //
-//  SourceInfo.m
+//  MyCloudSourceInfo.m
 //  QNAPFramework
 //
-//  Created by Chen-chih Liao on 13/9/5.
+//  Created by Change.Liao on 13/9/18.
 //  Copyright (c) 2013年 QNAP. All rights reserved.
 //
 
-#import "SourceInfo.h"
+#import "MyCloudSourceInfo.h"
 
 
-@implementation SourceInfo
+@implementation MyCloudSourceInfo
 
 @dynamic country;
 @dynamic ip;

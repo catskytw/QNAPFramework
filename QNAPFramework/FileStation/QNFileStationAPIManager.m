@@ -14,6 +14,9 @@
 #import "RKXMLReaderSerialization.h"
 #import "QNAPFramework.h"
 #import "RKObjectManager_DownloadProgress.h"
+#import "QNSearchResponse.h"
+
+@class RKNSJSONSerialization;
 
 @implementation QNFileStationAPIManager
 @synthesize authSid = _authSid;
@@ -30,7 +33,10 @@
     self.rkObjectManager = [RKObjectManager managerWithBaseURL:[NSURL URLWithString:self.baseURL]];
     self.rkObjectManager.managedObjectStore = [QNAPCommunicationManager share].objectManager;
     [self.rkObjectManager setAcceptHeaderWithMIMEType:@"text/xml"];
+    [self.rkObjectManager setAcceptHeaderWithMIMEType:@"text/html"]; //video/quicktime
+    [self.rkObjectManager setAcceptHeaderWithMIMEType:@"video/quicktime"];
     [RKMIMETypeSerialization registerClass:[RKXMLReaderSerialization class] forMIMEType:@"text/xml"];
+    [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class] forMIMEType:@"text/html"];
 }
 #pragma mark - FileStation API
 - (void)loginWithAccount:(NSString*)account withPassword:(NSString*)password withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult, QNFileLogin *loginInfo))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, QNFileLoginError *loginError))failure{
@@ -106,9 +112,11 @@
                          parameters:parameters
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
                                 DDLogVerbose(@"downloadFile %@ successful!", fileName);
+                                success(operation, mappingResult);
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
                                 DDLogError(@"downloadFile %@ failure!", fileName);
+                                failure(operation, error);
                             }
                          inProgress:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead){
                              inProgress(totalBytesRead, totalBytesExpectedToRead);
@@ -141,8 +149,8 @@
     
 }
 
-- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
-    
+- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlockExtQNSearchResponse)success withFailureBlock:(QNFailureBlock)failure{
+
     RKEntityMapping * responseMapping = [QNFileStationMapping mappingForSearchFiles];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodGET
@@ -165,9 +173,13 @@
                                path:@"cgi-bin/filemanager/utilRequest.cgi"
                          parameters:dic
                             success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
-                                
+                                QNSearchResponse *response = (QNSearchResponse *)[mappingResult firstObject];
+                                DDLogInfo(@"search files under %@: %i files", sourcePath, [response.relationship_QNSearchFileInfo count]);
+                                success(operation, mappingResult, response);
                             }
                             failure:^(RKObjectRequestOperation *operation, NSError *error){
+                                DDLogError(@"search file under %@ error: %@", sourcePath, error);
+                                failure(operation, error);
                             }];
 }
 

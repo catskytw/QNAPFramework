@@ -1,8 +1,8 @@
 //
-//  SourceInfo.h
+//  MyCloudSourceInfo.h
 //  QNAPFramework
 //
-//  Created by Chen-chih Liao on 13/9/5.
+//  Created by Change.Liao on 13/9/18.
 //  Copyright (c) 2013年 QNAP. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import <CoreData/CoreData.h>
 
 
-@interface SourceInfo : NSManagedObject
+@interface MyCloudSourceInfo : NSManagedObject
 
 @property (nonatomic, retain) NSString * country;
 @property (nonatomic, retain) NSString * ip;

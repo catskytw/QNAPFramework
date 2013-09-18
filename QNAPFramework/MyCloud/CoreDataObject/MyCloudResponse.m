@@ -1,15 +1,15 @@
 //
-//  Response.m
+//  MyCloudResponse.m
 //  QNAPFramework
 //
-//  Created by Chen-chih Liao on 13/9/5.
+//  Created by Change.Liao on 13/9/18.
 //  Copyright (c) 2013年 QNAP. All rights reserved.
 //
 
-#import "Response.h"
+#import "MyCloudResponse.h"
 
 
-@implementation Response
+@implementation MyCloudResponse
 
 @dynamic code;
 @dynamic message;

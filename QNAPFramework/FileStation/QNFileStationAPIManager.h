@@ -12,6 +12,8 @@
 #import "QNFileLogin.h"
 #import "QNFileLoginError.h"
 #import "QNAPFramework.h"
+#import "QNSearchResponse.h"
+
 typedef enum{
     QNFileNameSort = 0,
     QNFileSizeSort,
@@ -79,7 +81,9 @@ typedef enum{
  *  @param startIndex start index
  *  @param isASC      if yes, sorting in ASC,vice versa.
  */
-- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+//- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlockExtQNSearchResponse)success withFailureBlock:(QNFailureBlock)failure;
+
 /**
  *  Clean all images,which is downloaded from [QNFileStationAPIManager tuhmbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:], in ImageCache
  */

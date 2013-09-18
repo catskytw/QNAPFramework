@@ -80,4 +80,5 @@
 + (RKEntityMapping *)mappingForMultimediaLogin{
     return [QNMusicMapping entityMapping:@"QNMultimediaLogin" withManagerObjectStore:[QNAPCommunicationManager share].objectManager isXMLParser:YES];
 }
+
 @end
