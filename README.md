@@ -90,3 +90,15 @@ We provide a tool named QNAPObjectProxy based on NSProxy which reflects any sele
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
 ![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png)
 
+###Success/Failure Block Extention
+In RESTKit, all methods are given a successBlock `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}` and a failureBlock `^(RKObjectRequestOperation *operation, NSError *error){}`.
+Consider the one requirement from developers: fast and flexiable, we use a macro to extent the definitions of success/failure blocks.
+```objc
+#ifndef QNSuccessBlock
+#define QNSuccessBlock(blockName,classname)   \
+typedef void (^QN##blockName##SuccessBlock)(RKObjectRequestOperation *operation, RKMappingResult * \
+mappingResult, classname* obj);
+#endif
+```
+
+
