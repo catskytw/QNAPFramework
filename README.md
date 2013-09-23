@@ -84,16 +84,17 @@ If you want to upgrade while a new version of QNAPFramework is published, run `p
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
-- [MagicalRecord]
-- AFNetworking
-- AFOAuth2Client
-- CocoaLumberjack
-- Expecta
-- RestKit
-- SDWebImage
-- SOCKit
-- TransitionKit
-- libwebp
+- [MagicalRecord](https://github.com/magicalpanda/magicalrecord)
+- [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+- [AFOAuth2Client](https://github.com/nxtbgthng/OAuth2Client)
+- [CocoaLumberjack](https://github.com/robbiehanson/CocoaLumberjack)
+- [Expecta](https://github.com/specta/expecta)
+- [RestKit](https://github.com/RestKit/RestKit)
+- [SDWebImage](https://github.com/rs/SDWebImage)
+- [SOCKit](https://github.com/jverkoey/sockit)
+- [TransitionKit](https://github.com/blakewatters/TransitionKit)
+- libwebp<br/>
+
 ###AOP:<br/>
 In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming) concept, whose aspects are log, analysis and security check. Our purpose is to decrease cross-cutting concerns which could minimize our maintaining effort.
 We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes by NSInvocation, thus we could insert any jointpoint into any target which could purify the logic in our methods. If you are tracing down the source code or want to improve it, please having some attendtions on this.
