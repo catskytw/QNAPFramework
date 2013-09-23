@@ -78,7 +78,7 @@
  *  @param success What else things you want to do if success
  *  @param failure What else things you want to do if failure
  */
-- (void)readMyInformation:(QNSuccessBlock)success withFailiureBlock:(QNFailureBlockExtMyCloudResponse)failure;
+- (void)readMyInformation:(QNSuccessBlock)success withFailiureBlock:(QNMyCloudResponseFailureBlock)failure;
 
 /**
  *  update MyInformation by credential. Please make sure your access token which should be acquired by 
@@ -89,7 +89,7 @@
  *  @param success      a success block excuting after successful updating.
  *  @param failureBlock a failure block excuting after updating fail.
  */
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure;
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure;
 
 /**
  *  list activities of user.
@@ -100,7 +100,7 @@
  *  @param success a success block excuting after successful fetching
  *  @param failure a failure block excuting after fetching fail.
  */
-- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure;
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure;
 
 /**
  *  Change user's password
@@ -110,10 +110,10 @@
  *  @param success     a success block excuting after successful fetching
  *  @param failure     a failure block excuting after fetching fail.
  */
-- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure;
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure;
 
 #pragma mark - /cloudLink
-- (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNSuccessBlockExtMyCloudCloudLinkResponse)success withFailureBlock:(QNFailureBlock)failure;
+- (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNMyCloudCloudLinkResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
 
 @end

@@ -125,6 +125,9 @@
 
 - (void)testCase16_MyCloudGetCloudLink{
     __block BOOL _finished = NO;
+    
+    [self.myCloudManager getCloudLinkWithOffset:<#(NSUInteger)#> withLimit:<#(NSUInteger)#> ithSuccessBlock:<#^(RKObjectRequestOperation *operation, RKMappingResult *result, MyCloudCloudLinkResponse *obj)success#> withFailureBlock:<#^(RKObjectRequestOperation *operation, NSError *error)failure#>
+     
     [self.myCloudManager getCloudLinkWithOffset:0
                                       withLimit:0
                                 ithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, MyCloudCloudLinkResponse *cloudlink){

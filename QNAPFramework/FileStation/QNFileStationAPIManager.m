@@ -149,7 +149,7 @@
     
 }
 
-- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlockExtQNSearchResponse)success withFailureBlock:(QNFailureBlock)failure{
+- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNQNSearchResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
 
     RKEntityMapping * responseMapping = [QNFileStationMapping mappingForSearchFiles];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping

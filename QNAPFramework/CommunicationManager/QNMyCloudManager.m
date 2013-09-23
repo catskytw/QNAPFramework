@@ -82,7 +82,7 @@
 
 }
 #pragma mark - MyCloudAPI V2.0 resource /ME
-- (void)readMyInformation:(QNSuccessBlock)success withFailiureBlock:(QNFailureBlockExtMyCloudResponse)failure{
+- (void)readMyInformation:(QNSuccessBlock)success withFailiureBlock:(QNMyCloudResponseFailureBlock)failure{
     RKEntityMapping *mapping = [QNMyCloudMapping mappingForUser];
     //should be user_id
     mapping.identificationAttributes = @[@"first_name", @"last_name", @"email"];
@@ -110,7 +110,7 @@
                                    }];
 }
 
-- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
+- (void)updateMyInformation:(NSDictionary *)userInfo withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure{
     if(!userInfo){
         DDLogError(@"update MyInformation fail caused by the giving a nil userInfo!");
         return;
@@ -154,7 +154,7 @@
     user = nil;
 }
 
-- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
+- (void)listMyActivities:(NSInteger)offset withLimit:(NSInteger)limit isDesc:(BOOL)isDesc withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForUserActivities];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodGET
@@ -180,7 +180,7 @@
                             }];
 }
 
-- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlockExtMyCloudResponse)failure{
+- (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForResponse];
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping
                                                                                             method:RKRequestMethodPUT
@@ -208,7 +208,7 @@
 }
 
 #pragma mark - MyCloudAPI V2.0 resource /cloudLink
-- (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNSuccessBlockExtMyCloudCloudLinkResponse)success withFailureBlock:(QNFailureBlock)failure{
+- (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNMyCloudCloudLinkResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure{
     RKEntityMapping *responseMapping = [QNMyCloudMapping mappingForCloudlink];
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:responseMapping

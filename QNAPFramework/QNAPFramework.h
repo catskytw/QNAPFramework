@@ -29,11 +29,11 @@ extern int ddLogLevel;
  *  @return a specified success block with the response object's name.
  */
 #ifndef QNSuccessBlockExt
-#define QNSuccessBlockExt(classname) typedef void (^QNSuccessBlockExt##classname)(RKObjectRequestOperation *operation, RKMappingResult *result, classname *obj)
+#define QNSuccessBlockExt(className) typedef void (^QN##className##SuccessBlock)(RKObjectRequestOperation *operation, RKMappingResult *result, className *obj)
 #endif
 
 #ifndef QNFailureBlockExt
-#define QNFailureBlockExt(classname) typedef void (^QNFailureBlockExt##classname)(RKObjectRequestOperation *operation, NSError *error, classname *obj)
+#define QNFailureBlockExt(className) typedef void (^QN##className##FailureBlock)(RKObjectRequestOperation *operation, NSError *error, className *obj)
 #endif
 
 #pragma mark - successBlocks
