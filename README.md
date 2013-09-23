@@ -114,6 +114,6 @@ typedef void (^QN##blockName##SuccessBlock)(RKObjectRequestOperation *operation,
 mappingResult, classname* obj);
 #endif
 ```
-This macro help you to declare an extension block of the original RESTKit success block `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}`.
+This macro help you to declare an extension block of the original success block `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}`.
 
 
