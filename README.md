@@ -81,10 +81,23 @@ If you want to upgrade while a new version of QNAPFramework is published, run `p
 
 ##Getting Started
 
-##More Detail
+##More Detail for Developers
+###Dependency from Cocoapods
+As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
+- [MagicalRecord]
+- AFNetworking
+- AFOAuth2Client
+- CocoaLumberjack
+- Expecta
+- RestKit
+- SDWebImage
+- SOCKit
+- TransitionKit
+- libwebp
 ###AOP:<br/>
 In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming) concept, whose aspects are log, analysis and security check. Our purpose is to decrease cross-cutting concerns which could minimize our maintaining effort.
 We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes by NSInvocation, thus we could insert any jointpoint into any target which could purify the logic in our methods. If you are tracing down the source code or want to improve it, please having some attendtions on this.
+You can hook before-interceptor or after-interceptor for any methods in any station's API, including error check, parameters check, error hanling and so on. All interceptors are written in `prag make - Interceptors` in `[QNAPCommunication class]`. 
 
 ###Debug Level:<br/>
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
@@ -100,5 +113,6 @@ typedef void (^QN##blockName##SuccessBlock)(RKObjectRequestOperation *operation,
 mappingResult, classname* obj);
 #endif
 ```
+This macro help you to declare an extension block of the original RESTKit success block `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}`.
 
 
