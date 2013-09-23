@@ -115,6 +115,6 @@ mappingResult, classname* obj);
 #endif
 ```
 We believe that the macro help you to declare an extension block of the original success block `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}` and developers can get the completition-hint in XCode easily. 
-![image](https://github.com/catskytw/QNAPFramework/blob/master/Doc/completition-hint.png).
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/completition-hint.png).
 
 
