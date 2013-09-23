@@ -128,15 +128,17 @@
     [self.myCloudManager getCloudLinkWithOffset:0
                                       withLimit:0
                                 ithSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, MyCloudCloudLinkResponse *cloudlink){
+                                    _finished = YES;
                                     DDLogVerbose(@"myCloudLink %@", cloudlink.cloud_link_id);
                                 }
                                withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
                                    DDLogError(@"myCloudLink Error: %@", error);
+                                   _finished = NO;
                                }];
     expect(_finished).willNot.beFalsy();
 }
 #pragma mark - FileManager TestCase
-- (void)testCase20_FileManagerLogin{
+- (void)testCase9999_FileManagerLogin{
     __block BOOL _hasResponse = false;
     [self.fileManager loginWithAccount:NAS_ACCOUNT
                           withPassword:NAS_PASSWORD
@@ -155,7 +157,7 @@
     }
 }
 
-- (void)testCase21_FileManagerDownloadFile{
+- (void)testCase20_FileManagerDownloadFile{
     __block BOOL _hasDownload = false;
     [self.fileManager downloadFileWithFilePath:@"/Public"
                                   withFileName:@"1.mov"
@@ -180,7 +182,7 @@
 //    }
 }
 
-- (void)testCase22_FileManagerDownloadThumbnail{
+- (void)testCase21_FileManagerDownloadThumbnail{
     __block BOOL _hasDownload = NO;
     [self.fileManager thumbnailWithFile:@"1.JPG"
                                withPath:@"/Public"
@@ -201,7 +203,7 @@
     }
 }
 
-- (void)testCase23_FileManagerSearchFiles{
+- (void)testCase22_FileManagerSearchFiles{
     __block BOOL _finished = NO;
     [self.fileManager searchFiles:@"mp3"
                    withSourcePath:@"/Multimedia"
@@ -308,7 +310,7 @@
                                 [self analysisMusicResponse:[mappingResult firstObject]];
                             }
                             withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
-                                _hasResponse = YES;
+                                _hasResponse = NO;
                             }];
     expect(_hasResponse).willNot.beFalsy();
 }

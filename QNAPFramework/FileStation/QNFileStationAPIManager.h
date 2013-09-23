@@ -13,6 +13,7 @@
 #import "QNFileLoginError.h"
 #import "QNAPFramework.h"
 #import "QNSearchResponse.h"
+#import "QNAPFramework.h"
 
 typedef enum{
     QNFileNameSort = 0,
