@@ -87,7 +87,8 @@ Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/
 - `[QNAPCommunicationManager factoryForMyCloudManager:withClientId:withClientSecret:]` 
 - `[QNAPCommunicationManager factoryForMusicStatioAPIManager:]`
 3. Now you have the stations stored in `QNAPCommunicationManager`. Giving another pointers for them or using them in singleton directly (e.g. `[QNAPCommunicationManager share].fileStationsManager`). Let's run our first API:<br/>
-```
+
+```objc
 [self.fileStationManager loginWithAccount:NAS_ACCOUNT
                              withPassword:NAS_PASSWORD
                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
@@ -96,9 +97,7 @@ Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/
                          withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
                                  //write your code here while the request is failed
                              }];
-
 ```
-
 
 ##More Detail for Developers
 ###Dependency from Cocoapods
