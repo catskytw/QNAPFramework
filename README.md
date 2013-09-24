@@ -81,11 +81,23 @@ If you want to upgrade while a new version of QNAPFramework is published, run `p
 
 ##Getting Started
 Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/index.html) of QNAPFramework. The simple usage:
-- create an instance of `QNAPCommunication`. You can invoke `[QNAPCommunication share]` for a singleton or `[QNAPCommunication new]` to create an instance and manage it by yourself.
-- `[[QNAPCommunication share] activateAllStation:]` to activate all stations for your NAS. This method would create all instance of stations for you, at ver 0.1.x, which should be fileStationAPIManager, myCloudManager, musicStationAPIManager. If you don't need all station managers at all, you could create them one by one or depended on your demand. The parameter of `[QNAPCommunication activateAllStation:]` is a NSDictionary whose keys are described in appleDoc above. To create eash instance of station should use:
--- `[QNAPCommunication factoryForFileStatioAPIManager:]` 
--- `[QNAPCommunication factoryForMyCloudManager:withClientId:withClientSecret:]` 
--- `[QNAPCommunication factoryForMusicStatioAPIManager:]`
+1. create an instance of `QNAPCommunicationManager`. You can invoke `[QNAPCommunicationManager share]` for a singleton or `[QNAPCommunicationManager new]` to create an instance and manage it by yourself.
+2. `[[QNAPCommunication activateAllStation:]` to activate all stations for your NAS. This method would create all instance of stations for you, at ver 0.1.x, which should be fileStationAPIManager, myCloudManager, musicStationAPIManager. If you don't need all station managers at all, you could create them one by one or depended on your demand. The parameter of `[QNAPCommunicationManager activateAllStation:]` is a NSDictionary whose keys are described in appleDoc above. To create eash instance of station should use:
+- `[QNAPCommunicationManager factoryForFileStatioAPIManager:]` 
+- `[QNAPCommunicationManager factoryForMyCloudManager:withClientId:withClientSecret:]` 
+- `[QNAPCommunicationManager factoryForMusicStatioAPIManager:]`
+3. Now you have the stations stored in `QNAPCommunicationManager`. Giving another pointers for them or using them in singleton directly (e.g. `[QNAPCommunicationManager share].fileStationsManager`). Let's run our first API:<br/>
+```
+[self.fileStationManager loginWithAccount:NAS_ACCOUNT
+                             withPassword:NAS_PASSWORD
+                         withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
+                                 //fit your code here while receiving the response successfully
+                             }
+                         withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
+                                 //write your code here while the request is failed
+                             }];
+
+```
 
 
 ##More Detail for Developers
