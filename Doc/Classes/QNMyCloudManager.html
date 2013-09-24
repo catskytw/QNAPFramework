@@ -1,0 +1,920 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>QNMyCloudManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">QNAPFramework </a></h1>
+				<a id="developerHome" href="../index.html">QNAP</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">QNMyCloudManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:</option>
+	
+	<option value="//api/name/fetchOAuthToken:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- fetchOAuthToken:withFailureBlock:</option>
+	
+	<option value="//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</option>
+	
+	<option value="//api/name/getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:</option>
+	
+	<option value="//api/name/initWithMyCloudBaseURL:withClientId:withClientSecret:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithMyCloudBaseURL:withClientId:withClientSecret:</option>
+	
+	<option value="//api/name/listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:</option>
+	
+	<option value="//api/name/readMyInformation:withFailiureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- readMyInformation:withFailiureBlock:</option>
+	
+	<option value="//api/name/refetchOAuthTokenWithSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- refetchOAuthTokenWithSuccessBlock:withFailureBlock:</option>
+	
+	<option value="//api/name/updateMyInformation:withSuccessBlock:withFailureBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- updateMyInformation:withSuccessBlock:withFailureBlock:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:">changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchOAuthToken:withFailureBlock:">fetchOAuthToken:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:">fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:">getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithMyCloudBaseURL:withClientId:withClientSecret:">initWithMyCloudBaseURL:withClientId:withClientSecret:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:">listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/readMyInformation:withFailiureBlock:">readMyInformation:withFailiureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/refetchOAuthTokenWithSuccessBlock:withFailureBlock:">refetchOAuthTokenWithSuccessBlock:withFailureBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateMyInformation:withSuccessBlock:withFailureBlock:">updateMyInformation:withSuccessBlock:withFailureBlock:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="QNMyCloudManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">QNMyCloudManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">QNModuleBaseObject : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">QNMyCloudManager.h<br />QNMyCloudManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithMyCloudBaseURL:withClientId:withClientSecret:">&ndash;&nbsp;initWithMyCloudBaseURL:withClientId:withClientSecret:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchOAuthToken:withFailureBlock:">&ndash;&nbsp;fetchOAuthToken:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:">&ndash;&nbsp;fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/refetchOAuthTokenWithSuccessBlock:withFailureBlock:">&ndash;&nbsp;refetchOAuthTokenWithSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/readMyInformation:withFailiureBlock:">&ndash;&nbsp;readMyInformation:withFailiureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/updateMyInformation:withSuccessBlock:withFailureBlock:">&ndash;&nbsp;updateMyInformation:withSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:">&ndash;&nbsp;listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:">&ndash;&nbsp;changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:">&ndash;&nbsp;getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:" title="changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">changeMyPassword:withNewPassword:withSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Change user&rsquo;s password</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)changeMyPassword:(NSString *)<em>oldPassword</em> withNewPassword:(NSString *)<em>newPassword</em> withSuccessBlock:(QNSuccessBlock)<em>success</em> withFailureBlock:(QNMyCloudResponseFailureBlock)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>oldPassword</em></dt>
+			<dd><p>oldPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>newPassword</em></dt>
+			<dd><p>newPassword</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>a success block excuting after successful fetching</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>a failure block excuting after fetching fail.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Change user&rsquo;s password</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchOAuthToken:withFailureBlock:" title="fetchOAuthToken:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">fetchOAuthToken:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Acquiring the credential of each mycloud API via client_credential. If success, this method would build a RKObjectManager embedding the credential.
+Developers don&rsquo;t take care anything about OAuth2.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)fetchOAuthToken:(void ( ^ ) ( AFOAuthCredential *credential ))<em>success</em> withFailureBlock:(void ( ^ ) ( NSError *error ))<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>What else things you want to do if success</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>What else things you want to do if failure</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Acquiring the credential of each mycloud API via client_credential. If success, this method would build a RKObjectManager embedding the credential.
+Developers don&rsquo;t take care anything about OAuth2.</p>
+
+<p>Attention!
+You can&rsquo;t invoke any /me resource if using the token acquired by this method, or you would get an error message &ldquo;User is not found&rdquo; from server.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:" title="fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Acquiring the credential of each mycloud API via user login. If success, this method would build a RKObjectManager embedding the credential.
+Developers don&rsquo;t take care anything about OAuth2.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)fetchOAuthToken:(NSString *)<em>account</em> withPassword:(NSString *)<em>password</em> withSuccessBlock:(void ( ^ ) ( AFOAuthCredential *credential ))<em>success</em> withFailureBlock:(void ( ^ ) ( NSError *error ))<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>account</em></dt>
+			<dd><p>User Account</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>password</em></dt>
+			<dd><p>User Password</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>What else things you want to do if success</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>What else things you want to do if failure</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Acquiring the credential of each mycloud API via user login. If success, this method would build a RKObjectManager embedding the credential.
+Developers don&rsquo;t take care anything about OAuth2.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:" title="getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">getCloudLinkWithOffset:withLimit:ithSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>get cloudlink</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)getCloudLinkWithOffset:(NSUInteger)<em>offset</em> withLimit:(NSUInteger)<em>limit</em> ithSuccessBlock:(QNMyCloudCloudLinkResponseSuccessBlock)<em>success</em> withFailureBlock:(QNFailureBlock)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>the number of offset</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>the number of limitation</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>success block</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>failure block</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>get cloudlink</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithMyCloudBaseURL:withClientId:withClientSecret:" title="initWithMyCloudBaseURL:withClientId:withClientSecret:"></a>
+	<h3 class="subsubtitle method-title">initWithMyCloudBaseURL:withClientId:withClientSecret:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Init with some properties, including baseURL, client id, client secret.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithMyCloudBaseURL:(NSString *)<em>baseURL</em> withClientId:(NSString *)<em>clientId</em> withClientSecret:(NSString *)<em>clientSecret</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>baseURL</em></dt>
+			<dd><p>baseURL information of NSURL base.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientId</em></dt>
+			<dd><p>client id. If you have no one, please contact MyCloud Department in QNAP</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>clientSecret</em></dt>
+			<dd><p>client secret. If you have no one, please contact MyCloud Department in QNAP</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>QNMyCloudManager</p>
+	</div>
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Init with some properties, including baseURL, client id, client secret.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:" title="listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">listMyActivities:withLimit:isDesc:withSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>list activities of user.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)listMyActivities:(NSInteger)<em>offset</em> withLimit:(NSInteger)<em>limit</em> isDesc:(BOOL)<em>isDesc</em> withSuccessBlock:(QNSuccessBlock)<em>success</em> withFailureBlock:(QNMyCloudResponseFailureBlock)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>offset</em></dt>
+			<dd><p>The offset of the query result.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>limit</em></dt>
+			<dd><p>The number of query result.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>isDesc</em></dt>
+			<dd><p>If true, return activities from the latest to the oldest.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>a success block excuting after successful fetching</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>a failure block excuting after fetching fail.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>list activities of user.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/readMyInformation:withFailiureBlock:" title="readMyInformation:withFailiureBlock:"></a>
+	<h3 class="subsubtitle method-title">readMyInformation:withFailiureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Get MyInformation from resource /me
+Attention please.
+You need to be pretty sure the token fetching by an use, not a client-crendentials;
+otherwise, you would get an error message &ldquo;User is not found&rdquo;</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)readMyInformation:(QNSuccessBlock)<em>success</em> withFailiureBlock:(QNMyCloudResponseFailureBlock)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>What else things you want to do if success</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>What else things you want to do if failure</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>Get MyInformation from resource /me
+Attention please.
+You need to be pretty sure the token fetching by an use, not a client-crendentials;
+otherwise, you would get an error message &ldquo;User is not found&rdquo;</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/refetchOAuthTokenWithSuccessBlock:withFailureBlock:" title="refetchOAuthTokenWithSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">refetchOAuthTokenWithSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A subMethod invoked by fetchOAuthToek:withPassword:withSuccessBlock:withFailureBlock
+This method should not be bound in AOP or would be unfinity invoking.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)refetchOAuthTokenWithSuccessBlock:(void ( ^ ) ( AFOAuthCredential *credential ))<em>success</em> withFailureBlock:(void ( ^ ) ( NSError *error ))<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>success block</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failure</em></dt>
+			<dd><p>failure block</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>A subMethod invoked by fetchOAuthToek:withPassword:withSuccessBlock:withFailureBlock
+This method should not be bound in AOP or would be unfinity invoking.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/updateMyInformation:withSuccessBlock:withFailureBlock:" title="updateMyInformation:withSuccessBlock:withFailureBlock:"></a>
+	<h3 class="subsubtitle method-title">updateMyInformation:withSuccessBlock:withFailureBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>update MyInformation by credential. Please make sure your access token which should be acquired by
+-(void)<a href="#//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:">fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</a>
+or you would get an error message</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)updateMyInformation:(NSDictionary *)<em>userInfo</em> withSuccessBlock:(QNSuccessBlock)<em>success</em> withFailureBlock:(QNMyCloudResponseFailureBlock)<em>failure</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>userInfo</em></dt>
+			<dd><p>a dictionary including all User Properties described in User Class</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>success</em></dt>
+			<dd><p>a success block excuting after successful updating.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>failureBlock</em></dt>
+			<dd><p>a failure block excuting after updating fail.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>update MyInformation by credential. Please make sure your access token which should be acquired by
+-(void)<a href="#//api/name/fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:">fetchOAuthToken:withPassword:withSuccessBlock:withFailureBlock:</a>
+or you would get an error message</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">QNMyCloudManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 QNAP. All rights reserved. (Last updated: 2013-09-24)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

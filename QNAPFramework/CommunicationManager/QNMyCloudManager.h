@@ -16,10 +16,26 @@
 @class MyCloudCloudLinkResponse;
 
 @interface QNMyCloudManager : QNModuleBaseObject
+/**
+ *  Client ID. This is the essential information of OAuth login by App. Please ask this information from your mycloud server administrator.
+ */
 @property(nonatomic, strong) NSString *clientId;
+/**
+ *  Client Secret. This is the essential information of OAuth login by App. Please ask this information from your mycloud server administrator.
+ */
 @property(nonatomic, strong) NSString *clientSecret;
+/**
+ *  MyCloud Account. In OAuth, you can login by account/password and clientId/clientSecret for different privilege.
+ *  Thus, please ask your mycloud server administor these information.
+ */
 @property(nonatomic, strong) NSString *account;
+/**
+ *  As the property "account" descrption.
+ */
 @property(nonatomic, strong) NSString *password;
+/**
+ *  A RKObjectManager here. For sharing the resource and manage all http request in queue.
+ */
 @property(nonatomic, strong) RKObjectManager *rkObjectManager;
 
 /**
@@ -61,8 +77,8 @@
  *  A subMethod invoked by fetchOAuthToek:withPassword:withSuccessBlock:withFailureBlock
  *  This method should not be bound in AOP or would be unfinity invoking.
  *
- *  @param success <#success description#>
- *  @param failure <#failure description#>
+ *  @param success success block
+ *  @param failure failure block
  */
 - (void)refetchOAuthTokenWithSuccessBlock:(void(^)(AFOAuthCredential *credential))success
                          withFailureBlock:(void(^)(NSError *error))failure;
@@ -113,6 +129,15 @@
 - (void)changeMyPassword:(NSString *)oldPassword withNewPassword:(NSString *)newPassword withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNMyCloudResponseFailureBlock)failure;
 
 #pragma mark - /cloudLink
+
+/**
+ *  get cloudlink
+ *
+ *  @param offset  the number of offset
+ *  @param limit   the number of limitation
+ *  @param success success block
+ *  @param failure failure block
+ */
 - (void)getCloudLinkWithOffset:(NSUInteger)offset withLimit:(NSUInteger)limit ithSuccessBlock:(QNMyCloudCloudLinkResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
 

@@ -11,7 +11,18 @@
 typedef BOOL(^CheckConditionBlock)(void);
 
 @interface QNAPFrameworkUtil : NSObject
+/**
+ *  Synchronized. Waiting unless the condition is True
+ *
+ *  @param condition, be aware, the type is (int *)
+ */
 + (void)waitUntilConditionYES:(int *)condition;
+
+/**
+ *  Synchronized. Waitint unless the block returning YES.
+ *
+ *  @param checkCondition block return.
+ */
 + (void)waitUntilConditionBlock:(__strong CheckConditionBlock)checkCondition;
 
 @end

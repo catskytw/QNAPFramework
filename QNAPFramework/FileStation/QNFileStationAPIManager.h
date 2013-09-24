@@ -13,7 +13,6 @@
 #import "QNFileLoginError.h"
 #import "QNAPFramework.h"
 #import "QNSearchResponse.h"
-#import "QNAPFramework.h"
 
 typedef enum{
     QNFileNameSort = 0,
@@ -44,16 +43,15 @@ typedef enum{
 - (void)loginWithAccount:(NSString*)account withPassword:(NSString*)password withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult, QNFileLogin *loginInfo))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, QNFileLoginError *loginError))failure;
 
 /**
- *  下載單一檔案.
- *  可使用Range指定下載該檔哪一部份, 可應用於續傳
+ *  Download a file. You can use the 'fileRange' parameter to request some specified binary data of the file. Resume downloading is based on the machinism mentioned before.
  *
- *  @param filePath   檔案路徑
- *  @param fileName   檔名
- *  @param isFolder   是否為目錄
- *  @param fileRange  檔案bytes範圍, 使用nil代表全抓, 若為目錄則此選項自動為nil
- *  @param success    成功後執行之block
- *  @param failure    失敗後執行之block
- *  @param inProgress 下載中執行之block
+ *  @param filePath   file path
+ *  @param fileName   file name
+ *  @param isFolder   a directory or not.
+ *  @param fileRange  the range of bytes, the defulat value is nil which means to download a whole file.
+ *  @param success    success block
+ *  @param failure    failure block
+ *  @param inProgress the block of updateing downloading progress
  */
 - (void)downloadFileWithFilePath:(NSString *)filePath withFileName:(NSString *)fileName isFolder:(BOOL)isFolder withRange:(NSRange *)fileRange withSuccessBlock:(void (^)(RKObjectRequestOperation *operation, RKMappingResult * mappingResult))success withFailureBlock:(void (^)(RKObjectRequestOperation *operation, NSError *error))failure withInProgressBlock:(void(^)(long long totalBytesRead, long long totalBytesExpectedToRead))inProgress;
 
@@ -82,7 +80,6 @@ typedef enum{
  *  @param startIndex start index
  *  @param isASC      if yes, sorting in ASC,vice versa.
  */
-//- (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 - (void)searchFiles:(NSString *)keyword withSourcePath:(NSString *)sourcePath withSortField:(QNFileSortType)sortType withLimitNumber:(NSUInteger)limit withStartIndex:(NSUInteger)startIndex isASC:(BOOL)isASC withSuccessBlock:(QNQNSearchResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
 /**

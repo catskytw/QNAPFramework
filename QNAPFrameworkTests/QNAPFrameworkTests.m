@@ -320,11 +320,14 @@
     [self.musicManager getFileWithFileID:@"4"
                        withFileExtension:@""
                         withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                            _hasResponse = YES;
                         }
                         withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                            _hasResponse = NO;
                         }
                      withInProgressBlock:^(long long totalBytesRead, long long totalBytesExpectedToRead){
                          DDLogVerbose(@"MusicManager Get File received data: %lld/%lld", totalBytesRead, totalBytesExpectedToRead);
+                         _hasResponse = YES;
                      }];
     expect(_hasResponse).willNot.beFalsy();
 }

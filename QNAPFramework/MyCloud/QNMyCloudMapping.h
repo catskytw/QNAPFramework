@@ -11,17 +11,39 @@
 #import "QNMappingProtoType.h"
 @interface QNMyCloudMapping : QNMappingProtoType
 /**
- *  回覆response mapping, 其餘result部份則使用dynamic mapping方式
+ *  The basic mapping only for status, message properties
  *
- *  @param resultMapping result 部份之mappin
+ *  @param resultMapping result mapping from developers for result properties
  *
- *  @return RKEntityMapping, 用來放入responseDescriptor
+ *  @return RKEntityMapping
  */
 + (RKEntityMapping *)basicResponseMappingWithResult:(RKEntityMapping *)resultMapping;
 
+/**
+ *  mapping for fetching user information
+ *
+ *  @return RKEntityMapping
+ */
 + (RKEntityMapping *)mappingForUser;
+
+/**
+ *  mapping for myCloud response
+ *
+ *  @return RKEntityMapping
+ */
 + (RKEntityMapping *)mappingForResponse;
+
+/**
+ *  mapping for fetching cloudlink
+ *
+ *  @return RKEntityMapping
+ */
 + (RKEntityMapping *)mappingForCloudlink;
 
+/**
+ *  mapping for users' activities
+ *
+ *  @return RKEntityMapping
+ */
 + (RKEntityMapping *)mappingForUserActivities;
 @end

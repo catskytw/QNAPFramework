@@ -14,6 +14,7 @@
 @class QNFileLoginError;
 @class MyCloudResponse;
 @class MyCloudCloudLinkResponse;
+
 #define CredentialIdentifier @"myCloudCredential"
 
 

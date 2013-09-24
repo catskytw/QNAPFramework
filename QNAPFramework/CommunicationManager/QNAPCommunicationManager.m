@@ -129,10 +129,11 @@ int ddLogLevel;
     QNMyCloudManager *myCloudManager = (QNMyCloudManager *)[i target];
     //檢查myCloudManager的baseURL
     if(!myCloudManager.baseURL){
-        
+        DDLogError(@"myCloudManager URL is null");
     }
     
     //檢查credetial是否有token以及是否過期
+    //TODO: dispatch
     AFOAuthCredential *credential = [AFOAuthCredential retrieveCredentialWithIdentifier: CredentialIdentifier];
     if(!credential.accessToken || [credential isExpired]){
         __block int isFetchingSuccess = NO;
@@ -263,8 +264,8 @@ int ddLogLevel;
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor yellowColor] backgroundColor:nil forFlag:LOG_FLAG_WARN];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor redColor] backgroundColor:nil forFlag:LOG_FLAG_ERROR];
     
-//    if(_ddLogLevel & LOG_FLAG_VERBOSE)
-//        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
+    if(_ddLogLevel & LOG_FLAG_VERBOSE)
+        RKLogConfigureByName("RestKit/Network", RKLogLevelTrace);
 }
 
 - (void)settingMisc:(NSBundle *)resourceBundle{
