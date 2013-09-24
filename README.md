@@ -80,7 +80,7 @@ $ open App.xcworkspace
 If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
 
 ##Getting Started
-The [appleDoc](https://github.com/catskytw/QNAPFramework/Doc/index.html)
+The [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/index.html)
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
