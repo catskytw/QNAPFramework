@@ -80,7 +80,11 @@ $ open App.xcworkspace
 If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
 
 ##Getting Started
-The [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/index.html)
+Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/index.html) of QNAPFramework. The simple usage:
+- create an instance of `QNAPCommunication`. You can invoke `[QNAPCommunication share]` for a singleton or `[QNAPCommunication new]` to create an instance and manage it by yourself.
+- `[[QNAPCommunication share] activateAllStation:]` to activate all stations for your NAS. This method would create all instance of stations for you, at ver 0.1.x, which should be fileStationAPIManager, myCloudManager, musicStationAPIManager. If you don't need all station managers at all, you could create them one by one or depended on your demand `[[QNAPCommunication share] factoryForFileStatioAPIManager:]` `[[QNAPCommunication share] factoryForMyCloudManager:withClientId:withClientSecret:]` `[[QNAPCommunication share] factoryForMusicStatioAPIManager:]`. The parameter of `[[QNAPCommunication share] activateAllStation:]` is a NSDictionary whose keys are described in appleDoc above.
+
+
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
