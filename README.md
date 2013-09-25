@@ -130,7 +130,6 @@ As the sample code above, you can invoke some of them by demand.
 ###UserInterface
 <br/>
 ***
-<br/>
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
@@ -151,12 +150,15 @@ We provide a tool named QNAPObjectProxy based on NSProxy which reflects any sele
 You can hook before-interceptor or after-interceptor for any methods in any station's API, including error check, parameters check, error hanling and so on. All interceptors are written in `prag make - Interceptors` in `[QNAPCommunication class]`. 
 You can hook the your interceptor if needed. Let's see the sample code:
 ```
-
+[(QNAPObjectProxy *)classInstance interceptMethodStartForSelector:NSSelectorFromString(@"thumbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:")
+                                            withInterceptorTarget:self
+                                              interceptorSelector:@selector(your_beforeInterceptor:)];
 ```
+This sample code show you which invocation(including target, selector) would be executed before `[MusicStationAPIManager  thumbnailWithFile:withPath:withSuccessBlock:withFailureBlock:withInProgressBlock:]`. You can add your logger, checksum or analysis tool(Google analysis?) into your beforeInterceptor to complete your task and don't need to modify the original QNAPFramework's source code. Be aware, you have to prevent concurrency/deadlock/memory issue by yourself. If you are not very familiar with AOP concept and NSProxy, leave it alone.
 
 ###Debug Level:<br/>
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
-![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png). The default debugLevel of QNAPFramework is `LOG_LEVEL_VERBOSE` which would print `DDLogVerbose()` and RestKit/Network. You could reset this level by `[QNAPCommunicationManager activateDebugLogLevel:]` in runtime.
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png). The default debugLevel of QNAPFramework is `LOG_LEVEL_VERBOSE` which would print `DDLogVerbose()` and RestKit/Network. You could reset this debug level by `[QNAPCommunicationManager activateDebugLogLevel:]` in runtime.
 
 ###Success/Failure Block Extention
 In RESTKit, all methods are given a successBlock `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}` and a failureBlock `^(RKObjectRequestOperation *operation, NSError *error){}`.
