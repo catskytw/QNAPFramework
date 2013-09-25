@@ -120,7 +120,7 @@ You can hook before-interceptor or after-interceptor for any methods in any stat
 
 ###Debug Level:<br/>
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
-![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png)
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/ColorConsole.png). The default debugLevel of QNAPFramework is `LOG_LEVEL_VERBOSE` which would print `DDLogVerbose()` and RestKit/Network. You could reset this level by `[QNAPCommunicationManager activateDebugLogLevel:]` in runtime.
 
 ###Success/Failure Block Extention
 In RESTKit, all methods are given a successBlock `^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){}` and a failureBlock `^(RKObjectRequestOperation *operation, NSError *error){}`.
