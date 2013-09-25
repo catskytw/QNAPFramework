@@ -18,7 +18,7 @@ self.fileStationManager = [[QNAPCommunicationManager share] factoryForFileStatio
 ```
 An easy way to login!
 Another downloading sample:
-```objc
+```Objective-C
 [self.fileManager downloadFileWithFilePath:YOUR_FILE_PATH
                               withFileName:YOUR_FILE_NAME
                                   isFolder:NO
@@ -90,7 +90,7 @@ Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/
 Actually, There are three session keys in our framework and you should invoke them by yourself, for filling different successBlocks and failureBlocks between them. <br/>
 Let's run our login API:<br/>
 
-```objc
+```Objective-C
 [self.fileStationManager loginWithAccount:NAS_ACCOUNT
                              withPassword:NAS_PASSWORD
                          withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
@@ -121,7 +121,7 @@ Let's run our login API:<br/>
 As the sample code above, you can invoke some of them by demand.
 - If the login is success, now you can invoke any API of stations with success and failure blocks. All APIs http-request are in asynchronous mode and sent one by one from queues. In most of sitiuations, it's make sense that the request sent in asynchronous mode based on AFNetwork library in QNAPFramework. If you really want to run an operation in synchronously, you can start it and then call `waitUntilFinished` or call `waitUntilAllOperationsAreFinished` on an `NSOperationQueue`; another choice is adding `[QNAPFrameworkUtil waitUntilConditionBlock:]` until the request finished. Again, both of these are terrible options as they will block the thread you call them on until the operation finishes. This could result in a deadlock if you start them on the main thread and the background job has dependencies on the main thread. Just call these API and leave asynchronized/synchronized problems behind, or you have to embrace synchronous operations wisely and carefully.
  
-- 
+ 
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
