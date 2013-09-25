@@ -84,6 +84,7 @@ $ open App.xcworkspace
 If you want to upgrade while a new version of QNAPFramework is published, run `pod install` again.
 
 ##Getting Started
+###CommunicationManager
 Here is the [appleDoc](https://raw.github.com/catskytw/QNAPFramework/master/Doc/index.html) of QNAPFramework. The simple usage:
 - create an instance of `QNAPCommunicationManager`. You can invoke `[QNAPCommunicationManager share]` for a singleton or `[QNAPCommunicationManager new]` to create an instance and manage it by yourself.
 - `[[QNAPCommunication activateAllStation:]` to activate all stations for your NAS. This method would create all instance of stations for you, at ver 0.1.x, which should be fileStationAPIManager, myCloudManager, musicStationAPIManager. If you don't need all station managers at all, you could create them one by one or depended on your demand. The parameter of `[QNAPCommunicationManager activateAllStation:]` is a NSDictionary whose keys are described in appleDoc above. To create eash instance of station should use:
@@ -125,7 +126,8 @@ Let's run our login API:<br/>
 As the sample code above, you can invoke some of them by demand.
 - If the login is success, now you can invoke any API of stations with success and failure blocks. All APIs http-request are in asynchronous mode and sent one by one from queues. In most of sitiuations, it's make sense that the request sent in asynchronous mode based on AFNetwork library in QNAPFramework. If you really want to run an operation in synchronously, you can start it and then call `waitUntilFinished` or call `waitUntilAllOperationsAreFinished` on an `NSOperationQueue`; another choice is adding `[QNAPFrameworkUtil waitUntilConditionBlock:]` until the request finished. Again, both of these are terrible options as they will block the thread you call them on until the operation finishes. This could result in a deadlock if you start them on the main thread and the background job has dependencies on the main thread. Just call these API and leave asynchronized/synchronized problems behind, or you have to embrace synchronous operations wisely and carefully.
  
- 
+###UserInterface
+
 ##More Detail for Developers
 ###Dependency from Cocoapods
 As mentioned before, this project uses cocoapods to manage the third party package/lib/framework. At v0.1, there are:<br/>
