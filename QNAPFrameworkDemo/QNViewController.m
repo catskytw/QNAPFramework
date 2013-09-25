@@ -12,6 +12,7 @@
 #import "SettingInfo.h"
 #import <RestKit/RestKit.h>
 #import "QNAPFrameworkUtil.h"
+#import "QNAPFramework.h"
 
 @interface QNViewController ()
 
@@ -27,8 +28,12 @@
      @"NASURL":NASURL,
      @"MyCloudURL":MyCloudServerBaseURL,
      @"ClientId":CLIENT_ID,
-     @"ClientSecret":CLIENT_SECRET
-     }];
+     @"ClientSecret":CLIENT_SECRET,
+     @"NASAccount":NAS_ACCOUNT,
+     @"NASPassword":NAS_PASSWORD,
+     @"MyCloudAccount":MyCloud_ACCOUNT,
+     @"MyCloudPassword":MyCloud_PASSWORD
+     } withLoginOption:LoginQTS_MultiMedia_MyCloud];
     
     self.fileStationManager = [QNAPCommunicationManager share].fileStationsManager;
     self.myCloudManager = [QNAPCommunicationManager share].myCloudManager;

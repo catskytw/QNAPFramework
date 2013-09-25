@@ -17,6 +17,7 @@
 #import "AOPProxy.h"
 #import <objc/runtime.h>
 #import "QNAPFrameworkUtil.h"
+#import "QNAPFramework.h"
 
 static QNAPCommunicationManager *singletonCommunicationManager = nil;
 int ddLogLevel;
@@ -40,12 +41,47 @@ int ddLogLevel;
 }
 
 - (BOOL)activateAllStation:(NSDictionary *)parameters{
+    /**
+     @{
+     @"NASURL":NASURL,
+     @"MyCloudURL":MyCloudServerBaseURL,
+     @"ClientId":CLIENT_ID,
+     @"ClientSecret":CLIENT_SECRET,
+     }
+     */
     self.fileStationsManager = [self factoryForFileStatioAPIManager:[parameters valueForKey:@"NASURL"]];
     self.musicStationManager = [self factoryForMusicStatioAPIManager:[parameters valueForKey:@"NASURL"]];
     self.myCloudManager = [self factoryForMyCloudManager:[parameters valueForKey:@"MyCloudURL"]
                                             withClientId:[parameters valueForKey:@"ClientId"]
                                         withClientSecret:[parameters valueForKey:@"ClientSecret"]];
     return (self.musicStationManager && self.fileStationsManager && self.myCloudManager)?YES:NO;
+}
+
+- (BOOL)loginAction:(int)loginOption withLoginInfo:(NSDictionary *)dic{
+    if([dic valueForKey:@"NASAccount"] && [dic valueForKey:@"NASPassword"]){
+    [self.musicStationManager loginForMultimediaSid:[dic valueForKey:@"NASAccount"]
+                                       withPassword:[dic valueForKey:@"NASPassword"]
+                                   withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){
+                                   }
+                                   withFailureBlock:^(RKObjectRequestOperation *operation, NSError *error){
+                                   }];
+    }
+    
+    [self.fileStationsManager loginWithAccount:@""
+                                 withPassword:@""
+                             withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult, QNFileLogin *login){
+                             }
+                             withFailureBlock:^(RKObjectRequestOperation *operation, QNFileLoginError *error){
+                             }];
+    
+    [self.myCloudManager fetchOAuthToken:@""
+                            withPassword:@""
+                        withSuccessBlock:^(AFOAuthCredential *credential){
+                            
+                        } withFailureBlock:^(NSError *error){
+                            
+                        }];
+
 }
 #pragma mark - Binding Interceptors
 - (BOOL)bindAllInterceptorForFileManager:(id)classInstance{
@@ -257,6 +293,7 @@ int ddLogLevel;
 
 - (void)activateDebugLogLevel:(int)_ddLogLevel{
     ddLogLevel = _ddLogLevel;
+    [DDLog removeAllLoggers];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
     [[DDTTYLogger sharedInstance] setForegroundColor:[UIColor greenColor] backgroundColor:nil forFlag:LOG_FLAG_INFO];

@@ -18,6 +18,20 @@
 #define CredentialIdentifier @"myCloudCredential"
 
 
+/**
+ login station flag
+ */
+
+#define LoginItemNone 0
+#define LoginItemQTS (1<<0)
+#define LoginItemMultiMedia (1<<1)
+#define LoginItemMyCloud (1<<2)
+
+#define LoginNone LoginItemNone
+#define LoginQTS LoginItemQTS
+#define LoginQTS_MultiMedia (LoginItemQTS | LoginItemMultiMedia)
+#define LoginQTS_MultiMedia_MyCloud (LoginItemQTS | LoginItemMultiMedia | LoginItemMyCloud)
+
 #ifndef LOG_VERBOSE
 extern int ddLogLevel;
 #endif

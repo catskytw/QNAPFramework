@@ -40,16 +40,20 @@
  *  active all stations
  *
  *  @param parameters This Dictionary should look like this:
- * @{
- * @"NASURL":NASURL,
- * @"MyCloudURL":MyCloudServerBaseURL,
- * @"ClientId":CLIENT_ID,
- * @"ClientSecret":CLIENT_SECRET
- * }
+    @{
+        @"NASURL":NASURL,
+        @"MyCloudURL":MyCloudServerBaseURL,
+        @"ClientId":CLIENT_ID,
+        @"ClientSecret":CLIENT_SECRET,
+        @"NASAccount":NAS_ACCOUNT,
+        @"NASPassword":NAS_PASSWORD,
+        @"MyCloudAccount":MyCloud_ACCOUNT,
+        @"MyCloudPassword":MyCloud_PASSWORD
+    }
  *
  *  @return YES if all stations activated, vice versa.
  */
-- (BOOL)activateAllStation:(NSDictionary *)parameters;
+- (BOOL)activateAllStation:(NSDictionary *)parameters withLoginOption:(int)loginOption;
 #pragma mark - Factory methods
 
 /**
