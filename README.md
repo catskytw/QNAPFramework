@@ -70,13 +70,13 @@ $ pod search QNAPFramework
    - Sub specs:
      - QNAPFramework/no-arc (0.1.6)
 ```
-Creating your iOS project and editing Podfile. 
+Creating your iOS project and editing Podfile. Of course, you could give the last version depended on the result of searching by `pod search QNAPFramework` in your Podfile.
 ```bat
 $ edit Podfile
 platform :ios, '5.0'
 pod 'QNAPFramework',       '~> 0.1.6'
 ```
-Installing the dependenies of your project, and always open the .xcworkspace
+Installing the dependenies of your project; ALWAYS open the .xcworkspace or take a lot of compiling error in pods.
 ```bat
 $ pod install
 $ open App.xcworkspace
@@ -144,6 +144,10 @@ As mentioned before, this project uses cocoapods to manage the third party packa
 In this framework, we implement the [AOP](http://en.wikipedia.org/wiki/Aspect-oriented_programming) concept, whose aspects are log, analysis and security check. Our purpose is to decrease cross-cutting concerns which could minimize our maintaining effort.
 We provide a tool named QNAPObjectProxy based on NSProxy which reflects any selector of classes by NSInvocation, thus we could insert any jointpoint into any target which could purify the logic in our methods. If you are tracing down the source code or want to improve it, please having some attendtions on this.
 You can hook before-interceptor or after-interceptor for any methods in any station's API, including error check, parameters check, error hanling and so on. All interceptors are written in `prag make - Interceptors` in `[QNAPCommunication class]`. 
+You can hook the your interceptor if needed. Let's see the sample code:
+```
+
+```
 
 ###Debug Level:<br/>
 In QNAPFramework, we integreated the cocoaLumberjack project for debugLevel. Furthermore, the color console setting by cocoaLumberjack is implemented in `[QNAPCommunicationManager settingMisc:]`. Of course, it works with the XCodePlugin, [XCodeColors](https://github.com/robbiehanson/XcodeColors) written by robbiehanson in XCode 4.x.
