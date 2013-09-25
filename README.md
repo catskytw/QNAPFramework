@@ -1,7 +1,11 @@
 # QNAPFramework
 
 ##Overview
-You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains FileManagerAPI, MusicStation API, PhotoStation API, myCloud API and so on. You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. For login example, you only simply invoke a method such as:
+You can use QNAPFramework to build an iOS app quickly which has some functions with your QNAP NAS machines. This framework contains communication module, log system, multimedia streaming machenism and so on. The high level module-stakc chart is as below:<br/>
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/highLevelModuleStack.png)<br/>
+At ver 0.1, we only develop the communication modules including FileStationManager, MusicStationManager, MyCloudManager APIs and will complete other systems in ver 0.2. Since we focus on the communications and develop this framework for it, let's see the detail in communication:
+![image](https://raw.github.com/catskytw/QNAPFramework/master/Doc/CommunicationModuleStack.png)<br/>
+You can just invoke these methods and don't deal with any detail of HTTP request, asynchronism problems, parsing and others. Facing to various HTTP behaviors from many different development teams, this framework is an elegant and carefully designed set of APIs which including RESTful, common Webservice, http response in XML format, http response in JSON format, http header control, credential information and a lot of details. For login example, you only simply invoke a method such as:
 
 ```Objective-C
 //create a fileStationManager
