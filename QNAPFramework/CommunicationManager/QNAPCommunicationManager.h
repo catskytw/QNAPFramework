@@ -53,7 +53,7 @@
  *
  *  @return YES if all stations activated, vice versa.
  */
-- (BOOL)activateAllStation:(NSDictionary *)parameters withLoginOption:(int)loginOption;
+- (BOOL)activateAllStation:(NSDictionary *)parameters withLoginOption:(int)loginOption withNASVersion:();
 #pragma mark - Factory methods
 
 /**

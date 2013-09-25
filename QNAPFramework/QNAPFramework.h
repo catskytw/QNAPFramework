@@ -18,10 +18,10 @@
 #define CredentialIdentifier @"myCloudCredential"
 
 
+
 /**
  login station flag
  */
-
 #define LoginItemNone 0
 #define LoginItemQTS (1<<0)
 #define LoginItemMultiMedia (1<<1)

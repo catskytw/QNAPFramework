@@ -345,6 +345,13 @@
 			path = CoreDataObject;
 			sourceTree = "<group>";
 		};
+		0C3E208817F2D716002C57E2 /* UserInterface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = UserInterface;
+			sourceTree = "<group>";
+		};
 		0CA5F16717D4942F00183046 = {
 			isa = PBXGroup;
 			children = (
@@ -388,12 +395,8 @@
 		0CA5F17517D4942F00183046 /* QNAPFramework */ = {
 			isa = PBXGroup;
 			children = (
+				0C3E208817F2D716002C57E2 /* UserInterface */,
 				A3A0591D17E4CE21007CBC65 /* Util */,
-				0C23DABD17E2EC08001C72DE /* PhotoStation */,
-				0C23DAB917E2EBA4001C72DE /* MusicStation */,
-				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
-				A3E12BA817D6104F00A3982D /* MyCloud */,
-				A3E12BA717D6103E00A3982D /* FileStation */,
 				A36E1ED317D4D98E004C0435 /* CommunicationManager */,
 				0CA5F17817D4942F00183046 /* QNAPFramework.h */,
 				0CA5F17617D4942F00183046 /* Supporting Files */,
@@ -524,6 +527,11 @@
 		A36E1ED317D4D98E004C0435 /* CommunicationManager */ = {
 			isa = PBXGroup;
 			children = (
+				0C23DABD17E2EC08001C72DE /* PhotoStation */,
+				0C23DAB917E2EBA4001C72DE /* MusicStation */,
+				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
+				A3E12BA817D6104F00A3982D /* MyCloud */,
+				A3E12BA717D6103E00A3982D /* FileStation */,
 				0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */,
 				0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */,
 				0C23DAB617E2E3C5001C72DE /* QNAPFrameworkUtil.h */,
