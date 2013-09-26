@@ -33,7 +33,7 @@
      @"NASPassword":NAS_PASSWORD,
      @"MyCloudAccount":MyCloud_ACCOUNT,
      @"MyCloudPassword":MyCloud_PASSWORD
-     } withLoginOption:LoginQTS_MultiMedia_MyCloud];
+     }];
     
     self.fileStationManager = [QNAPCommunicationManager share].fileStationsManager;
     self.myCloudManager = [QNAPCommunicationManager share].myCloudManager;

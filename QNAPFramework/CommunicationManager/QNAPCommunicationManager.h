@@ -45,15 +45,11 @@
         @"MyCloudURL":MyCloudServerBaseURL,
         @"ClientId":CLIENT_ID,
         @"ClientSecret":CLIENT_SECRET,
-        @"NASAccount":NAS_ACCOUNT,
-        @"NASPassword":NAS_PASSWORD,
-        @"MyCloudAccount":MyCloud_ACCOUNT,
-        @"MyCloudPassword":MyCloud_PASSWORD
     }
  *
  *  @return YES if all stations activated, vice versa.
  */
-- (BOOL)activateAllStation:(NSDictionary *)parameters withLoginOption:(int)loginOption withNASVersion:();
+- (BOOL)activateAllStation:(NSDictionary *)parameters;
 #pragma mark - Factory methods
 
 /**
