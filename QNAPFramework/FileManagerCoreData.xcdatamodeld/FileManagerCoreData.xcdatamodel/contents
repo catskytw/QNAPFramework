@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="QNError" representedClassName="QNError" syncable="YES">
         <attribute name="errorcode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -117,14 +117,14 @@
         <relationship name="relationship_QNSearchFileInfo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNSearchFileInfo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="QNError" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="QNFileCustomLogo" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="QNFileFirmware" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="QNFileLogin" positionX="0" positionY="0" width="128" height="780"/>
-        <element name="QNFileLoginError" positionX="160" positionY="192" width="128" height="120"/>
-        <element name="QNFileModel" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="QNFilePasswdConstraints" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="QNSearchResponse" positionX="160" positionY="192" width="128" height="165"/>
-        <element name="QNSearchFileInfo" positionX="160" positionY="192" width="128" height="330"/>
+        <element name="QNError" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileCustomLogo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileFirmware" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileLogin" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileLoginError" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFileModel" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNFilePasswdConstraints" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNSearchFileInfo" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNSearchResponse" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

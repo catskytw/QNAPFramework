@@ -15,7 +15,7 @@
 #define MyCloud_ACCOUNT @"catskytw@gmail.com"
 #define MyCloud_PASSWORD @"12345678"
 //#define NASURL @"http://changenas.myqnapcloud.com:8080"
-#define NASURL @"http://172.17.20.121:8080"
+#define NASURL @"http://10.8.12.104:8080"
 #define NAS_ACCOUNT @"admin"
-#define NAS_PASSWORD @"YWRtaW4="
+#define NAS_PASSWORD @"pm2009"
 #endif

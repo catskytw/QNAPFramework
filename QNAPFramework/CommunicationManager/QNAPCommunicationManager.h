@@ -10,6 +10,7 @@
 #import "QNFileStationAPIManager.h"
 #import "QNMyCloudManager.h"
 #import "QNMusicStationAPIManager.h"
+#import "QNVideoStationAPIManager.h"
 
 @interface QNAPCommunicationManager : NSObject
 @property(nonatomic, strong) NSMutableArray *allModules;
@@ -23,6 +24,7 @@
 @property(nonatomic, strong) QNFileStationAPIManager *fileStationsManager;
 @property(nonatomic, strong) QNMyCloudManager *myCloudManager;
 @property(nonatomic, strong) QNMusicStationAPIManager *musicStationManager;
+@property(nonatomic, strong) QNVideoStationAPIManager *videoStationManager;
 
 /**
  *  A singleton for QNAPCommunicationManager. Of course you can create an instance for yourself.
@@ -79,8 +81,9 @@
  *
  *  @return QNMusicStationAPIManager
  */
-- (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString*)baseURL;
+- (QNMusicStationAPIManager *)factoryForMusicStatioAPIManager:(NSString *)baseURL;
 
+- (QNVideoStationAPIManager *)factoryForVideoStationAPIManager:(NSString *)baseURL;
 - (void)settingMisc:(NSBundle *)resourceBundle;
 
 /**

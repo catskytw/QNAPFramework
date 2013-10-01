@@ -15,6 +15,7 @@
 #import "QNAPFramework.h"
 #import "RKObjectManager_DownloadProgress.h"
 #import "QNSearchResponse.h"
+#import "QNAPFrameworkUtil.h"
 
 @class RKNSJSONSerialization;
 
@@ -56,7 +57,9 @@
                                                                                            keyPath:@"QDocRoot"
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [self.rkObjectManager addResponseDescriptor:responseDescriptor];
-    NSDictionary *parameters = @{@"pwd":password, @"user":account, @"service":@"1"};
+    NSString *encodingPassword = [QNAPFrameworkUtil ezEncode:password];
+
+    NSDictionary *parameters = @{@"pwd":encodingPassword, @"user":account, @"service":@"1"};
     [self.rkObjectManager getObjectsAtPath:@"cgi-bin/authLogin.cgi"
                               parameters:parameters
                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){

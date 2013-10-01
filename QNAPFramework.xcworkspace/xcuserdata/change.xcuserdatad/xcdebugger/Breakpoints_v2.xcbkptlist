@@ -25,7 +25,7 @@
                   symbolName = "-[RKRouter URLWithRoute:object:]"
                   moduleName = "QNAPFrameworkDemo"
                   urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/Pods/RestKit/Code/Network/RKRouter.m"
-                  timestampString = "401871728.805948"
+                  timestampString = "402305742.286967"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
@@ -39,7 +39,7 @@
                   symbolName = "-[RKRouter URLWithRoute:object:]"
                   moduleName = "QNAPFrameworkTests"
                   urlString = "file://localhost/Users/change/Desktop/QNAPFramework/QNAPFramework/Pods/RestKit/Code/Network/RKRouter.m"
-                  timestampString = "401871730.702578"
+                  timestampString = "402305742.905787"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
@@ -52,7 +52,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"

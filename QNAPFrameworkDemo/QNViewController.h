@@ -10,11 +10,13 @@
 #import "QNMyCloudManager.h"
 #import "QNFileStationAPIManager.h"
 #import "QNMusicStationAPIManager.h"
+#import "QNVideoStationAPIManager.h"
 
 @interface QNViewController : UIViewController
 @property QNMyCloudManager *myCloudManager;
 @property QNFileStationAPIManager *fileStationManager;
 @property QNMusicStationAPIManager *musicStationManager;
+@property QNVideoStationAPIManager *videoStationManager;
 
 @property IBOutlet UILabel *loginLabel;
 @property IBOutlet UILabel *downloadPercent;

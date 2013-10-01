@@ -9,6 +9,7 @@
 #import "QNModuleBaseObject.h"
 #import <RestKit/RestKit.h>
 #import "QNMyCloudMapping.h"
+#import "QNAPCommunicationManager.h"
 
 @implementation QNModuleBaseObject
 - (id)initWithBaseURL:(NSString *)baseURL{
@@ -16,6 +17,10 @@
         
     }
     return self;
+}
+
+- (void)setting{
+    self.weakRKObjectManager = [QNAPCommunicationManager share].rkObjectManager;
 }
 
 - (NSArray *)allErrorMessageResponseDescriptor{

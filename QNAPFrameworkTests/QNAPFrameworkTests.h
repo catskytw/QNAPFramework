@@ -17,4 +17,5 @@
 @property QNMyCloudManager *myCloudManager;
 @property QNFileStationAPIManager *fileManager;
 @property QNMusicStationAPIManager *musicManager;
+@property QNVideoStationAPIManager *videoManager;
 @end

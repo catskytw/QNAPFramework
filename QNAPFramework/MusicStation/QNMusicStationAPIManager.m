@@ -12,6 +12,7 @@
 #import "QNError.h"
 #import <SDWebImage/SDWebImageManager.h>
 #import "RKObjectManager_DownloadProgress.h"
+#import "QNAPFrameworkUtil.h"
 
 @implementation QNMusicStationAPIManager
 
@@ -20,10 +21,6 @@
     if((self = [super initWithBaseURL:baseURL])){
     }
     return self;
-}
-
-- (void)setting{
-    self.weakRKObjectManager = [QNAPCommunicationManager share].rkObjectManager;
 }
 
 #pragma mark - MusicStation API
@@ -36,9 +33,10 @@
                                                                                            keyPath:@"QDocRoot.datas.data"
                                                                                        statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     [self.weakRKObjectManager addResponseDescriptor:responseDescriptor];
+    NSString *encodingPassword = [QNAPFrameworkUtil ezEncode:password];
     NSDictionary *parameters = @{@"act":@"login",
                           @"id":account,
-                          @"password":password
+                          @"password":encodingPassword
                           };
     [self.weakRKObjectManager getObject:nil
                                    path:@"musicstation/api/as_login_api.php"

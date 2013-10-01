@@ -54,7 +54,8 @@ int ddLogLevel;
     self.myCloudManager = [self factoryForMyCloudManager:[parameters valueForKey:@"MyCloudURL"]
                                             withClientId:[parameters valueForKey:@"ClientId"]
                                         withClientSecret:[parameters valueForKey:@"ClientSecret"]];
-    return (self.musicStationManager && self.fileStationsManager && self.myCloudManager)?YES:NO;
+    self.videoStationManager = [self factoryForVideoStationAPIManager:[parameters valueForKey:@"NASURL"]];
+    return (self.musicStationManager && self.fileStationsManager && self.myCloudManager && self.videoStationManager)?YES:NO;
 }
 
 - (BOOL)loginAction:(int)loginOption withLoginInfo:(NSDictionary *)dic{
@@ -81,6 +82,11 @@ int ddLogLevel;
                         } withFailureBlock:^(NSError *error){
                             
                         }];
+    /**
+     1. should be synchronized
+     2. caculate the result
+     */
+    return YES;
 
 }
 #pragma mark - Binding Interceptors
@@ -247,6 +253,15 @@ int ddLogLevel;
     [self bindAllInterceptorForMusicStation:musicStationsAPIManager];
     QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:musicStationsAPIManager];
     return (searchExistingModule==nil)?musicStationsAPIManager:(QNMusicStationAPIManager *)searchExistingModule;
+}
+
+- (QNVideoStationAPIManager *)factoryForVideoStationAPIManager:(NSString *)baseURL{
+    QNVideoStationAPIManager *videoStationAPIManager = (QNVideoStationAPIManager *)[[AOPProxy alloc] initWithNewInstanceOfClass:[QNVideoStationAPIManager class]];
+    videoStationAPIManager.baseURL = baseURL;
+    [videoStationAPIManager setting];
+    //TODO binding interceptor
+    QNModuleBaseObject *searchExistingModule = [self sameModuleWithTargetModule:videoStationAPIManager];
+    return searchExistingModule == nil ? videoStationAPIManager:(QNVideoStationAPIManager *)searchExistingModule;
 }
 
 #pragma mark - PrivateMethod

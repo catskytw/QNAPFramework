@@ -14,5 +14,5 @@
 
 - (id)initWithBaseURL:(NSString *)baseURL;
 - (NSArray *)allErrorMessageResponseDescriptor;
-
+- (void)setting;
 @end

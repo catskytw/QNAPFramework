@@ -38,7 +38,8 @@
     self.fileStationManager = [QNAPCommunicationManager share].fileStationsManager;
     self.myCloudManager = [QNAPCommunicationManager share].myCloudManager;
     self.musicStationManager = [QNAPCommunicationManager share].musicStationManager;
-
+    self.videoStationManager = [QNAPCommunicationManager share].videoStationManager;
+    
     [self.musicStationManager loginForMultimediaSid:NAS_ACCOUNT
                                        withPassword:NAS_PASSWORD
                                    withSuccessBlock:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult){

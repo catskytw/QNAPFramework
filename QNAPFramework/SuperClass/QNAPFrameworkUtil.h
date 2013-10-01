@@ -25,4 +25,6 @@ typedef BOOL(^CheckConditionBlock)(void);
  */
 + (void)waitUntilConditionBlock:(__strong CheckConditionBlock)checkCondition;
 
++ (NSString *)ezEncode:(NSString *)str;
+
 @end

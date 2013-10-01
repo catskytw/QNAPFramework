@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="QNVideoFileItem" representedClassName="QNVideoFileItem" syncable="YES">
+        <attribute name="addToDbTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="cFileName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="colorLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cPictureTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dateCreated" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateModified" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="duration" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="f_id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="iFileSize" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="iHeight" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="importYearMonthDay" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isNew" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="iWidth" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="keywords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mask" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="mediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orientation" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="prefix" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rating" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="transcodeStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="v240P" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="v360P" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="v720P" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="yearMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearMonthDay" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="QNVideoFileList" representedClassName="QNVideoFileList" syncable="YES">
+        <attribute name="keywordList" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="queries" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="videoCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_FileItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNVideoFileItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="QNVideoFileItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNVideoFileList" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

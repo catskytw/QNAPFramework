@@ -20,7 +20,6 @@ typedef enum{
 } QNSearchSongType;
 
 @interface QNMusicStationAPIManager : QNModuleBaseObject
-- (void)setting;
 
 #pragma mark - MusicStation API
 /**

@@ -40,6 +40,9 @@
 		0C23DB4317E9A933001C72DE /* MyCloudSourceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB4217E9A933001C72DE /* MyCloudSourceInfo.m */; };
 		0C23DB4617E9A933001C72DE /* MyCloudApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB4517E9A933001C72DE /* MyCloudApp.m */; };
 		0C23DB4917E9A933001C72DE /* MyCloudResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C23DB4817E9A933001C72DE /* MyCloudResponse.m */; };
+		0C2BD98517FAA2EA00AE259F /* VideoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C2BD98317FAA2EA00AE259F /* VideoCoreData.xcdatamodeld */; };
+		0C3EEECD17F57A6400AB8DF9 /* QNVideoStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3EEECC17F57A6400AB8DF9 /* QNVideoStationAPIManager.m */; };
+		0C3EEED017F57AD300AB8DF9 /* QNVideoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3EEECF17F57AD300AB8DF9 /* QNVideoMapping.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -49,6 +52,9 @@
 		0CA5F18F17D4942F00183046 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5F18D17D4942F00183046 /* InfoPlist.strings */; };
 		0CA5F19217D4942F00183046 /* QNAPFrameworkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */; };
 		0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */; };
+		0CD57CFE17FAB27700CF594F /* VideoCoreData.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 0C2BD98317FAA2EA00AE259F /* VideoCoreData.xcdatamodeld */; };
+		0CD57D0717FAD46800CF594F /* QNVideoFileItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD57D0617FAD46800CF594F /* QNVideoFileItem.m */; };
+		0CD57D0A17FAD46900CF594F /* QNVideoFileList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD57D0917FAD46900CF594F /* QNVideoFileList.m */; };
 		3BA49805E4514E86BF621E22 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFBD73E0B6634CCC9D885182 /* libPods.a */; };
 		A315014017D5C48400C2BF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */; };
 		A315014217D5C48B00C2BF2A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A315014117D5C48B00C2BF2A /* MobileCoreServices.framework */; };
@@ -167,6 +173,11 @@
 		0C23DB4517E9A933001C72DE /* MyCloudApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCloudApp.m; path = QNAPFramework/MyCloud/CoreDataObject/MyCloudApp.m; sourceTree = SOURCE_ROOT; };
 		0C23DB4717E9A933001C72DE /* MyCloudResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyCloudResponse.h; path = QNAPFramework/MyCloud/CoreDataObject/MyCloudResponse.h; sourceTree = SOURCE_ROOT; };
 		0C23DB4817E9A933001C72DE /* MyCloudResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyCloudResponse.m; path = QNAPFramework/MyCloud/CoreDataObject/MyCloudResponse.m; sourceTree = SOURCE_ROOT; };
+		0C2BD98417FAA2EA00AE259F /* VideoCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VideoCoreData.xcdatamodel; sourceTree = "<group>"; };
+		0C3EEECB17F57A6400AB8DF9 /* QNVideoStationAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoStationAPIManager.h; sourceTree = "<group>"; };
+		0C3EEECC17F57A6400AB8DF9 /* QNVideoStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoStationAPIManager.m; sourceTree = "<group>"; };
+		0C3EEECE17F57AD300AB8DF9 /* QNVideoMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoMapping.h; sourceTree = "<group>"; };
+		0C3EEECF17F57AD300AB8DF9 /* QNVideoMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoMapping.m; sourceTree = "<group>"; };
 		0C53E4C517E16743008B4AFD /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
@@ -183,6 +194,10 @@
 		0CA5F19117D4942F00183046 /* QNAPFrameworkTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QNAPFrameworkTests.m; sourceTree = "<group>"; };
 		0CA5F19B17D497CD00183046 /* QNAPCommunicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNAPCommunicationManager.h; path = CommunicationManager/QNAPCommunicationManager.h; sourceTree = "<group>"; };
 		0CA5F19C17D497CD00183046 /* QNAPCommunicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNAPCommunicationManager.m; path = CommunicationManager/QNAPCommunicationManager.m; sourceTree = "<group>"; };
+		0CD57D0517FAD46800CF594F /* QNVideoFileItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoFileItem.h; sourceTree = "<group>"; };
+		0CD57D0617FAD46800CF594F /* QNVideoFileItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoFileItem.m; sourceTree = "<group>"; };
+		0CD57D0817FAD46900CF594F /* QNVideoFileList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoFileList.h; sourceTree = "<group>"; };
+		0CD57D0917FAD46900CF594F /* QNVideoFileList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoFileList.m; sourceTree = "<group>"; };
 		3C9FDE2E44B82A42C952BCD3 /* NSManagedObjectContext+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Extend.h"; sourceTree = "<group>"; };
 		8FDCA2533B1A4ABC8ACDAEF7 /* Pods-QNAPFrameworkTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QNAPFrameworkTests.xcconfig"; path = "Pods/Pods-QNAPFrameworkTests.xcconfig"; sourceTree = SOURCE_ROOT; };
 		A315013F17D5C48400C2BF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -345,11 +360,34 @@
 			path = CoreDataObject;
 			sourceTree = "<group>";
 		};
+		0C2D1EF817F9577700AE98CA /* CoreDataObject */ = {
+			isa = PBXGroup;
+			children = (
+				0CD57D0817FAD46900CF594F /* QNVideoFileList.h */,
+				0CD57D0917FAD46900CF594F /* QNVideoFileList.m */,
+				0CD57D0517FAD46800CF594F /* QNVideoFileItem.h */,
+				0CD57D0617FAD46800CF594F /* QNVideoFileItem.m */,
+			);
+			path = CoreDataObject;
+			sourceTree = "<group>";
+		};
 		0C3E208817F2D716002C57E2 /* UserInterface */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = UserInterface;
+			sourceTree = "<group>";
+		};
+		0C4DA91817F42A3D00DA5798 /* VideoStation */ = {
+			isa = PBXGroup;
+			children = (
+				0C2D1EF817F9577700AE98CA /* CoreDataObject */,
+				0C3EEECB17F57A6400AB8DF9 /* QNVideoStationAPIManager.h */,
+				0C3EEECC17F57A6400AB8DF9 /* QNVideoStationAPIManager.m */,
+				0C3EEECE17F57AD300AB8DF9 /* QNVideoMapping.h */,
+				0C3EEECF17F57AD300AB8DF9 /* QNVideoMapping.m */,
+			);
+			path = VideoStation;
 			sourceTree = "<group>";
 		};
 		0CA5F16717D4942F00183046 = {
@@ -408,6 +446,7 @@
 		0CA5F17617D4942F00183046 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0C2BD98317FAA2EA00AE259F /* VideoCoreData.xcdatamodeld */,
 				A322816C17D656FB00017366 /* MyCloudCoreData.xcdatamodeld */,
 				0CA5F17717D4942F00183046 /* QNAPFramework-Prefix.pch */,
 				0C2134B317E047390009FA09 /* FileManagerCoreData.xcdatamodeld */,
@@ -527,6 +566,7 @@
 		A36E1ED317D4D98E004C0435 /* CommunicationManager */ = {
 			isa = PBXGroup;
 			children = (
+				0C4DA91817F42A3D00DA5798 /* VideoStation */,
 				0C23DABD17E2EC08001C72DE /* PhotoStation */,
 				0C23DAB917E2EBA4001C72DE /* MusicStation */,
 				A3F00C4B17D63BF9004E9C70 /* SuperClass */,
@@ -660,6 +700,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = QNAP;
+				TargetAttributes = {
+					A322817517D6604A00017366 = {
+						DevelopmentTeam = JY5JM7GXQJ;
+					};
+				};
 			};
 			buildConfigurationList = 0CA5F16B17D4942F00183046 /* Build configuration list for PBXProject "QNAPFramework" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -693,6 +738,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CD57CFE17FAB27700CF594F /* VideoCoreData.xcdatamodeld in Resources */,
 				0C23DACE17E448DE001C72DE /* MusicStationCoreData.xcdatamodeld in Resources */,
 				0C23DAA717E19F2A001C72DE /* MyCloudCoreData.xcdatamodeld in Resources */,
 				0C23DAA817E19F2A001C72DE /* FileManagerCoreData.xcdatamodeld in Resources */,
@@ -788,10 +834,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2BD98517FAA2EA00AE259F /* VideoCoreData.xcdatamodeld in Sources */,
 				0C2134C617E059CC0009FA09 /* QNFileLogin.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
 				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,
+				0CD57D0A17FAD46900CF594F /* QNVideoFileList.m in Sources */,
 				0C2134C917E059CC0009FA09 /* QNFilePasswdConstraints.m in Sources */,
 				0C2134BB17E048700009FA09 /* RKXMLReaderSerialization.m in Sources */,
 				0C2134CC17E059CC0009FA09 /* QNFileCustomLogo.m in Sources */,
@@ -802,6 +850,7 @@
 				A322816E17D656FB00017366 /* MyCloudCoreData.xcdatamodeld in Sources */,
 				0C2134B517E047390009FA09 /* FileManagerCoreData.xcdatamodeld in Sources */,
 				0C2134BC17E048700009FA09 /* XMLReader.m in Sources */,
+				0CD57D0717FAD46800CF594F /* QNVideoFileItem.m in Sources */,
 				0C2134C317E059CB0009FA09 /* QNFileFirmware.m in Sources */,
 				0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */,
 				0C23DAA617E19B63001C72DE /* QNFileLoginError.m in Sources */,
@@ -817,10 +866,12 @@
 				0C23DAE617E47789001C72DE /* QNMultimediaLoginInfo.m in Sources */,
 				A3A0592617E4CF5C007CBC65 /* AOPInterceptorInfo.m in Sources */,
 				A3A0592717E4CF5C007CBC65 /* AOPMethodLogger.m in Sources */,
+				0C3EEED017F57AD300AB8DF9 /* QNVideoMapping.m in Sources */,
 				A3A0592817E4CF5C007CBC65 /* AOPProxy.m in Sources */,
 				A3A0592917E4CF5C007CBC65 /* AOPThreadInvoker.m in Sources */,
 				0C23DAF517E70CAD001C72DE /* QNMusicListResponse.m in Sources */,
 				0C23DB0417E725A5001C72DE /* QNFolder.m in Sources */,
+				0C3EEECD17F57A6400AB8DF9 /* QNVideoStationAPIManager.m in Sources */,
 				0C23DB0717E725A6001C72DE /* QNFolderSummary.m in Sources */,
 				0C23DB0A17E86468001C72DE /* QNSearchFileInfo.m in Sources */,
 				0C23DB0D17E86469001C72DE /* QNSearchResponse.m in Sources */,
@@ -1076,6 +1127,7 @@
 			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1113,6 +1165,7 @@
 			baseConfigurationReference = E8C56557436B4A7AB09FECA1 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1205,6 +1258,16 @@
 			);
 			currentVersion = 0C23DAC617E439E8001C72DE /* MusicStationCoreData.xcdatamodel */;
 			path = MusicStationCoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		0C2BD98317FAA2EA00AE259F /* VideoCoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0C2BD98417FAA2EA00AE259F /* VideoCoreData.xcdatamodel */,
+			);
+			currentVersion = 0C2BD98417FAA2EA00AE259F /* VideoCoreData.xcdatamodel */;
+			path = VideoCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
