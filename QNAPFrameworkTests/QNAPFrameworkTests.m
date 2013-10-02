@@ -24,6 +24,9 @@
 #import "QNSearchFileInfo.h"
 #import "QNVideoFileItem.h"
 #import "QNVideoFileList.h"
+#import "QNVideoTimeLineResponse.h"
+#import "QNVideoTimeLine.h"
+#import "QNVideoDateItem.h"
 
 @implementation QNAPFrameworkTests
 
@@ -359,6 +362,52 @@
                                    DDLogError(@"getAllVideoFileList Failure! %@", e);
                                }];
     expect(_hasResponse).willNot.beFalsy();
+}
+- (void)testCase41_VideoManagerGetTimeLineList{
+    __block BOOL _hasResponse = NO;
+    [self.videoManager getTimeLineListWithHomePath:videoFileHomePathPublic
+                                  withSuccessBlock:^(RKObjectRequestOperation *o, RKMappingResult *r, QNVideoTimeLineResponse *obj){
+                                      _hasResponse = YES;
+                                      NSArray *timeLines = [obj.relationship_timeLine allObjects];
+                                      for (QNVideoTimeLine *timeLine in timeLines) {
+                                          DDLogVerbose(@"TimeLinte:%@, count:%i", timeLine.yearMonth, [timeLine.count intValue]);
+                                          NSArray *dates = [timeLine.relationship_dateItem allObjects];
+                                          for (QNVideoDateItem *item in dates) {
+                                              DDLogVerbose(@"item date: %@, count:%i", item.date, [item.count intValue]);
+                                          }
+                                      }
+                                  }
+                                  withFailureBlock:^(RKObjectRequestOperation *o, NSError *e){
+                                      DDLogError(@"error in VideoGetTimeLineList %@", e);
+                                  }];
+    expect(_hasResponse).willNot.beFalsy();
+}
+- (void)testCase42_VideoManagerGetTimeLineFileList{
+    __block BOOL _hasResponse = NO;
+    [self.videoManager getTimeLineFileListWithTimeLineLabel:@"2013-04-16"
+                                                 withSortBy:videoFileListSortByCreate
+                                             withPageNumber:1
+                                          withCountsPerPage:20
+                                               withHomePath:videoFileHomePathPublic
+                                                      isASC:YES
+                                           withSuccessBlock:^(RKObjectRequestOperation *o, RKMappingResult *m, QNVideoFileList *videoFileList){
+                                               if(videoFileList){
+                                                   _hasResponse = YES;
+                                                   DDLogVerbose(@"getTimeLineFileList Done!!");
+                                                   NSArray *allItems = [videoFileList.relationship_FileItem allObjects];
+                                                   NSInteger count = 1;
+                                                   for (QNVideoFileItem *item in allItems) {
+                                                       DDLogVerbose(@"item id:%@, count:%i", item.f_id, count);
+                                                       count++;
+                                                   }
+                                               }
+                                           }
+                                            withFailueBlock:^(RKObjectRequestOperation *o, NSError *e){
+                                                _hasResponse = YES;
+                                            }];
+
+    expect(_hasResponse).willNot.beFalsy();
+
 }
 #pragma mark - Private Methods
 - (void)analysisMusicResponse:(QNMusicListResponse *)response{

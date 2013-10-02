@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="QNVideoDateItem" representedClassName="QNVideoDateItem" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="QNVideoFileItem" representedClassName="QNVideoFileItem" syncable="YES">
         <attribute name="addToDbTime" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="cFileName" optional="YES" attributeType="String" syncable="YES"/>
@@ -39,8 +43,23 @@
         <attribute name="videoCount" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="relationship_FileItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNVideoFileItem" syncable="YES"/>
     </entity>
+    <entity name="QNVideoTimeLine" representedClassName="QNVideoTimeLine" syncable="YES">
+        <attribute name="count" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="month" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="yearMonth" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="relationship_dateItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNVideoDateItem" syncable="YES"/>
+    </entity>
+    <entity name="QNVideoTimeLineResponse" representedClassName="QNVideoTimeLineResponse" syncable="YES">
+        <attribute name="queries" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="relationship_timeLine" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QNVideoTimeLine" syncable="YES"/>
+    </entity>
     <elements>
         <element name="QNVideoFileItem" positionX="0" positionY="0" width="0" height="0"/>
         <element name="QNVideoFileList" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNVideoTimeLine" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNVideoDateItem" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="QNVideoTimeLineResponse" positionX="0" positionY="0" width="0" height="0"/>
     </elements>
 </model>

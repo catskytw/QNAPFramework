@@ -27,6 +27,38 @@
     return fileListMapping;
 }
 
++ (RKEntityMapping *)mappingForTimeLineList{
+    RKEntityMapping *timeLineResponse = [RKEntityMapping mappingForEntityForName:@"QNVideoTimeLineResponse" inManagedObjectStore:[QNAPCommunicationManager share].objectManager];
+    [timeLineResponse addAttributeMappingsFromDictionary:@{@"status.text":@"status",
+                                                           @"Queries.text":@"queries"
+                                                           }];
+    RKEntityMapping *timeLineListMapping = [RKEntityMapping mappingForEntityForName:@"QNVideoTimeLine"
+                                                               inManagedObjectStore:[QNAPCommunicationManager share].objectManager];
+    [timeLineListMapping addAttributeMappingsFromDictionary:@{
+                                                              @"YearMonth.text":@"yearMonth",
+                                                              @"Year.text":@"year",
+                                                              @"Month.text":@"month",
+                                                              @"Count.text":@"count"
+                                                              }];
+    RKEntityMapping *timeLineDateItem = [RKEntityMapping mappingForEntityForName:@"QNVideoDateItem"
+                                                            inManagedObjectStore:[QNAPCommunicationManager share].objectManager];
+    [timeLineDateItem addAttributeMappingsFromDictionary:@{@"c.text":@"count",
+                                                           @"d.text":@"date"
+                                                           }];
+    RKRelationshipMapping *relation_timeLine = [RKRelationshipMapping relationshipMappingFromKeyPath:@"DataList.Timeline"
+                                                                                           toKeyPath:@"relationship_timeLine"
+                                                                                         withMapping:timeLineListMapping];
+    
+    RKRelationshipMapping *relation_dateItem = [RKRelationshipMapping relationshipMappingFromKeyPath:@"date"
+                                                                                           toKeyPath:@"relationship_dateItem"
+                                                                                         withMapping:timeLineDateItem];
+    [timeLineResponse addPropertyMapping:relation_timeLine];
+    [timeLineListMapping addPropertyMapping:relation_dateItem];
+    
+    return timeLineResponse;
+}
+
+
 + (NSDictionary *)attributeDictionaryForGetAllVideoItem{
     return @{
              @"MediaType.text":@"mediaType",

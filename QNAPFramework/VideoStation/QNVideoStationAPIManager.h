@@ -56,7 +56,7 @@ typedef NS_ENUM(NSInteger, VideoFileHomePath){
  *  @param success  successBlock, a block excuting after the request receives a response successfully
  *  @param failure  failureBlock, a block excuting after the request has any error, including error status,
  */
-- (void)getTimeLineListWithHomePath:(VideoFileHomePath)homePath withSuccessBlock:(QNSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
+- (void)getTimeLineListWithHomePath:(VideoFileHomePath)homePath withSuccessBlock:(QNQNVideoTimeLineResponseSuccessBlock)success withFailureBlock:(QNFailureBlock)failure;
 
 /**
  *  Get video files in a specified date.
@@ -70,6 +70,7 @@ typedef NS_ENUM(NSInteger, VideoFileHomePath){
  *  @param success       successBlock, a block excuting after the request receives a response successfully
  *  @param failure       failureBlock, a block excuting after the request has any error, including error status
  */
-- (void)getTimeLineFileListWithTimeLineLabel:(NSString *)timeLineLabel withSortBy:(VideoFileListSortType)sortType withPageNumber:(NSInteger)pageNumber withCountsPerPage:(NSInteger)countPerPage withHomePath:(VideoFileHomePath)homePath isASC:(BOOL)isASC withSuccessBlock:(QNSuccessBlock)success withFailueBlock:(QNFailureBlock)failure;
+- (void)getTimeLineFileListWithTimeLineLabel:(NSString *)timeLineLabel withSortBy:(VideoFileListSortType)sortType withPageNumber:(NSInteger)pageNumber withCountsPerPage:(NSInteger)countsPerPage withHomePath:(VideoFileHomePath)homePath isASC:(BOOL)isASC withSuccessBlock:(QNQNVideoFileListSuccessBlock)success withFailueBlock:(QNFailureBlock)failure;
 
+- (void)getFolderList
 @end

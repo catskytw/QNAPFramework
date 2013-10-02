@@ -10,4 +10,5 @@
 #import <RestKit/RestKit.h>
 @interface QNVideoMapping : QNMappingProtoType
 + (RKEntityMapping *)mappingForGetAllVideoList;
++ (RKEntityMapping *)mappingForTimeLineList;
 @end

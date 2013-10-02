@@ -15,6 +15,7 @@
 @class MyCloudResponse;
 @class MyCloudCloudLinkResponse;
 @class QNVideoFileList;
+@class QNVideoTimeLineResponse;
 
 #define CredentialIdentifier @"myCloudCredential"
 
@@ -56,6 +57,7 @@ extern int ddLogLevel;
 QNSuccessBlockExt(QNSearchResponse);
 QNSuccessBlockExt(MyCloudCloudLinkResponse);
 QNSuccessBlockExt(QNVideoFileList);
+QNSuccessBlockExt(QNVideoTimeLineResponse);
 
 #pragma mark - failureBlocks
 QNFailureBlockExt(QNFileLoginError);

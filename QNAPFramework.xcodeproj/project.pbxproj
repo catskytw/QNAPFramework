@@ -43,6 +43,9 @@
 		0C2BD98517FAA2EA00AE259F /* VideoCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0C2BD98317FAA2EA00AE259F /* VideoCoreData.xcdatamodeld */; };
 		0C3EEECD17F57A6400AB8DF9 /* QNVideoStationAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3EEECC17F57A6400AB8DF9 /* QNVideoStationAPIManager.m */; };
 		0C3EEED017F57AD300AB8DF9 /* QNVideoMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3EEECF17F57AD300AB8DF9 /* QNVideoMapping.m */; };
+		0C4416C317FBFD5A006A1B51 /* QNVideoDateItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4416C217FBFD5A006A1B51 /* QNVideoDateItem.m */; };
+		0C4416C617FC0093006A1B51 /* QNVideoTimeLineResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4416C517FC0093006A1B51 /* QNVideoTimeLineResponse.m */; };
+		0C4416C917FC148C006A1B51 /* QNVideoTimeLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C4416C817FC148C006A1B51 /* QNVideoTimeLine.m */; };
 		0CA33A4F17DDCFFC00E521C9 /* QNFileStationMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */; };
 		0CA5F17417D4942F00183046 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CA5F17317D4942F00183046 /* Foundation.framework */; };
 		0CA5F17917D4942F00183046 /* QNAPFramework.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0CA5F17817D4942F00183046 /* QNAPFramework.h */; };
@@ -178,6 +181,12 @@
 		0C3EEECC17F57A6400AB8DF9 /* QNVideoStationAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoStationAPIManager.m; sourceTree = "<group>"; };
 		0C3EEECE17F57AD300AB8DF9 /* QNVideoMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoMapping.h; sourceTree = "<group>"; };
 		0C3EEECF17F57AD300AB8DF9 /* QNVideoMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoMapping.m; sourceTree = "<group>"; };
+		0C4416C117FBFD5A006A1B51 /* QNVideoDateItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoDateItem.h; sourceTree = "<group>"; };
+		0C4416C217FBFD5A006A1B51 /* QNVideoDateItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoDateItem.m; sourceTree = "<group>"; };
+		0C4416C417FC0093006A1B51 /* QNVideoTimeLineResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoTimeLineResponse.h; sourceTree = "<group>"; };
+		0C4416C517FC0093006A1B51 /* QNVideoTimeLineResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoTimeLineResponse.m; sourceTree = "<group>"; };
+		0C4416C717FC148C006A1B51 /* QNVideoTimeLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QNVideoTimeLine.h; sourceTree = "<group>"; };
+		0C4416C817FC148C006A1B51 /* QNVideoTimeLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QNVideoTimeLine.m; sourceTree = "<group>"; };
 		0C53E4C517E16743008B4AFD /* SettingInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingInfo.h; sourceTree = "<group>"; };
 		0CA33A4D17DDCFFC00E521C9 /* QNFileStationMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QNFileStationMapping.h; path = FileStation/QNFileStationMapping.h; sourceTree = "<group>"; };
 		0CA33A4E17DDCFFC00E521C9 /* QNFileStationMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QNFileStationMapping.m; path = FileStation/QNFileStationMapping.m; sourceTree = "<group>"; };
@@ -363,10 +372,16 @@
 		0C2D1EF817F9577700AE98CA /* CoreDataObject */ = {
 			isa = PBXGroup;
 			children = (
+				0C4416C417FC0093006A1B51 /* QNVideoTimeLineResponse.h */,
+				0C4416C517FC0093006A1B51 /* QNVideoTimeLineResponse.m */,
 				0CD57D0817FAD46900CF594F /* QNVideoFileList.h */,
 				0CD57D0917FAD46900CF594F /* QNVideoFileList.m */,
 				0CD57D0517FAD46800CF594F /* QNVideoFileItem.h */,
 				0CD57D0617FAD46800CF594F /* QNVideoFileItem.m */,
+				0C4416C117FBFD5A006A1B51 /* QNVideoDateItem.h */,
+				0C4416C217FBFD5A006A1B51 /* QNVideoDateItem.m */,
+				0C4416C717FC148C006A1B51 /* QNVideoTimeLine.h */,
+				0C4416C817FC148C006A1B51 /* QNVideoTimeLine.m */,
 			);
 			path = CoreDataObject;
 			sourceTree = "<group>";
@@ -837,6 +852,7 @@
 				0C2BD98517FAA2EA00AE259F /* VideoCoreData.xcdatamodeld in Sources */,
 				0C2134C617E059CC0009FA09 /* QNFileLogin.m in Sources */,
 				0CA5F19D17D497CD00183046 /* QNAPCommunicationManager.m in Sources */,
+				0C4416C917FC148C006A1B51 /* QNVideoTimeLine.m in Sources */,
 				A36E1ED617D4D9B2004C0435 /* QNMyCloudManager.m in Sources */,
 				A3E12BAB17D6119500A3982D /* QNFileStationAPIManager.m in Sources */,
 				0CD57D0A17FAD46900CF594F /* QNVideoFileList.m in Sources */,
@@ -859,6 +875,7 @@
 				0C23DABC17E2EBEE001C72DE /* QNMusicStationAPIManager.m in Sources */,
 				0C23DAC017E2EC1B001C72DE /* QNPhotoStationAPIManager.m in Sources */,
 				0C23DAC317E43300001C72DE /* QNMusicMapping.m in Sources */,
+				0C4416C317FBFD5A006A1B51 /* QNVideoDateItem.m in Sources */,
 				0C23DAC717E439E8001C72DE /* MusicStationCoreData.xcdatamodeld in Sources */,
 				0C23DACD17E43DC9001C72DE /* NSString+QNAPUtil.m in Sources */,
 				0C23DAD417E44F82001C72DE /* QNError.m in Sources */,
@@ -876,6 +893,7 @@
 				0C23DB0A17E86468001C72DE /* QNSearchFileInfo.m in Sources */,
 				0C23DB0D17E86469001C72DE /* QNSearchResponse.m in Sources */,
 				0C23DB3A17E9A931001C72DE /* MyCloudUserActivity.m in Sources */,
+				0C4416C617FC0093006A1B51 /* QNVideoTimeLineResponse.m in Sources */,
 				0C23DB3D17E9A932001C72DE /* MyCloudUser.m in Sources */,
 				0C23DB4017E9A932001C72DE /* MyCloudCloudLinkResponse.m in Sources */,
 				0C23DB4317E9A933001C72DE /* MyCloudSourceInfo.m in Sources */,
@@ -989,7 +1007,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "i386 armv7 armv7s";
+				VALID_ARCHS = "i386 armv7 armv7s armv64";
 			};
 			name = Debug;
 		};
@@ -1014,7 +1032,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "i386 armv7 armv7s";
+				VALID_ARCHS = "i386 armv7 armv7s armv64";
 			};
 			name = Release;
 		};
